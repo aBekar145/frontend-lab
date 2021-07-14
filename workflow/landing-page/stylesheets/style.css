@@ -29,10 +29,10 @@ body {
     display: none;
 }
 
-/* .wrapper {
+.wrapper {
     margin: 0 auto;
-    max-width: 1840px;
-} */
+    max-width: 1140px;
+}
 
 /* ! Header start */
 .header {
@@ -151,7 +151,7 @@ body {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
-
+/* section Slider */
 .slider {
     padding-left: 170px;
     background: url(../images/slider-bg.jpg);
@@ -188,5 +188,99 @@ body {
 
 .slider__content-text-description {
     margin-bottom: 35px;
+}
+
+/* section Our services */
+.our-services {
+    padding-top: 70px;
+}
+
+.our-services__title {
+    margin-bottom: 70px;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.our-services__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.block-content {
+    padding: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    max-width: 555px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+}
+
+.block-content__text {
+    max-width: 395px;
+}
+
+.block-content__sub-title {
+    margin-bottom: 25px;
+    font-weight: 400;
+    font-size: 1.125em;
+    color: #000;
+}
+
+.block-content__description {
+    font-size: 0.875;
+    color: #778899;
+    line-height: 1.5em;
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.block-content__description--blue {
+    color: #00bfff;
+}
+
+.block-content__description--green {
+    color: #adff2f;
+}
+
+.block-content__description-link {
+    font-size: 0.875;
+    line-height: 1.5em;
+    color: #ffa500;
+}
+
+.block-content__icon {
+    margin-left: 25px;
+    border: 2px solid #e4e4e4;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+.block-content__icon:hover {
+    border-color: #ffa500;
+    color: #ffa500;
+    transform: rotate(360deg);
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.block-content:nth-child(even) {
+    text-align: left;
+    flex-direction: row-reverse;
+}
+
+.block-content:nth-child(even) .block-content__icon {
+    margin-left: 0;
+    margin-right: 25px;
 }
 /* ! Main end */
