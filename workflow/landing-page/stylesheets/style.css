@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+html,
+body {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #778899;
+    background-color: #efefef;
+}
+
+/* ? hidden sub-list in navigation */
+.main-navigation__sub-list {
+    display: none;
+}
+
+/* .wrapper {
+    margin: 0 auto;
+    max-width: 1840px;
+} */
+
+/* ! Header start */
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__inner-block {
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.logo__text {
+    font-size: 2em;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.logo__text--orange {
+    margin-right: 2px;
+    color: #ffa500;
+}
+
+.social-block__list {
+    display: flex;
+}
+
+.social-block__list-item {
+    margin: 0 2px;
+    font-size: 0.8em;
+    border: 1px solid #d0d0d0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-block__list-item:hover {
+    cursor: pointer;
+    border-color: #000;
+    transition-duration: 0.5s;
+}
+
+.header__inner-nav {
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-block {
+    display: flex;
+}
+
+.search-block__btn {
+    margin: 2px;
+    font-size: 0.8em;
+    border: 1px solid #d0d0d0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+    transition-duration: 0.5s;
+}
+
+.search-block__btn:hover {
+    border-color: #000;
+}
+
+.main-navigation__list {
+    display: flex;
+}
+
+.main-navigation__list-item {
+}
+
+.main-navigation__list > li:not(:first-child)::before {
+    content: '/';
+    color: #d0d0d0;
+    margin: 0 30px;
+}
+
+.main-navigation__list-item-link {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.main-navigation__list-item-link:hover {
+    color: #ffa500;
+}
+
+.main-navigation__list-item-link--active {
+    color: #ffa500;
+}
+
+/* ! Header end */

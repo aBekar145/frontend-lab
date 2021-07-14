@@ -4,28 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/icons-font.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="stylesheets/icons-font.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <title>Landing Page</title>
 </head>
 <body>
     <!--? Header start -->
     <header class="header">
         <div class="header__wrapper wrapper">
-            <div class="logo">
-                <a href="#" class="logo__link">
-                    <span class="logo-orange">art</span>
-                    <span class="logo-black">core</span>
-                </a>
+            <div class="header__inner-block">
+                <div class="logo">
+                    <a href="#" class="logo__link">
+                        <span class="logo__text logo__text--orange">art</span>
+                        <span class="logo__text">core</span>
+                    </a>
+                </div>
+                <div class="social-block">
+                    <ul class="social-block__list">
+                        <li class="social-block__list-item"><a class="fab fa-facebook-f" href="https://www.facebook.com/"></a></li>
+                        <li class="social-block__list-item"><a class="fab fa-twitter" href="https://twitter.com/"></a></li>
+                        <li class="social-block__list-item"><a class="fab fa-linkedin-in" href="https://www.linkedin.com/"></a></li>
+                        <li class="social-block__list-item"><a class="fas fa-rss" href="#"></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="social-block">
-            <ul class="social-block__list">
-                <li class="social-block__list-item"><a class="fab fa-facebook-f" href="#"></a></a></li>
-                <li class="social-block__list-item"><a href="#" class="social-block__list-item-link"></a></li>
-                <li class="social-block__list-item"><a href="#" class="social-block__list-item-link"></a></li>
-                <li class="social-block__list-item"><a href="#" class="social-block__list-item-link"></a></li>
-            </ul>
+        <div class="header__inner-nav">
+            <div class="search-block">
+                <button class="search-block__btn"><i class="fas fa-search"></i></button>
+                <button class="search-block__btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="search-block__btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="main-navigation">
+                <ul class="main-navigation__list">
+                    <li class="main-navigation__list-item"><a href="#" class="main-navigation__list-item-link main-navigation__list-item-link--active">Home</a></li>
+                    <li class="main-navigation__list-item"><a href="#" class="main-navigation__list-item-link">Services</a></li>
+                    <li class="main-navigation__list-item"><a href="#" class="main-navigation__list-item-link">Projects</a>
+                        <ul class="main-navigation__sub-list">
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Two columns</a></li>
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Three columns</a></li>
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Project single</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-navigation__list-item"><a href="#" class="main-navigation__list-item-link">Blog</a>
+                        <ul class="main-navigation__sub-list">
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Blog masonary</a></li>
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Post single</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li class="main-navigation__list-item"><a href="#" class="main-navigation__list-item-link">Pages</a>
+                        <ul class="main-navigation__sub-list">
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Our team</a></li>
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Archives</a></li>
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">Teams</a></li>
+                            <li class="main-navigation__sub-list-item"><a href="#" class="main-navigation__sub-list-item-link">404 page</a></li>
+                        </ul></li>
+                    <li class="main-navigation__list-item"><a href="#" class="main-navigation__list-item-link">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </header>
     <!--? Header end-->
