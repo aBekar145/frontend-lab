@@ -2,7 +2,6 @@
 
 html,
 body {
-    font-size: 16px;
     font-weight: 400;
     color: #778899;
     background-color: #efefef;
@@ -24,6 +23,9 @@ body {
 }
 
 .link {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
     text-decoration: none;
     color: #000;
     cursor: pointer;
@@ -68,14 +70,7 @@ body {
 .span-blue-color {
     color: #00bfff;
 }
-/* burger btn */
-.main-navigation-menu-button {
-    display: none;
-}
 
-.responsive-navigation {
-    display: none;
-}
 /* ! Header start */
 .header {
     display: flex;
@@ -111,6 +106,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.social-block__list-item a {
+    color: #000;
 }
 
 .header__inner-nav {
@@ -201,6 +200,45 @@ body {
     transition-delay: 0s;
 }
 
+/* Responsive Navigation start */
+.responsive-navigation-menu-button {
+    background-color: #2c2c2c;
+    color: #fff;
+    font-size: 0.8em;
+}
+
+.responsive-navigation {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.responsive-navigation__list {
+    max-height: 850px;
+    transition: max-height 0.25s ease-in;
+    overflow: hidden;
+    background-color: #2c2c2c;
+}
+
+.responsive-navigation__list li {
+    padding: 15px 0;
+    margin: 0 25px;
+}
+.responsive-navigation__list li:not(:first-child) {
+    border-top: 1px solid #474747;
+}
+
+.responsive-navigation__list-item-link,
+.responsive-navigation__sub-list-item-link {
+    color: #fff;
+    font-size: 1.25em;
+}
+
+/* Responsive Navigation end */
+
 /* ! Header end */
 /* ! Main start */
 .visualy-hidden {
@@ -216,7 +254,7 @@ body {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
-/* section Slider */
+/* Slider Section */
 .slider {
     padding-left: 170px;
     background: url(../images/slider-bg.jpg);
@@ -253,7 +291,7 @@ body {
     margin-bottom: 35px;
 }
 
-/* section Our services */
+/* Our Services Section */
 .our-services {
     padding-top: 70px;
 }
@@ -343,7 +381,7 @@ body {
     margin-right: 25px;
 }
 
-/* section Some Images */
+/* Some Images Section */
 .some-images {
     padding-top: 70px;
 }
@@ -406,6 +444,10 @@ body {
     line-height: 36px;
     text-align: center;
     transition: all 0.5s ease 0s;
+}
+
+.overlay-button-block__btn a {
+    color: #fff;
 }
 
 .overlay-button-block__btn:hover,

@@ -1,9 +1,7 @@
 const searchButton = document.querySelector('#search-btn');
 const menuButton = document.querySelector('#burger-menu-btn');
 const overlayContainer = document.querySelector('#overlay');
-const closeOverlayButton = document.querySelector(
-    '.overlay-container__close-button'
-);
+const closeOverlayButton = document.querySelector('#overlay-close-btn');
 let navigationIsClosed = true;
 
 searchButton.addEventListener('click', () => {
@@ -12,4 +10,17 @@ searchButton.addEventListener('click', () => {
 
 closeOverlayButton.addEventListener('click', () => {
     overlayContainer.classList.add('closed-overlay-container');
+});
+
+menuButton.addEventListener('click', () => {
+    const responsiveNavigation = document.querySelector(
+        '#responive-navigation'
+    );
+    if (navigationIsClosed) {
+        responsiveNavigation.classList.remove('.closed-responsive-navigation');
+        navigationIsClosed = false;
+    } else {
+        responsiveNavigation.classList.add('.closed-responsive-navigation');
+        navigationIsClosed = true;
+    }
 });
