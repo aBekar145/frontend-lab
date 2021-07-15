@@ -10,7 +10,7 @@
     <title>Landing Page</title>
 </head>
 <body>
-    <!--? Header start -->
+    <!--! Header start -->
     <header class="header">
         <div class="header__wrapper">
             <div class="header__inner-block">
@@ -66,20 +66,20 @@
             </div>
         </div>
     </header>
-    <!--? Header end-->
-    <!-- ? Main start -->
+    <!--! Header end-->
+    <!-- ! Main start -->
     <main class="main">
         <h1 class="visualy-hidden">Art Core</h1>
         <section class="slider">
             <div class="slider__content">
-                <h2 class="slider__content-title">I<i class="fas fa-heart slider__content-title-icon"></i>frontend</h2>
+                <h2 class="slider__content-title title">I<i class="fas fa-heart slider__content-title-icon"></i>frontend</h2>
                 <p class="slider__content-text slider__content-text-description">Some lorem ipsum text.</p>
                 <p class="slider__content-text">Credit goes to <a class="slider__content-text-link" href="https://unsplash.com/">Unsplash</a> for photos.</p>
             </div>
         </section>
         <section class="our-services">
            <div class="our-services__wrapper wrapper">
-            <h2 class="our-services__title">Our services</h2>
+            <h2 class="our-services__title title">Our services</h2>
             <ul class="block-content">
                 <li class="block-content__item">
                     <div class="block-content__text">
@@ -177,7 +177,7 @@
         </section>
         <section class="some-images">
             <div class="some-images__wrapper wrapper">
-                <h2 class="some-images__title">
+                <h2 class="some-images__title title">
                     And here are some images for you...
                 </h2>
                 <div class="cards">
@@ -276,7 +276,7 @@
                                             <a class="card__description-text-link link-orange-color" href="https://unsplash.com/">Artcore</a> is free HTML5
                                             <span class="card__description-text-blue span-blue-color">template</span> <span class="card__description-text-green span-green-color">mo</span>
                                             .by template There are total 12 HTML pages. Credit goes to 
-                                            <a class="card__description-text-link link-orange-color" href="https://unsplash.com/">Unsplash</a>for images.
+                                            <a class="card__description-text-link link-orange-color" href="https://unsplash.com/">Unsplash</a> for images.
                                         </p>
                                     </div>
                                 </div>
@@ -407,6 +407,52 @@
             </div>
         </section> 
     </main>
-    <!-- ? Main end -->
+    <!-- ! Main end -->
+    <!-- ! Footer start -->
+        <footer class="footer">
+            <div class="footer__wrapper wrapper">
+                <h2 class="footer__title title">
+                    Contact us
+                </h2>
+                <div class="footer__form-container">
+                    <form class="contact-form" action="" method="GET">
+                        <p class="contact-form__text text-2">
+                            This is an example of a contact page. You can set the contact page 
+                            in your themes backend and add, remove and modify the input fields, text areas,
+                            dropdowns and checkboxes from your backend as well.
+                        </p>
+                        <h3 class="contact-form__sub-title sub-title">
+                            Send Us Email
+                        </h3>
+                        <div class="contact-form__field">
+                            <label class="contact-form__field-label text-2" for="name">
+                                Your name
+                            </label>
+                            <input type="text" id="name" class="contact-form__field-input">
+                        </div>
+                        <div class="contact-form__field">
+                            <label class="contact-form__field-label text-2" for="address">
+                                Email Address
+                            </label>
+                            <input type="email" id="address" class="contact-form__field-input">
+                        </div>
+                        <div class="contact-form__field">
+                            <label class="contact-form__field-label text-2" for="phone">
+                                Phone Number
+                            </label>
+                            <input type="tel" id="phone" class="contact-form__field-input">
+                        </div>
+                        <div class="contact-form__field">
+                            <label class="contact-form__field-label text-2" for="message">
+                                Your message
+                            </label>
+                            <textarea type="tel" id="message" class="contact-form__field-input contact-form__field-textarea"></textarea>
+                        </div> 
+                        <button type="submit" id="submit-btn" class="contact-form__submit-button btn">Send Message</button>
+                     </form>
+                </div>
+            </div>
+        </footer>
+    <!-- ! Footer end -->
 </body>
 </html>

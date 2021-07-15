@@ -28,6 +28,44 @@ body {
     background-color: #efefef;
 }
 
+.btn {
+    border: 1px solid #d0d0d0;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    transition: all 0.5s easy 0s;
+}
+
+.btn:hover {
+    cursor: pointer;
+    border-color: #000;
+    transition-duration: 0.5s;
+}
+
+/* h2 */
+.title {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: #000;
+}
+
+/* h3 */
+.sub-title {
+    color: #000;
+    font-weight: 400;
+    font-size: 1.125em;
+}
+
+/* label, .contact-form__text,  */
+.text-2 {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 1.5em;
+}
+
 /* ? hidden sub-list in navigation */
 .main-navigation__sub-list {
     display: none;
@@ -179,8 +217,6 @@ body {
 .slider__content-title {
     margin-bottom: 35px;
     color: #fff;
-    text-transform: uppercase;
-    font-weight: 400;
 }
 
 .slider__content-title-icon {
@@ -210,10 +246,6 @@ body {
 
 .our-services__title {
     margin-bottom: 70px;
-    font-size: 1.5em;
-    font-weight: 400;
-    color: #000;
-    text-transform: uppercase;
 }
 
 .block-content {
@@ -306,11 +338,7 @@ body {
 }
 
 .some-images__title {
-    text-transform: uppercase;
-    font-size: 1.5em;
-    font-weight: 400;
     margin-bottom: 70px;
-    color: #000;
 }
 
 .cards__list {
@@ -407,3 +435,70 @@ body {
 }
 
 /* ! Main end */
+/* ! Footer start */
+.footer {
+    padding: 70px 0 100px;
+}
+
+.footer__title {
+    margin-bottom: 70px;
+}
+
+.footer__form-container {
+    padding: 22px;
+    background-color: #fff;
+}
+
+.contact-form {
+    max-width: 540px;
+}
+
+.contact-form__text {
+    margin-bottom: 20px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 0.875em;
+    line-height: 1.5em;
+}
+
+.contact-form__sub-title {
+    margin-bottom: 25px;
+}
+
+.contact-form__field {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.contact-form__field-label {
+    width: 150px;
+}
+
+.contact-form__field-label::after {
+    content: ':';
+}
+
+.contact-form__field-input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #d0d0d0;
+}
+
+.contact-form__field-textarea {
+    width: 380px;
+    max-width: 380px;
+    height: 120px;
+    min-height: 120px;
+}
+
+.contact-form__submit-button {
+    margin-left: 150px;
+    width: 250px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 14px;
+}
+
+/* ! Footer end */
