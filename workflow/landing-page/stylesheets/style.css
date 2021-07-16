@@ -234,7 +234,11 @@ body {
     color: #fff;
     font-size: 1.25em;
 }
-
+.responsive-navigation__sub-list-item-link:hover,
+.responsive-navigation__list-item-link:hover {
+    color: #ffa500;
+    transition: 0.5s;
+}
 /* Responsive Navigation end */
 
 /* ! Header end */
