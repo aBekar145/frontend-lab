@@ -14,13 +14,13 @@ closeOverlayButton.addEventListener('click', () => {
 
 menuButton.addEventListener('click', () => {
     const responsiveNavigation = document.querySelector(
-        '#responive-navigation'
+        '#responsive-navigation'
     );
     if (navigationIsClosed) {
-        responsiveNavigation.classList.remove('.closed-responsive-navigation');
+        responsiveNavigation.classList.remove('closed-responsive-navigation');
         navigationIsClosed = false;
     } else {
-        responsiveNavigation.classList.add('.closed-responsive-navigation');
+        responsiveNavigation.classList.add('closed-responsive-navigation');
         navigationIsClosed = true;
     }
 });
