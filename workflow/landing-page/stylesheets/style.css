@@ -2,8 +2,10 @@
 
 html,
 body {
+    font-size: 16px;
+    font-family: 'Roboto', 'Arial', sans-serif;
     font-weight: 400;
-    color: #778899;
+    color: #000;
     background-color: #efefef;
 }
 
@@ -13,7 +15,7 @@ body {
     height: 36px;
     line-height: 36px;
     text-align: center;
-    transition: all 0.5s easy 0s;
+    transition-duration: 0.5s;
 }
 
 .btn:hover {
@@ -23,35 +25,32 @@ body {
 }
 
 .link {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875em;
     text-decoration: none;
     color: #000;
     cursor: pointer;
 }
 
 /* h2 */
-.title {
+.title,
+.sub-title {
     font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
     font-size: 1.5em;
-    color: #000;
 }
 
 /* h3 */
 .sub-title {
-    color: #000;
-    font-weight: 400;
+    text-transform: none;
     font-size: 1.125em;
 }
 
 /* label, .contact-form__text,  */
-.text-2 {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-weight: 400;
+.text {
     font-size: 0.875em;
     line-height: 1.5em;
+    color: #778899;
 }
 
 .wrapper {
@@ -59,15 +58,15 @@ body {
     max-width: 1140px;
 }
 
-.link-orange-color {
+.text-orange-color {
     color: orange;
 }
 
-.span-green-color {
+.text-green-color {
     color: #adff2f;
 }
 
-.span-blue-color {
+.text-blue-color {
     color: #00bfff;
 }
 
@@ -83,6 +82,10 @@ body {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
+}
+
+.logo__link {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .logo__text {
@@ -143,8 +146,6 @@ body {
 }
 
 .main-navigation__list-item-link {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-size: 14px;
     text-transform: uppercase;
 }
 
@@ -198,7 +199,6 @@ body {
 .main-navigation__list li:hover ul {
     opacity: 1;
     visibility: visible;
-    transition-delay: 0s;
 }
 
 /* Responsive Navigation start */
@@ -212,7 +212,6 @@ body {
 #responsive-navigation {
     max-height: 850px;
     transition: max-height 0.25s ease-in;
-    transition: max-height 0.15s ease-out;
     overflow: hidden;
     background-color: #2c2c2c;
 }
@@ -274,19 +273,17 @@ body {
 }
 
 .slider__content-title-icon {
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
-.slider__content-text {
-    font-family: 'Roboto', 'Arial', sans-serif;
+.slider__content-text,
+.slider__content-text-link {
     color: #fff;
     font-size: 1.2em;
 }
 
 .slider__content-text-link {
     font-size: 1em;
-    font-family: 'Roboto', 'Arial', sans-serif;
-    color: #fff;
 }
 
 .slider__content-text-description {
@@ -331,21 +328,11 @@ body {
     font-size: 0.875em;
     color: #778899;
     line-height: 1.5em;
-    font-family: 'Roboto', 'Arial', sans-serif;
-}
-
-.block-content__description--blue {
-    color: #00bfff;
-}
-
-.block-content__description--green {
-    color: #adff2f;
 }
 
 .block-content__description-link {
     font-size: 0.875;
     line-height: 1.5em;
-    color: #ffa500;
 }
 
 .block-content__description-link:hover {
@@ -448,7 +435,7 @@ body {
     height: 36px;
     line-height: 36px;
     text-align: center;
-    transition: all 0.5s ease 0s;
+    transition-duration: 0.5s;
 }
 
 .overlay-button-block__btn a {
@@ -473,13 +460,11 @@ body {
 
 .card__description-date {
     margin-bottom: 10px;
-    font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 0.8em;
     color: #778899;
 }
 
 .card__description-text {
-    font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 0.875em;
     color: #778899;
     line-height: 1.5em;
@@ -510,7 +495,6 @@ body {
 
 .contact-form__text {
     margin-bottom: 20px;
-    font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 0.875em;
     line-height: 1.5em;
 }
@@ -554,11 +538,11 @@ body {
     margin-left: 150px;
     width: 250px;
     background-color: #fff;
+    font-family: 'Roboto', 'Arial', sans-serif;
     color: #000;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-size: 14px;
+    font-size: 0.875em;
 }
 .contact-form__submit-button:focus {
     outline: none;
@@ -604,8 +588,6 @@ body {
     position: relative;
     top: 300px;
     width: 100%;
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-weight: 400;
     font-size: 5em;
     color: #fff;
     text-align: center;
@@ -665,31 +647,31 @@ body {
     .cards__list-item {
         width: 345px;
     }
-    .cards__list-item--first {
+    .cards__list-item:nth-child(1) {
         order: 1;
     }
-    .cards__list-item--second {
+    .cards__list-item:nth-child(2) {
         order: 8;
     }
-    .cards__list-item--third {
+    .cards__list-item:nth-child(3) {
         order: 4;
     }
-    .cards__list-item--fourth {
+    .cards__list-item:nth-child(4) {
         order: 6;
     }
-    .cards__list-item--five {
+    .cards__list-item:nth-child(5) {
         order: 2;
     }
-    .cards__list-item--sixth {
+    .cards__list-item:nth-child(6) {
         order: 9;
     }
-    .cards__list-item--seventh {
+    .cards__list-item:nth-child(7) {
         order: 7;
     }
-    .cards__list-item--eighth {
+    .cards__list-item:nth-child(8) {
         order: 3;
     }
-    .cards__list-item--ninth {
+    .cards__list-item:nth-child(9) {
         order: 5;
     }
 

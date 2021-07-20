@@ -1,26 +1,32 @@
-const searchButton = document.querySelector('#search-btn');
-const menuButton = document.querySelector('#burger-menu-btn');
-const overlayContainer = document.querySelector('#overlay');
-const closeOverlayButton = document.querySelector('#overlay-close-btn');
+const searchButton = document.getElementById('search-btn');
+const menuButton = document.getElementById('burger-menu-btn');
+const overlayContainer = document.getElementById('overlay');
+const closeOverlayButton = document.getElementById('overlay-close-btn');
+const overlayClass = 'closed-overlay-container';
+const responsiveClass = 'closed-responsive-navigation';
 let navigationIsClosed = true;
 
+function toggleOverlay() {
+    return overlayContainer.classList.toggle(overlayClass);
+}
+
 searchButton.addEventListener('click', () => {
-    overlayContainer.classList.remove('closed-overlay-container');
+    toggleOverlay();
 });
 
 closeOverlayButton.addEventListener('click', () => {
-    overlayContainer.classList.add('closed-overlay-container');
+    toggleOverlay();
 });
 
 menuButton.addEventListener('click', () => {
-    const responsiveNavigation = document.querySelector(
-        '#responsive-navigation'
+    const responsiveNavigation = document.getElementById(
+        'responsive-navigation'
     );
     if (navigationIsClosed) {
-        responsiveNavigation.classList.remove('closed-responsive-navigation');
+        responsiveNavigation.classList.remove(responsiveClass);
         navigationIsClosed = false;
     } else {
-        responsiveNavigation.classList.add('closed-responsive-navigation');
+        responsiveNavigation.classList.add(responsiveClass);
         navigationIsClosed = true;
     }
 });
