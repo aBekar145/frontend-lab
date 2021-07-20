@@ -7,16 +7,12 @@ const responsiveClass = 'closed-responsive-navigation';
 let navigationIsClosed = true;
 
 function toggleOverlay() {
-    return overlayContainer.classList.toggle(overlayClass);
+    overlayContainer.classList.toggle(overlayClass);
 }
 
-searchButton.addEventListener('click', () => {
-    toggleOverlay();
-});
+searchButton.addEventListener('click', toggleOverlay);
 
-closeOverlayButton.addEventListener('click', () => {
-    toggleOverlay();
-});
+closeOverlayButton.addEventListener('click', toggleOverlay);
 
 menuButton.addEventListener('click', () => {
     const responsiveNavigation = document.getElementById(
