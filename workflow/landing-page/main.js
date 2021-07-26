@@ -5,6 +5,12 @@ const closeOverlayButton = document.getElementById('overlay-close-btn');
 const overlayClass = 'closed-overlay-container';
 const responsiveClass = 'closed-responsive-navigation';
 let navigationIsClosed = true;
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const showNumberPage = document.getElementById('page-num');
+let numberPage = 1;
+const deleteCardsList = document.getElementById('delete-cards-list');
+deleteCardsList.remove();
 
 function toggleOverlay() {
     overlayContainer.classList.toggle(overlayClass);
@@ -26,3 +32,58 @@ menuButton.addEventListener('click', () => {
         navigationIsClosed = true;
     }
 });
+
+async function sendApiRequest(page) {
+    const limit = 10;
+    let numberOffset = page === 1 ? 0 : --page * limit;
+    const apiKey = 'DDmMIaeRZcddi8NShzyljNpXQ7EOvz6y';
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=dogs&limit=${limit}&offset=${numberOffset}`;
+    let response = await fetch(url);
+    let gifData = await response.json();
+    let content = gifData.data;
+    const cardsList = document.getElementById('cards-list');
+    const htmlForRepo = content.map((element) => createHtmlTemplate(element));
+    cardsList.insertAdjacentHTML('afterbegin', htmlForRepo.join(''));
+    showNumberPage.textContent = page;
+}
+
+prev.addEventListener('click', function () {
+    numberPage--;
+    sendApiRequest(numberPage);
+});
+next.addEventListener('click', function () {
+    numberPage++;
+    sendApiRequest(numberPage);
+});
+
+function createHtmlTemplate(item) {
+    return `
+    <li class="cards__list-item">
+        <div class="card">
+            <div class="card__container-img">
+                <img class="card__container-img-picture" src="${item.images.downsized.url}" alt="image">
+                <div class="overlay-button-block">
+                    <div class="overlay-button-block__btn">
+                        <a class="fas fa-link" href="${item.url}"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card__description">
+                <h3 class="card__description-sub-title sub-title">
+                    ${item.title}
+                </h3>
+                <p class="card__description-date">
+                    ${item.import_datetime}
+                </p>
+                <p class="card__description-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.
+                </p>
+            </div>
+        </div>
+    </li>`;
+}
+
+window.onload = function () {
+    sendApiRequest(numberPage);
+};

@@ -262,7 +262,7 @@
                 </h2>
                 <div class="cards">
                     <div class="cards-wrap wrap">
-                        <ul class="cards__list">
+                        <ul id="delete-cards-list" class="cards__list">
                             <li class="cards__list-item">
                                 <div class="card">
                                     <div class="card__container-img">
@@ -482,6 +482,12 @@
                                 </div>
                             </li>
                         </ul>
+                        <ul id="cards-list" class="cards__list"></ul>
+                        <div id="pagination"  class="pagination">
+                            <button id="prev" class="pagination__btn btn ">Prev</button>
+                            <div id="page" class="pagination__page">Page <span id="page-num" class="pagination__page-num sub-title"></span></div>
+                            <button id="next" class="pagination__btn btn">Next</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -544,6 +550,7 @@
         </p>
     </div>
     <!-- ! Overlay end-->
+    <script src="services.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
