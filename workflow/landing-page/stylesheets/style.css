@@ -669,10 +669,6 @@ body {
     .block-content__text {
         width: 555px;
     }
-
-    .cards__list {
-        /* max-height: 2500px; */
-    }
     .cards__list-item {
         width: 345px;
     }

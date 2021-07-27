@@ -37,14 +37,20 @@ menuButton.addEventListener('click', () => {
 
 async function sendApiRequest(page) {
     let numberOffset = page === 1 ? 0 : --page * limit;
-    const apiKey = 'DDmMIaeRZcddi8NShzyljNpXQ7EOvz6y';
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=dogs&limit=${limit}&offset=${numberOffset}`;
-    let response = await fetch(url);
-    let gifData = await response.json();
-    let content = gifData.data;
-    const htmlForRepo = content.map((element) => createHtmlTemplate(element));
-    cardsList.innerHTML = '';
-    cardsList.insertAdjacentHTML('afterbegin', htmlForRepo.join(''));
+    try {
+        const apiKey = 'DDmMIaeRZcddi8NShzyljNpXQ7EOvz6y';
+        const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=dogs&limit=${limit}&offset=${numberOffset}`;
+        let response = await fetch(url);
+        let gifData = await response.json();
+        let content = gifData.data;
+        const htmlForRepo = content.map((element) =>
+            createHtmlTemplate(element)
+        );
+        cardsList.innerHTML = '';
+        cardsList.insertAdjacentHTML('afterbegin', htmlForRepo.join(''));
+    } catch (err) {
+        console.log(err, 'ERROR!');
+    }
     showNumberPage.innerHTML = numberPage;
 }
 
