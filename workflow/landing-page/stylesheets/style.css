@@ -382,14 +382,11 @@ body {
 .cards__list {
     display: flex;
     flex-wrap: wrap;
-    /* flex-flow: column wrap; */
-    /* max-height: 1700px; */
-    /* align-content: space-between; */
     justify-content: space-between;
 }
 
 .cards__list-item {
-    width: 250px;
+    width: 360px;
 }
 
 .card {
@@ -495,11 +492,15 @@ body {
     color: #ffa500;
 }
 
-.pagination__page {
-    margin: 0 20px;
+.disabled {
+    border-color: gray;
+    color: gray;
+    pointer-events: none;
+    border: 1px solid rgb(208, 208, 208);
 }
 
-.pagination__page-num {
+.pagination__page {
+    margin: 0 20px;
 }
 
 /* ! Main end */

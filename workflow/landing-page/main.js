@@ -2,6 +2,7 @@ const searchButton = document.getElementById('search-btn');
 const menuButton = document.getElementById('burger-menu-btn');
 const overlayContainer = document.getElementById('overlay');
 const closeOverlayButton = document.getElementById('overlay-close-btn');
+const cardsList = document.getElementById('cards-list');
 const overlayClass = 'closed-overlay-container';
 const responsiveClass = 'closed-responsive-navigation';
 let navigationIsClosed = true;
@@ -9,6 +10,7 @@ const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const showNumberPage = document.getElementById('page-num');
 let numberPage = 1;
+const limit = 10;
 const deleteCardsList = document.getElementById('delete-cards-list');
 deleteCardsList.remove();
 
@@ -34,27 +36,37 @@ menuButton.addEventListener('click', () => {
 });
 
 async function sendApiRequest(page) {
-    const limit = 10;
     let numberOffset = page === 1 ? 0 : --page * limit;
     const apiKey = 'DDmMIaeRZcddi8NShzyljNpXQ7EOvz6y';
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=dogs&limit=${limit}&offset=${numberOffset}`;
     let response = await fetch(url);
     let gifData = await response.json();
     let content = gifData.data;
-    const cardsList = document.getElementById('cards-list');
     const htmlForRepo = content.map((element) => createHtmlTemplate(element));
+    cardsList.innerHTML = '';
     cardsList.insertAdjacentHTML('afterbegin', htmlForRepo.join(''));
-    showNumberPage.textContent = page;
+    showNumberPage.innerHTML = numberPage;
 }
 
 prev.addEventListener('click', function () {
     numberPage--;
     sendApiRequest(numberPage);
+    check();
 });
+
 next.addEventListener('click', function () {
     numberPage++;
     sendApiRequest(numberPage);
+    check();
 });
+
+function check() {
+    if (numberPage == 1) {
+        prev.classList.add('disabled');
+    } else {
+        prev.classList.remove('disabled');
+    }
+}
 
 function createHtmlTemplate(item) {
     return `
@@ -86,4 +98,5 @@ function createHtmlTemplate(item) {
 
 window.onload = function () {
     sendApiRequest(numberPage);
+    check();
 };
