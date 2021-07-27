@@ -52,6 +52,7 @@ async function sendApiRequest(page) {
         console.log(err, 'ERROR!');
     }
     showNumberPage.innerHTML = numberPage;
+    return cardsList;
 }
 
 prev.addEventListener('click', function () {
