@@ -3,20 +3,21 @@ const menuButton = document.getElementById('burger-menu-btn');
 const overlayContainer = document.getElementById('overlay');
 const closeOverlayButton = document.getElementById('overlay-close-btn');
 const cardsList = document.getElementById('cards-list');
-const overlayClass = 'closed-overlay-container';
-const responsiveClass = 'closed-responsive-navigation';
-let navigationIsClosed = true;
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const showNumberPage = document.getElementById('page-num');
+
+const overlayClass = 'closed-overlay-container';
+const responsiveClass = 'closed-responsive-navigation';
+const API_KEY = 'DDmMIaeRZcddi8NShzyljNpXQ7EOvz6y';
+
+let navigationIsClosed = true;
 let numberPage = 1;
 const limit = 10;
-const deleteCardsList = document.getElementById('delete-cards-list');
-deleteCardsList.remove();
 
-function toggleOverlay() {
+const toggleOverlay = () => {
     overlayContainer.classList.toggle(overlayClass);
-}
+};
 
 searchButton.addEventListener('click', toggleOverlay);
 
@@ -35,21 +36,24 @@ menuButton.addEventListener('click', () => {
     }
 });
 
-async function sendApiRequest(page) {
-    let numberOffset = page === 1 ? 0 : --page * limit;
+const generateUrl = (page) => {
+    const offsetAmount = page === 1 ? 0 : --page * limit;
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=dogs&limit=${limit}&offset=${offsetAmount}`;
+    return url;
+};
+
+async function getGifsData(currentPage = 1) {
     try {
-        const apiKey = 'DDmMIaeRZcddi8NShzyljNpXQ7EOvz6y';
-        const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=dogs&limit=${limit}&offset=${numberOffset}`;
-        let response = await fetch(url);
-        let gifData = await response.json();
-        let content = gifData.data;
+        const response = await fetch(generateUrl(currentPage));
+        const gifData = await response.json();
+        const content = gifData.data;
         const htmlForRepo = content.map((element) =>
             createHtmlTemplate(element)
         );
         cardsList.innerHTML = '';
         cardsList.insertAdjacentHTML('afterbegin', htmlForRepo.join(''));
     } catch (err) {
-        console.log(err, 'ERROR!');
+        console.error(err);
     }
     showNumberPage.innerHTML = numberPage;
     return cardsList;
@@ -57,25 +61,22 @@ async function sendApiRequest(page) {
 
 prev.addEventListener('click', function () {
     numberPage--;
-    sendApiRequest(numberPage);
-    check();
+    getGifsData(numberPage);
+    disablePrevButton();
 });
 
 next.addEventListener('click', function () {
     numberPage++;
-    sendApiRequest(numberPage);
-    check();
+    getGifsData(numberPage);
+    disablePrevButton();
 });
 
-function check() {
-    if (numberPage == 1) {
-        prev.classList.add('disabled');
-    } else {
-        prev.classList.remove('disabled');
-    }
-}
+const disablePrevButton = () =>
+    numberPage == 1
+        ? prev.classList.add('disabled')
+        : prev.classList.remove('disabled');
 
-function createHtmlTemplate(item) {
+const createHtmlTemplate = (item) => {
     return `
     <li class="cards__list-item">
         <div class="card">
@@ -83,7 +84,7 @@ function createHtmlTemplate(item) {
                 <img class="card__container-img-picture" src="${item.images.downsized.url}" alt="image">
                 <div class="overlay-button-block">
                     <div class="overlay-button-block__btn">
-                        <a class="fas fa-link" href="${item.url}"></a>
+                        <a class="fas fa-link" href="${item.embed_url}" target="_blank"></a>
                     </div>
                 </div>
             </div>
@@ -101,9 +102,9 @@ function createHtmlTemplate(item) {
             </div>
         </div>
     </li>`;
-}
+};
 
-window.onload = function () {
-    sendApiRequest(numberPage);
-    check();
+window.onload = () => {
+    getGifsData();
+    disablePrevButton();
 };

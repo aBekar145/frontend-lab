@@ -386,6 +386,7 @@ body {
 }
 
 .cards__list-item {
+    display: flex;
     width: 360px;
 }
 
