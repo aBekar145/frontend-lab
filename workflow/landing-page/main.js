@@ -76,24 +76,29 @@ const disablePrevButton = () =>
         ? prev.classList.add('disabled')
         : prev.classList.remove('disabled');
 
-const createHtmlTemplate = (item) => {
+const createHtmlTemplate = ({
+    images,
+    embed_url: url,
+    title,
+    import_datetime: date,
+}) => {
     return `
     <li class="cards__list-item">
         <div class="card">
             <div class="card__container-img">
-                <img class="card__container-img-picture" src="${item.images.downsized.url}" alt="image">
+                <img class="card__container-img-picture" src="${images.downsized.url}" alt="image">
                 <div class="overlay-button-block">
                     <div class="overlay-button-block__btn">
-                        <a class="fas fa-link" href="${item.embed_url}" target="_blank"></a>
+                        <a class="fas fa-link" href="${url}" target="_blank"></a>
                     </div>
                 </div>
             </div>
             <div class="card__description">
                 <h3 class="card__description-sub-title sub-title">
-                    ${item.title}
+                    ${title}
                 </h3>
                 <p class="card__description-date">
-                    ${item.import_datetime}
+                    ${date}
                 </p>
                 <p class="card__description-text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
