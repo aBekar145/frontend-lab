@@ -1,3 +1,19 @@
+const now = new OneMoment(new Date());
+
+const someDate = new OneMoment(
+    Date.parse(reverseDate('21-12-2012', 'DD-MM-YYYY'))
+);
+const anotherDate = new OneMoment(
+    Date.parse(formatDate('01202019', 'MMDDYYYY'))
+);
+const date = someDate.toDate();
+
+console.log(someDate.format('YYYY/MM/DD'));
+console.log(anotherDate.format('MM-YYYY'));
+console.log(someDate.fromNow());
+console.log(anotherDate.fromNow());
+console.log(date instanceof Date);
+
 function OneMoment(date) {
     this.date = date;
     this.nowDate = new Date();
@@ -12,19 +28,28 @@ function OneMoment(date) {
             }
             return [month, year].join('-');
         } else {
-            return fullDate.toLocaleDateString('en-US', {
+            const result = fullDate.toLocaleDateString('en-US', {
                 month: '2-digit',
                 day: '2-digit',
                 year: 'numeric',
             });
+            let reverseDate = result.split('');
+            let newArray = [];
+            let year = reverseDate.slice(6, 10).join('');
+            newArray.push(year);
+            let month = reverseDate.slice(0, 2).join('');
+            newArray.push(month);
+            let day = reverseDate.slice(3, 5).join('');
+            newArray.push(day);
+            return newArray.join('/');
         }
     };
     this.fromNow = function () {
-        let customDate = new Date(this.date);
-        let now = new Date(this.nowDate);
+        const customDate = new Date(this.date);
+        const now = new Date(this.nowDate);
         const differenceInTime = now.getTime() - customDate.getTime();
-        let years = Math.ceil(differenceInTime / (3600 * 24 * 1000 * 365));
-        let days = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+        const years = Math.ceil(differenceInTime / (3600 * 24 * 1000 * 365));
+        const days = Math.ceil(differenceInTime / (1000 * 3600 * 24));
         let result = '';
         days < 365
             ? (result = `in ${days} days`)
@@ -32,25 +57,10 @@ function OneMoment(date) {
         return result;
     };
     this.toDate = function () {
-        return date instanceof Date;
+        const dateData = new Date(someDate);
+        return dateData;
     };
 }
-
-const now = new OneMoment(new Date());
-
-const someDate = new OneMoment(
-    Date.parse(reverseDate('21-12-2012', 'DD-MM-YYYY'))
-);
-const anotherDate = new OneMoment(
-    Date.parse(formatDate('01202019', 'MMDDYYYY'))
-);
-
-console.log(someDate.format('YYYY/MM/DD'));
-console.log(anotherDate.format('MM-YYYY'));
-console.log(someDate.fromNow());
-console.log(anotherDate.fromNow());
-const date = someDate.toDate();
-console.log(date);
 
 function reverseDate(string) {
     let reverseString = string.split('-').reverse().join('-');
