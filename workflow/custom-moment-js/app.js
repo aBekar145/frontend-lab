@@ -1,19 +1,33 @@
 // const now = new OneMoment(12323323);
 const now = new OneMoment(new Date());
 
-function OneMoment(date = new Date()) {
+function OneMoment(date = new Date(), formatString) {
     if (typeof date === 'number') {
         this.msDate = new Date(date);
     }
     this.date = date;
+    this.formatStringDate = formatString;
     this.nowDate = new Date();
-    this.formatCustomDate = OneMoment.prototype.constructor.date;
-    this.formatCustomString = OneMoment.prototype.constructor.string;
 
     OneMoment.parse = function (formatDate, formatString) {
         this.date = formatDate;
         this.string = formatString;
-        return new OneMoment();
+        if (formatString === 'DD-MM-YYYY') {
+            this.reverseString = this.date.split('-').reverse().join('-');
+            this.formatNewDate = Date.parse(this.reverseString);
+        } else {
+            this.splitArrayDate = this.date.split('');
+            this.newArray = [];
+            this.year = this.splitArrayDate.slice(4, 8).join('');
+            this.newArray.push(this.year);
+            this.month = this.splitArrayDate.slice(0, 2).join('');
+            this.newArray.push(this.month);
+            this.day = this.splitArrayDate.slice(2, 4).join('');
+            this.newArray.push(this.day);
+            this.formatNewDate = Date.parse(this.newArray.join('-'));
+        }
+
+        return new OneMoment(this.formatNewDate, this.string);
     };
 
     this.format = function (string) {
