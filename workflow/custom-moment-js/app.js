@@ -10,7 +10,7 @@ function OneMoment(date) {
     OneMoment.parse = function (formatDate, formatString) {
         this.date = formatDate;
         this.string = formatString;
-        return `${this.date}, ${this.string}`;
+        return new OneMoment();
     };
     this.format = function (string) {
         let fullDate = new Date(this.date);
