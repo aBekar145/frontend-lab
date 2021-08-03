@@ -1,22 +1,17 @@
+// const now = new OneMoment(12323323);
 const now = new OneMoment(new Date());
 
-const someDate = new OneMoment(
-    Date.parse(reverseDate('21-12-2012', 'DD-MM-YYYY'))
-);
-const anotherDate = new OneMoment(
-    Date.parse(formatDate('01202019', 'MMDDYYYY'))
-);
-const date = someDate.toDate();
-
-console.log(someDate.format('YYYY/MM/DD'));
-console.log(anotherDate.format('MM-YYYY'));
-console.log(someDate.fromNow());
-console.log(anotherDate.fromNow());
-console.log(date instanceof Date);
-
 function OneMoment(date) {
+    if (typeof date === 'number') {
+        this.msDate = new Date(date);
+    }
     this.date = date;
     this.nowDate = new Date();
+    OneMoment.parse = function (formatDate, formatString) {
+        this.date = formatDate;
+        this.string = formatString;
+        return `${this.date}, ${this.string}`;
+    };
     this.format = function (string) {
         let fullDate = new Date(this.date);
         if (string == 'MM-YYYY') {
@@ -62,19 +57,7 @@ function OneMoment(date) {
     };
 }
 
-function reverseDate(string) {
-    let reverseString = string.split('-').reverse().join('-');
-    return reverseString;
-}
-
-function formatDate(str) {
-    let array = str.split('');
-    let newArray = [];
-    let year = array.slice(4, 8).join('');
-    newArray.push(year);
-    let month = array.slice(0, 2).join('');
-    newArray.push(month);
-    let day = array.slice(2, 4).join('');
-    newArray.push(day);
-    return newArray.join('-');
-}
+const someDate = OneMoment.parse('21-12-2012', 'DD-MM-YYYY');
+const anotherDate = OneMoment.parse('01202019', 'MMDDYYYY');
+console.log(someDate);
+console.log(anotherDate);
