@@ -1,17 +1,21 @@
 // const now = new OneMoment(12323323);
 const now = new OneMoment(new Date());
 
-function OneMoment(date) {
+function OneMoment(date = new Date()) {
     if (typeof date === 'number') {
         this.msDate = new Date(date);
     }
     this.date = date;
     this.nowDate = new Date();
+    this.formatCustomDate = OneMoment.prototype.constructor.date;
+    this.formatCustomString = OneMoment.prototype.constructor.string;
+
     OneMoment.parse = function (formatDate, formatString) {
         this.date = formatDate;
         this.string = formatString;
         return new OneMoment();
     };
+
     this.format = function (string) {
         let fullDate = new Date(this.date);
         if (string == 'MM-YYYY') {
