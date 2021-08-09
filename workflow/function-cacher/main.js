@@ -1,37 +1,35 @@
 const value = document.getElementById('input');
 const calculateButton = document.getElementById('calculate-btn');
 const outBlock = document.getElementById('out-block');
-
-// factorial = cacher.withCache(factorial);
-// const a = factorial(someBigNumber);
-// const b = factorial(someBigNumber);
+let someBigNumber = 0;
 
 calculateButton.addEventListener('click', () => {
-    let number = value.value;
-    outBlock.innerHTML = getFactorial(number);
+    someBigNumber = value.value;
+    cachedFactorial = cacher.withCache(factorial);
+    const a = cachedFactorial(someBigNumber);
+    outBlock.innerHTML = a;
 });
 
-const getFactorial = (n) => {
+const factorial = (n) => {
     let factorial = math.factorial(n);
     return factorial;
 };
 
-// class Cacher {
-//     constructor() {
-//         this.cache = {};
-//     }
-//     withCache(...args) {
-//         let n = args[0];
-//         if (n in cache) {
-//             console.log('Fetching from cache', n);
-//             return cache[n];
-//         } else {
-//             console.log('Calculating result', n);
-//             let result = fn(n);
-//             cache[n] = result;
-//             return result;
-//         }
-//     }
-// }
+class Cacher {
+    constructor() {}
+    withCache(fn) {
+        let cache = {};
+        return (...args) => {
+            let n = args[0];
+            if (n in cache) {
+                return cache[n];
+            } else {
+                let result = fn(n);
+                cache[n] = result;
+                return result;
+            }
+        };
+    }
+}
 
-// const cacher = new Cacher();
+const cacher = new Cacher();
