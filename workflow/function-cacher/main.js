@@ -6,14 +6,16 @@ class Cacher {
     constructor() {}
     withCache(calculateData) {
         const cache = {};
+        console.log(cache);
         return (...args) => {
             const number = args[0];
             if (number in cache) {
-                return cache[number];
+                return cache[hashedKey];
             } else {
                 const result = calculateData(...args);
-                console.log(args);
-                cache[number] = result;
+                const hashedKey = new Hashes.MD5().hex(cache[number]);
+                console.log(hashedKey);
+                cache[hashedKey] = result;
                 return result;
             }
         };
