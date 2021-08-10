@@ -4,16 +4,16 @@ const outResultBlock = document.getElementById('out-block');
 
 class Cacher {
     constructor() {}
-    withCache(calculatedFactorial) {
+    withCache(calculateData) {
         const cache = {};
         return (...args) => {
             const number = args[0];
             if (number in cache) {
                 return cache[number];
             } else {
-                const result = calculatedFactorial(number);
+                const result = calculateData(...args);
+                console.log(args);
                 cache[number] = result;
-                console.log(cache);
                 return result;
             }
         };
