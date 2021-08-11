@@ -4,24 +4,22 @@ const outResultBlock = document.getElementById('out-block');
 
 class Cacher {
     constructor() {}
-    withCache(calculateData) {
+    withCache(functionToCache) {
         const cache = {};
-        console.log(cache);
+        const SHA256 = new Hashes.SHA256();
         return (...args) => {
-            const number = args[0];
-            if (number in cache) {
+            const argumentsString = args.join();
+            const hashedKey = SHA256.hex(argumentsString);
+            if (hashedKey in cache) {
                 return cache[hashedKey];
             } else {
-                const result = calculateData(...args);
-                const hashedKey = new Hashes.MD5().hex(cache[number]);
-                console.log(hashedKey);
+                const result = functionToCache(...args);
                 cache[hashedKey] = result;
                 return result;
             }
         };
     }
 }
-
 const cacher = new Cacher();
 
 const factorial = (number) => {
