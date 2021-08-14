@@ -1,0 +1,13 @@
+body {
+    padding: 20px;
+}
+
+.output-field {
+    width: 300px;
+    min-height: 300px;
+    background-color: aqua;
+}
+
+.button {
+    margin: 20px 0;
+}
