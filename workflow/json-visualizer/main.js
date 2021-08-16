@@ -2,23 +2,6 @@ const fieldInput = document.getElementById('text-area');
 const fieldOutResult = document.getElementById('show-here');
 const button = document.getElementById('text-area-button');
 
-const valueInput = (fieldInput.value = `{
-        "array": [
-          1,
-          2,
-          3
-        ],
-        "boolean": "true",
-        "color": "gold",
-        "null": "null",
-        "number": 123,
-        "object": {
-          "a": "b",
-          "c": "d"
-        },
-        "string": "Hello World"
-      }`);
-
 const jsonToHtml = (data) => {
     return (show) => {
         const json = parseInput(data);
@@ -51,7 +34,7 @@ const jsonToHtml = (data) => {
             }
         }
         htmlArray.push('</ul>');
-        return htmlArray.flat().join('');
+        return htmlArray.join('');
     };
 };
 
@@ -59,17 +42,16 @@ function getFinalContent(formattedContent) {
     if (formattedContent.length < 50 || typeof formattedContent == 'number') {
         return `<span>${formattedContent}</span>`;
     }
-    return `<span class="clickable" style="cursor: pointer">+</span><pre style="display:block">${formattedContent}</pre>`;
+    return `<span class="clickable" style="cursor: pointer">></span><pre style="display:block">${formattedContent}</pre>`;
 }
 
 const parseInput = (input) => {
     let json = {};
     try {
-        json = typeof input === 'string' ? JSON.parse(input) : input;
+        json = typeof input == 'string' ? JSON.parse(input) : input;
     } catch (err) {
         console.error(err);
     }
-    console.log(json);
     return json;
 };
 
@@ -89,10 +71,10 @@ function setClickListeners() {
     });
 }
 
-button.addEventListener('click', () => appendJSON(valueInput.value));
+button.addEventListener('click', () => appendJSON(fieldInput.value));
 
-function appendJSON() {
+function appendJSON(valueInput) {
     const jsonHTML = jsonToHtml(valueInput)(true);
-    fieldOutResult.innerHTML = jsonHTML;
+    fieldOutResult.insertAdjacentHTML('beforeEnd', jsonHTML);
     setClickListeners();
 }
