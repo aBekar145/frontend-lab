@@ -29,7 +29,7 @@ const jsonToHtml = (data) => {
         for (let [key, value] of Object.entries(json)) {
             if (typeof value === 'object' && Object.keys(value).length > 0) {
                 htmlArray.push(
-                    `<li>${key}:<span class="clickable" style="cursor: pointer">+</span>`
+                    `<li>${key}:<span class="clickable" style="cursor: pointer"> ></span>`
                 );
                 htmlArray.push(jsonToHtml(value)(false));
             } else {
@@ -80,18 +80,16 @@ function setClickListeners() {
             const node = el.nextSibling;
             if (node.style && node.style.display == 'none') {
                 node.style.display = 'block';
-                el.innerText = ' -';
+                el.innerText = ' v';
             } else if (node.style && node.style.display == 'block') {
                 node.style.display = 'none';
-                el.innerText = '+';
+                el.innerText = ' >';
             }
         };
     });
 }
 
-function buttonClickHandler() {
-    appendJSON(document.getElementById('text-area').value);
-}
+button.addEventListener('click', () => appendJSON(valueInput.value));
 
 function appendJSON() {
     const jsonHTML = jsonToHtml(valueInput)(true);

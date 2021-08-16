@@ -1,13 +1,30 @@
 body {
     padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+li {
+    margin: 10px 0;
+    list-style-type: none;
+}
+
+.clickable {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
 }
 
 .output-field {
-    width: 300px;
-    min-height: 300px;
-    background-color: aqua;
+    width: 500px;
+    min-height: 500px;
+    background-color: rgb(232, 243, 243);
 }
 
 .button {
-    margin: 20px 0;
+    margin: 40px;
 }
