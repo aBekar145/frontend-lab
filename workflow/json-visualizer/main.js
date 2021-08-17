@@ -5,7 +5,7 @@ const button = document.getElementById('text-area-button');
 const jsonToHtml = (data) => {
     return (show) => {
         const json = parseInput(data);
-        display = show ? 'block' : 'none';
+        const display = show ? 'block' : 'none';
         const repSm = /</gi;
         const repGt = />/gi;
         const htmlArray = [`<ul style="display: ${display}">`];
@@ -38,43 +38,43 @@ const jsonToHtml = (data) => {
     };
 };
 
-function getFinalContent(formattedContent) {
+const getFinalContent = (formattedContent) => {
     if (formattedContent.length < 50 || typeof formattedContent == 'number') {
         return `<span>${formattedContent}</span>`;
     }
     return `<span class="clickable" style="cursor: pointer">></span><pre style="display:block">${formattedContent}</pre>`;
-}
+};
 
 const parseInput = (input) => {
     let json = {};
     try {
-        json = typeof input == 'string' ? JSON.parse(input) : input;
+        json = typeof input === 'string' ? JSON.parse(input) : input;
     } catch (err) {
         console.error(err);
     }
     return json;
 };
 
-function setClickListeners() {
+const setClickListeners = () => {
     const clickableElements = document.getElementsByClassName('clickable');
-    Array.from(clickableElements).forEach((el) => {
-        el.onclick = () => {
-            const node = el.nextSibling;
+    Array.from(clickableElements).forEach((element) => {
+        element.onclick = () => {
+            const node = element.nextSibling;
             if (node.style && node.style.display == 'none') {
                 node.style.display = 'block';
-                el.innerText = ' v';
+                element.innerText = ' v';
             } else if (node.style && node.style.display == 'block') {
                 node.style.display = 'none';
-                el.innerText = ' >';
+                element.innerText = ' >';
             }
         };
     });
-}
+};
 
 button.addEventListener('click', () => appendJSON(fieldInput.value));
 
-function appendJSON(valueInput) {
+const appendJSON = (valueInput) => {
     const jsonHTML = jsonToHtml(valueInput)(true);
     fieldOutResult.insertAdjacentHTML('beforeEnd', jsonHTML);
     setClickListeners();
-}
+};
