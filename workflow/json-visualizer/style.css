@@ -1,4 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    width: 100%;
     padding: 20px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -19,9 +26,13 @@ li {
     align-items: center;
 }
 
-.output-field {
+.size-block {
     width: 500px;
     min-height: 500px;
+}
+
+.output-field {
+    padding: 20px;
     background-color: rgb(232, 243, 243);
 }
 

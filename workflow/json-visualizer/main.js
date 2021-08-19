@@ -75,6 +75,6 @@ button.addEventListener('click', () => appendJSON(fieldInput.value));
 
 const appendJSON = (valueInput) => {
     const jsonHTML = jsonToHtml(valueInput)(true);
-    fieldOutResult.insertAdjacentHTML('beforeEnd', jsonHTML);
+    fieldOutResult.innerHTML = jsonHTML;
     setClickListeners();
 };
