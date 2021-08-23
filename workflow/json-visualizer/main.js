@@ -1,26 +1,6 @@
 const fieldInput = document.getElementById('text-area');
 const fieldOutResult = document.getElementById('show-here');
 const button = document.getElementById('text-area-button');
-const list = document.querySelector('ul');
-
-fieldInput.value = `{
-    "array": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "boolean": "false",
-    "color": "gold",
-    "null": "null",
-    "number": 123,
-    "object": {
-      "a": "b",
-      "c": "d",
-      "e": "f"
-    },
-    "string": "Hello World"
-  }`;
 
 const jsonToHtml = (data) => {
     return (show) => {
@@ -102,9 +82,13 @@ const setClickListeners = () => {
         element.onclick = () => {
             const node = element.lastChild;
 
-            node.style?.display === 'block'
-                ? (node.style.display = 'none')
-                : (node.style.display = 'block');
+            if (node.style?.display === 'block') {
+                node.style.display = 'none';
+                element.classList.toggle('clickable-rotate');
+            } else {
+                node.style.display = 'block';
+                element.classList.toggle('clickable-rotate');
+            }
         };
     });
 };
@@ -114,5 +98,6 @@ button.addEventListener('click', () => appendJSON(fieldInput.value));
 const appendJSON = (valueInput) => {
     const jsonHTML = jsonToHtml(valueInput)(true);
     fieldOutResult.innerHTML = jsonHTML;
+
     setClickListeners();
 };
