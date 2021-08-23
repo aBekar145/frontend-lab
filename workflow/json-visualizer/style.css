@@ -70,8 +70,13 @@ li {
     cursor: pointer;
 }
 
+.clickable:active::before {
+    transform: rotate(-90deg);
+}
+
 .clickable {
     position: relative;
+    cursor: pointer;
 }
 
 .text-color-red {
