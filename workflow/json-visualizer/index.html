@@ -9,10 +9,19 @@
     <title>Json visualizer</title>
 </head>
 <body>
+    <h1 class="title"> JSON Editor</h1>
     <div class="wrap">
-        <textarea id="text-area" class="textarea-input-field size-block"></textarea>
+        <div class="wrapper-text-area size-block">
+            <label class="text-area-subtitle subtitle" for="text-area">Add JSON files:</label>
+            <textarea id="text-area" class="textarea-input-field"></textarea>
+        </div>
+
         <button class="button" id="text-area-button">Build tree data</button>
-        <div class="output-field size-block" id="show-here"></div>
+
+        <div class="wrapper-out-block size-block">
+            <h3 class="subtitle">Output of finished data:</h3>
+            <div class="output-field" id="show-here"></div>
+         </div>
     </div>
     <script src="main.js"></script>
 </body>
