@@ -117,3 +117,7 @@ li {
 .text-color-orange {
     color: rgba(255, 166, 0, 0.89);
 }
+
+.text-color-black {
+    color: #000;
+}
