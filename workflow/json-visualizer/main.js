@@ -2,7 +2,7 @@ const fieldInput = document.getElementById('text-area');
 const fieldOutResult = document.getElementById('show-here');
 const button = document.getElementById('text-area-button');
 
-const getClassBy = (value) => {
+const getClassByValue = (value) => {
     const typeValue = typeof value;
     const key = value === null ? value : typeValue;
     const dataObject = {
@@ -22,15 +22,14 @@ const jsonToHtml = (data) => {
 
     for (let [key, value] of Object.entries(json)) {
         if (typeof value === 'object' && value !== null) {
-            const lengthObject =
-                typeof value === 'object' && !Array.isArray(value)
-                    ? `{${Object.keys(value).length}}`
-                    : `[${value.length}]`;
+            const lengthObject = Array.isArray(value)
+                ? `[${value.length}]`
+                : `{${Object.keys(value).length}}`;
             htmlArray.push(`<li class="clickable">${key} ${lengthObject}:`);
             htmlArray.push(jsonToHtml(value));
         } else {
             let content = value;
-            const styleClass = getClassBy(content);
+            const styleClass = getClassByValue(content);
             htmlArray.push(
                 `<li>${key}: 
                     <span class="${styleClass}">${content}</span>
