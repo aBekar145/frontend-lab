@@ -3,7 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
+const devServer = (isDev) => !isDev ? {} : {
+    devServer: {
+        open: true,
+        hot: true,
+        port: 8080,
+    }
+};
+
+module.exports = ({develop}) => ({
+    mode: develop ? 'development' : 'production',
+    devtool: develop ? 'inline-source-map' : 'none',
     entry: {
         main: path.resolve(__dirname, './src/index.js'),
     },
@@ -48,4 +58,5 @@ module.exports = {
             filename: '[name].[contenthash].css',
         }),
     ],
-};
+    ...devServer(develop),
+});
