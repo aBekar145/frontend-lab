@@ -10,3 +10,5 @@ class Game {
 const myGame = new Game();
 
 import './styles.scss';
+
+document.body.innerHTML = 'Hello my best world!';

@@ -13,14 +13,14 @@ const devServer = (isDev) => !isDev ? {} : {
 
 module.exports = ({develop}) => ({
     mode: develop ? 'development' : 'production',
-    devtool: develop ? 'inline-source-map' : 'none',
+    devtool: develop ? 'inline-source-map' : false,
     entry: {
         main: path.resolve(__dirname, './src/index.js'),
     },
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].[contenthash].js',
-        assetModuleFilename: 'images/[hash][ext][query]',
+        assetModuleFilename: 'assets/[hash][ext][query]',
     },
     module: {
         rules: [
@@ -50,7 +50,7 @@ module.exports = ({develop}) => ({
     plugins: [
         new HtmlWebpackPlugin({
             title: 'webpack',
-            template: path.resolve(__dirname, './src/template.html'),
+            template: path.resolve(__dirname, './public/index.html'),
             filename: 'index.html',
         }),
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
