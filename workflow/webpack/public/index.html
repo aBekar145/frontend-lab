@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Json visualizer</title>
+</head>
+<body>
+    <h1 class="title"> JSON Editor</h1>
+    <div class="wrap">
+        <div class="wrapper-text-area size-block">
+            <label class="text-area-subtitle subtitle" for="text-area">Add JSON files:</label>
+            <textarea id="text-area" class="textarea-input-field"></textarea>
+        </div>
 
-  <body>
-      <img src="./assets/desktop.jpg" alt="page">
-    <div id="root"></div>
-  </body>
+        <button class="button" id="text-area-button">Build tree data</button>
+
+        <div class="wrapper-out-block size-block">
+            <h3 class="subtitle">Output of finished data:</h3>
+            <div class="output-field" id="show-here"></div>
+         </div>
+    </div>
+</body>
 </html>
