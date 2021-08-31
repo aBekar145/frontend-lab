@@ -1,10 +1,12 @@
+const _ = require('lodash');
+
 const fieldInput = document.getElementById('text-area');
 const fieldOutResult = document.getElementById('show-here');
 const button = document.getElementById('text-area-button');
 
 const getClassByValue = (value) => {
     const typeValue = typeof value;
-    const key = value === null ? value : typeValue;
+    const key = _.isNull(value) ? value : typeValue;
     const dataObject = {
         number: 'text-color-red',
         boolean: 'text-color-orange',
@@ -21,18 +23,17 @@ const jsonToHtml = (data) => {
     const htmlArray = [`<ul style="display: block">`];
 
     for (let [key, value] of Object.entries(json)) {
-        if (typeof value === 'object' && value !== null) {
-            const lengthObject = Array.isArray(value)
+        if (_.isObject(value)) {
+            const lengthObject = _.isArray(value)
                 ? `[${value.length}]`
                 : `{${Object.keys(value).length}}`;
             htmlArray.push(`<li class="clickable">${key} ${lengthObject}:`);
             htmlArray.push(jsonToHtml(value));
         } else {
-            let content = value;
-            const styleClass = getClassByValue(content);
+            const styleClass = getClassByValue(value);
             htmlArray.push(
-                `<li>${key}: 
-                    <span class="${styleClass}">${content}</span>
+                `<li>${key}:
+                    <span class="${styleClass}">${value}</span>
                 </li>`
             );
         }
@@ -46,7 +47,7 @@ const parseInput = (input) => {
     let json = {};
 
     try {
-        json = typeof input === 'string' ? JSON.parse(input) : input;
+        json = _.isString(input) ? JSON.parse(input) : input;
     } catch (err) {
         alert(err);
     }
