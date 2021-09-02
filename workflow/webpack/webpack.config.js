@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const devServer = (isDev) => !isDev ? {} : {
     devServer: {
@@ -10,6 +11,12 @@ const devServer = (isDev) => !isDev ? {} : {
         port: 8080,
     }
 };
+
+const compressFiles = (isDev) => isDev ? {} :
+    {
+        algorithm: 'gzip',
+        test: /.js$|.css$/,
+    }
 
 module.exports = ({develop}) => ({
     mode: develop ? 'development' : 'production',
@@ -57,6 +64,7 @@ module.exports = ({develop}) => ({
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
+        new CompressionPlugin(compressFiles(develop)),
     ],
     ...devServer(develop),
 });
