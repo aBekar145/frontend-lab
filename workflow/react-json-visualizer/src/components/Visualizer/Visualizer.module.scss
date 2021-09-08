@@ -77,9 +77,6 @@ li {
 .subtitle {
     margin-bottom: 10px;
     @include subtitle;
-}
-
-.text-area-subtitle {
     display: block;
 }
 
@@ -102,7 +99,7 @@ li {
     height: 100%;
 }
 
-.textarea-input-field {
+.textareaInputField {
     padding: 20px;
     width: 100%;
     height: 100%;
