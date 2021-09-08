@@ -1,0 +1,168 @@
+$color-black: #000;
+$color-orange: rgba(255, 166, 0, 0.89);
+$color-blue: rgb(18, 18, 247);
+$color-green: #0b850b;
+$color-red: rgb(252, 8, 8);
+$color-white: #fff;
+$color-grey: #5f5d5d;
+
+$background-color-1: rgb(232, 243, 243);
+$background-color-2: rgb(139, 209, 168);
+$background-color-3: rgb(79, 158, 112);
+
+@mixin title {
+    font: {
+        family: 'Open Sans', sans-serif;
+        size: 25px;
+        weight: bold;
+    }
+    color: $color-orange;
+}
+
+@mixin subtitle {
+    font: {
+      family: 'Open Sans', sans-serif;
+      size: 18px;
+      weight: bold;
+    }
+    color: $color-black;
+}
+
+@mixin text {
+    font: {
+      family: 'Open Sans', sans-serif;
+      size: 14px;
+      weight: 400;
+    }
+    color: $color-black;
+}
+
+@mixin button {
+    font: {
+      family: 'Open Sans', sans-serif;
+      size: 15px;
+      weight: 700;
+    }
+    color: $color-grey;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// body {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     padding: 20px;
+//     @include text;
+// }
+
+li {
+    margin: 10px 0;
+    list-style-type: none;
+}
+
+// .title {
+//     margin-bottom: 20px;
+//     font-size: 25px;
+//     text-transform: uppercase;
+//     @include title;
+// }
+
+.subtitle {
+    margin-bottom: 10px;
+    @include subtitle;
+}
+
+.text-area-subtitle {
+    display: block;
+}
+
+.wrap {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.sizeBlock {
+    flex: 0 1 500px;
+    min-height: 500px;
+}
+
+.outputField {
+    padding: 30px;
+    background-color: $background-color-1;
+    width: 100%;
+    height: 100%;
+}
+
+.textarea-input-field {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.button {
+    padding: 5px;
+    margin: 35px 40px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    background-color: $background-color-2;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s;
+    @include button;
+    text-transform: uppercase;
+    &:hover {
+        background-color: $background-color-3;
+        color: $color-white;
+    }
+}
+
+.clickable::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: -20px;
+    border: 5px solid transparent;
+    border-top: 10px solid $color-green;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.clickable {
+    position: relative;
+    cursor: pointer;
+}
+
+.clickable-rotate::before {
+    top: 4px;
+    transform: rotate(-90deg);
+}
+
+.text-color-red {
+    color: $color-red;
+}
+
+.text-color-green {
+    color: $color-green;
+}
+
+.text-color-blue {
+    color: $color-blue;
+}
+
+.text-color-orange {
+    color: $color-orange;
+}
+
+.text-color-black {
+    color: $color-black;
+}
