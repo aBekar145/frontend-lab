@@ -4,13 +4,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const devServer = (isDev) => !isDev ? {} : {
-    devServer: {
+const devServer = (isDev) =>
+    isDev
+    ? {devServer: {
         open: true,
         hot: true,
         port: 8080,
-    }
-};
+        }}
+    : {};
 
 module.exports = ({develop}) => ({
     mode: develop ? 'development' : 'production',
