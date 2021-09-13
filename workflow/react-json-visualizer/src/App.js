@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+
 import Visualizer from './components/Visualizer/Visualizer'
+
 import classes from './App.module.scss'
-import { times } from 'lodash';
 
 class App extends Component {
   constructor(props) {

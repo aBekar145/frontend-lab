@@ -1,6 +1,6 @@
 import React from "react";
+
 import classes from './Visualizer.module.scss'
-const _ = require('lodash');
 
 class Visualizer extends React.Component {
 
