@@ -6,14 +6,16 @@ const CompressionPlugin = require('compression-webpack-plugin');
 
 const devServer = (isDev) =>
     isDev
-    ? {devServer: {
-        open: true,
-        hot: true,
-        port: 8080,
-        }}
-    : {};
+        ? {
+              devServer: {
+                  open: true,
+                  hot: true,
+                  port: 8080,
+              },
+          }
+        : {};
 
-module.exports = ({develop}) => ({
+module.exports = ({ develop }) => ({
     mode: develop ? 'development' : 'production',
     devtool: develop ? 'inline-source-map' : false,
     entry: {
@@ -23,6 +25,9 @@ module.exports = ({develop}) => ({
         path: path.resolve(__dirname, './dist'),
         filename: '[name].[contenthash].js',
         assetModuleFilename: 'assets/[hash][ext][query]',
+    },
+    resolve: {
+        extensions: ['.js', '.scss'],
     },
     module: {
         rules: [
@@ -59,10 +64,14 @@ module.exports = ({develop}) => ({
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
-        ...(develop ? [] : [new CompressionPlugin({
-            algorithm: 'gzip',
-            test: /.js$|.css$/,
-        })])
+        ...(develop
+            ? []
+            : [
+                  new CompressionPlugin({
+                      algorithm: 'gzip',
+                      test: /.js$|.css$/,
+                  }),
+              ]),
     ],
     ...devServer(develop),
 });
