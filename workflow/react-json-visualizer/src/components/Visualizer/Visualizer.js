@@ -1,140 +1,164 @@
-import React from "react";
-import classes from './Visualizer.module.scss'
-const _ = require('lodash');
+import React from 'react';
+import _isNull from 'lodash/isNull';
+
+import classes from './Visualizer.module';
 
 class Visualizer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputValue: '',
+        };
+    }
 
-  handleInput = (event) => {
-    let body = event.target.value
-    this.props.input = body;
-  }
-
-  handleClick = () => {
-    let out = this.props.input;
-    this.setState({
-      outResult: out
-    })
-  }
-
-  render() {
-
-  const fieldInput = this.props.state.input;
-  const fieldOutResult = this.props.state.outResult;
-  const button = this.props.state.submitButton;
-
-  console.log(fieldInput, fieldOutResult, button)
-
-  const getClassByValue = (value) => {
-    const typeValue = typeof value;
-    const key = _.isNull(value) ? value : typeValue;
-    const dataObject = {
-        number: 'text-color-red',
-        boolean: 'text-color-orange',
-        string: 'text-color-green',
-        null: 'text-color-blue',
-        default: 'text-color-black',
+    handleInputChange = ({ target }) => {
+        this.setState({
+            inputValue: target.value,
+        });
     };
 
-    return dataObject[key] || dataObject.default;
-};
+    handleClick = () => {
+        let out = this.props.input;
+        this.setState({
+            outResult: out,
+        });
+    };
 
-const jsonToHtml = (data) => {
-    const json = parseInput(data);
-    const htmlArray = [`<ul style="display: block">`];
+    render() {
+        const fieldInput = this.props.state.input;
+        const fieldOutResult = this.props.state.outResult;
+        const button = this.props.state.submitButton;
 
-    for (let [key, value] of Object.entries(json)) {
-        if (_.isObject(value)) {
-            const lengthObject = _.isArray(value)
-                ? `[${value.length}]`
-                : `{${Object.keys(value).length}}`;
-            htmlArray.push(`<li class="clickable">${key} ${lengthObject}:`);
-            htmlArray.push(jsonToHtml(value));
-        } else {
-            const styleClass = getClassByValue(value);
-            htmlArray.push(
-                `<li>${key}:
+        console.log(fieldInput, fieldOutResult, button);
+
+        const getClassByValue = (value) => {
+            const typeValue = typeof value;
+            const key = _isNull(value) ? value : typeValue;
+            const dataObject = {
+                number: 'text-color-red',
+                boolean: 'text-color-orange',
+                string: 'text-color-green',
+                null: 'text-color-blue',
+                default: 'text-color-black',
+            };
+
+            return dataObject[key] || dataObject.default;
+        };
+
+        const jsonToHtml = (data) => {
+            const json = parseInput(data);
+            const htmlArray = [`<ul style="display: block">`];
+
+            for (let [key, value] of Object.entries(json)) {
+                if (_.isObject(value)) {
+                    const lengthObject = _.isArray(value)
+                        ? `[${value.length}]`
+                        : `{${Object.keys(value).length}}`;
+                    htmlArray.push(
+                        `<li class="clickable">${key} ${lengthObject}:`
+                    );
+                    htmlArray.push(jsonToHtml(value));
+                } else {
+                    const styleClass = getClassByValue(value);
+                    htmlArray.push(
+                        `<li>${key}:
                     <span class="${styleClass}">${value}</span>
                 </li>`
-            );
-        }
-    }
-
-    htmlArray.push('</ul>');
-    return htmlArray.join('');
-};
-
-const parseInput = (input) => {
-    let json = {};
-
-    try {
-        json = _.isString(input) ? JSON.parse(input) : input;
-    } catch (err) {
-        alert(err);
-    }
-
-    return json;
-};
-
-const setClickListeners = () => {
-    const clickableElements = document.getElementsByClassName('clickable');
-
-    Array.from(clickableElements).forEach((element) => {
-        element.onclick = () => {
-            const node = element.lastChild;
-
-            if (node.style?.display === 'block') {
-                node.style.display = 'none';
-                element.classList.toggle('clickable-rotate');
-            } else {
-                node.style.display = 'block';
-                element.classList.toggle('clickable-rotate');
+                    );
+                }
             }
+
+            htmlArray.push('</ul>');
+            return htmlArray.join('');
         };
-    });
-};
 
-const appendJSON = (valueInput) => {
-    const jsonHTML = jsonToHtml(valueInput);
-    fieldOutResult.innerHTML = jsonHTML;
+        const parseInput = (input) => {
+            let json = {};
 
-    setClickListeners();
-};
+            try {
+                json = _.isString(input) ? JSON.parse(input) : input;
+            } catch (err) {
+                alert(err);
+            }
 
-  const handleInput = (event) => {
-    let body = event.target.value
-    this.input = body;
-  }
+            return json;
+        };
 
- const handleClick = () => {
+        const setClickListeners = () => {
+            const clickableElements =
+                document.getElementsByClassName('clickable');
 
-  appendJSON(this.input)
-  console.log(this.input)
-  let out = this.input;
+            Array.from(clickableElements).forEach((element) => {
+                element.onclick = () => {
+                    const node = element.lastChild;
 
-  this.setState({
-    outResult: out
-  })
-}
+                    if (node.style?.display === 'block') {
+                        node.style.display = 'none';
+                        element.classList.toggle('clickable-rotate');
+                    } else {
+                        node.style.display = 'block';
+                        element.classList.toggle('clickable-rotate');
+                    }
+                };
+            });
+        };
 
+        const appendJSON = (valueInput) => {
+            const jsonHTML = jsonToHtml(valueInput);
+            fieldOutResult.innerHTML = jsonHTML;
 
-// button.addEventListener('click', () => appendJSON(fieldInput.value));
+            setClickListeners();
+        };
 
-    return (
-      <div className={classes.wrap}>
-          <div className={classes.sizeBlock}>
-              <label className={classes.subtitle} htmlFor ="text-area">{this.props.state.fieldInputSubtitle}</label>
-              <textarea onChange={this.handleInput} id="text-area" className={classes.textareaInputField}></textarea>
-          </div>
+        const handleInput = (event) => {
+            let body = event.target.value;
+            this.input = body;
+        };
 
-          <button onClick={this.handleClick.bind(this)} className={classes.button} id="text-area-button">{this.props.state.submitButton}</button>
+        const handleClick = () => {
+            appendJSON(this.input);
+            console.log(this.input);
+            let out = this.input;
 
-          <div className={classes.sizeBlock}>
-              <h3 className={classes.subtitle}>{this.props.state.fieldShowSubtitle}</h3>
-              <div className={classes.outputField} id="show-here">{this.props.state.outResult}</div>
-           </div>
-      </div>
-    )
-  }
+            this.setState({
+                outResult: out,
+            });
+        };
+
+        // button.addEventListener('click', () => appendJSON(fieldInput.value));
+
+        return (
+            <div className={classes.wrap}>
+                <div className={classes.sizeBlock}>
+                    <label className={classes.subtitle} htmlFor="text-area">
+                        {this.props.state.fieldInputSubtitle}
+                    </label>
+                    <textarea
+                        onChange={this.handleInputChange}
+                        id="text-area"
+                        className={classes.textareaInputField}
+                    ></textarea>
+                </div>
+
+                <button
+                    onClick={this.handleClick.bind(this)}
+                    className={classes.button}
+                    id="text-area-button"
+                >
+                    {this.props.state.submitButton}
+                </button>
+
+                <div className={classes.sizeBlock}>
+                    <h3 className={classes.subtitle}>
+                        {this.props.state.fieldShowSubtitle}
+                    </h3>
+                    <div className={classes.outputField} id="show-here">
+                        {this.props.state.outResult}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Visualizer;
