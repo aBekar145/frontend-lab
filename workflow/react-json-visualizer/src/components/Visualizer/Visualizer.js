@@ -136,9 +136,9 @@ class Visualizer extends React.Component {
 
         return (
             <div className={classes.wrap}>
-                <Input />
+                <Input handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
 
-                <Button />
+                <Button handleClick={this.handleClick}/>
 
                 <Output />
             </div>

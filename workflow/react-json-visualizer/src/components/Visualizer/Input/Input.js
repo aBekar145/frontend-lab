@@ -9,6 +9,7 @@ function Input(props) {
           Add JSON files:
       </label>
       <textarea
+          onChange={props.handleInputChange}
           id="text-area"
           className={classes.textareaInputField}
       >
