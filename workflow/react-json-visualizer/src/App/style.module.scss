@@ -1,23 +1,4 @@
-$color-orange: rgba(255, 166, 0, 0.89);
-$color-black: #000;
-
-@mixin title {
-  font: {
-      family: 'Open Sans', sans-serif;
-      size: 25px;
-      weight: bold;
-  }
-  color: $color-orange;
-}
-
-@mixin text {
-  font: {
-    family: 'Open Sans', sans-serif;
-    size: 14px;
-    weight: 400;
-  }
-  color: $color-black;
-}
+@import '../variables';
 
 .block {
   display: flex;

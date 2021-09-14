@@ -1,66 +1,5 @@
-$color-black: #000;
-$color-orange: rgba(255, 166, 0, 0.89);
-$color-blue: rgb(18, 18, 247);
-$color-green: #0b850b;
-$color-red: rgb(252, 8, 8);
-$color-white: #fff;
-$color-grey: #5f5d5d;
+@import '../../variables.scss';
 
-$background-color-1: rgb(232, 243, 243);
-$background-color-2: rgb(139, 209, 168);
-$background-color-3: rgb(79, 158, 112);
-
-@mixin title {
-    font: {
-        family: 'Open Sans', sans-serif;
-        size: 25px;
-        weight: bold;
-    }
-    color: $color-orange;
-}
-
-@mixin subtitle {
-    font: {
-      family: 'Open Sans', sans-serif;
-      size: 18px;
-      weight: bold;
-    }
-    color: $color-black;
-}
-
-@mixin text {
-    font: {
-      family: 'Open Sans', sans-serif;
-      size: 14px;
-      weight: 400;
-    }
-    color: $color-black;
-}
-
-@mixin button {
-    font: {
-      family: 'Open Sans', sans-serif;
-      size: 15px;
-      weight: 700;
-    }
-    color: $color-grey;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-// body {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     width: 100%;
-//     padding: 20px;
-//     @include text;
-// }
 
 li {
     margin: 10px 0;
@@ -103,6 +42,7 @@ li {
     padding: 20px;
     width: 100%;
     height: 100%;
+    border: 1px solid $color-black;
 }
 
 .button {
