@@ -1,8 +1,8 @@
 import React from "react";
 
-import classes from './Input.module'
+import classes from './InputField.module'
 
-function Input(props) {
+function InputField(props) {
   return (
     <div className={classes.sizeBlock}>
       <label className={classes.subtitle} htmlFor="text-area">
@@ -18,4 +18,4 @@ function Input(props) {
   )
 }
 
-export default Input;
+export default InputField;

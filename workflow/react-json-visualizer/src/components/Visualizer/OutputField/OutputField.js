@@ -1,8 +1,8 @@
 import React from "react";
 
-import classes from './Output.module';
+import classes from './OutputField.module';
 
-function Output(props) {
+function OutputField(props) {
   return(
     <div className={classes.sizeBlock}>
       <h3 className={classes.subtitle}>
@@ -14,4 +14,4 @@ function Output(props) {
   )
 }
 
-export default Output;
+export default OutputField;

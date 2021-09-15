@@ -4,9 +4,9 @@ import _isObject from 'lodash/isObject';
 import _isArray from 'lodash/isArray';
 import _isString from 'lodash/isString';
 
-import Input from './Input/Input';
+import InputField from './InputField/InputField';
 import Button from './Button/Button';
-import Output from './Output/Output';
+import OutputField from './OutputField/OutputField';
 
 import classes from './Visualizer.module';
 
@@ -136,11 +136,11 @@ class Visualizer extends React.Component {
 
         return (
             <div className={classes.wrap}>
-                <Input handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
+                <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
 
                 <Button handleClick={this.handleClick}/>
 
-                <Output />
+                <OutputField />
             </div>
         );
     }
