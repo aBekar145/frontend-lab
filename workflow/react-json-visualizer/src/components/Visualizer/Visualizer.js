@@ -155,8 +155,6 @@ class Visualizer extends React.Component {
         // };
 
         // button.addEventListener('click', () => appendJSON(fieldInput.value));
-
-     
     }
 }
 
