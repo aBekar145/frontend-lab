@@ -15,7 +15,13 @@ class Visualizer extends React.Component {
         super(props);
         this.state = {
             inputValue: '',
+            number: 1,
+            hasError: false
         };
+    }
+
+    static getDerivedStateFromError(error) {
+        return {hasError: true};
     }
 
     handleInputChange = ({ target }) => {
@@ -32,6 +38,22 @@ class Visualizer extends React.Component {
     };
 
     render() {
+        if (this.state.hasError) {
+            return <h1>Something went wrong!</h1>
+        }else {
+            return (
+                <div className={classes.wrap}>
+    
+                    <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
+    
+                    <Button />
+                    
+                    <OutputField />
+                </div>
+            );
+        }
+
+
         // const fieldInput = this.props.state.input;
         // const fieldOutResult = this.props.state.outResult;
         // const button = this.props.state.submitButton;
@@ -134,15 +156,7 @@ class Visualizer extends React.Component {
 
         // button.addEventListener('click', () => appendJSON(fieldInput.value));
 
-        return (
-            <div className={classes.wrap}>
-                <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
-
-                <Button handleClick={this.handleClick}/>
-
-                <OutputField />
-            </div>
-        );
+     
     }
 }
 
