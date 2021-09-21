@@ -10,13 +10,16 @@ import OutputField from './OutputField/OutputField';
 
 import classes from './Visualizer.module';
 
+export const ValueContext = React.createContext();
+
 class Visualizer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             inputValue: '',
-            number: 1,
-            hasError: false
+            number: 3,
+            hasError: false,
+
         };
     }
 
@@ -43,12 +46,11 @@ class Visualizer extends React.Component {
         }else {
             return (
                 <div className={classes.wrap}>
-    
-                    <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
-    
-                    <Button />
-                    
-                    <OutputField />
+                    <ValueContext.Provider value={this.state}>
+                        <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
+                        <Button />
+                        <OutputField />
+                    </ValueContext.Provider>
                 </div>
             );
         }
