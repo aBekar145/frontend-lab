@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+.inputField {
+    @include inputField;
+    padding: 5px 10px;
+    &:focus {
+        outline: 1px solid $background-color-2;
+    }
+}

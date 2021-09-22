@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Visualizer from '../components/Visualizer/Visualizer';
-
+import CustomTextInput from '../components/CustomTextInput';
 
 import classes from './style.module';
 
@@ -21,6 +21,7 @@ class App extends Component {
                 <SubtitleContext.Provider value={this.state}>
                     <Visualizer />
                 </SubtitleContext.Provider>
+                < CustomTextInput />
             </div>
         );
     }
