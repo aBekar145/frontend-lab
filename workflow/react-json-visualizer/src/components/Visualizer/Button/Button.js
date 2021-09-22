@@ -1,10 +1,8 @@
 import React from "react";
 
-import Label from "./Label";
-
 import classes from './Button.module'
 
-import {ValueContext} from '../../value-context'
+
 
 // class Button extends React.Component {
 //   render() {
@@ -26,11 +24,9 @@ function Button(props) {
           className={classes.button}
           id="text-area-button"
         >
-          <Label />
+          Build tree data
         </button>
   )
 }
-
-Button.contextType = ValueContext;
 
 export default Button;
