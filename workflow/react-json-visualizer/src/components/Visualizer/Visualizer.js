@@ -26,7 +26,6 @@ class Visualizer extends React.Component {
     }
 
     handleInputChange = ({ target }) => {
-        console.log(target.value)
         this.setState({
             inputValue: target.value,
         });
@@ -40,6 +39,7 @@ class Visualizer extends React.Component {
     };
 
     render() {
+        const value = this.state.inputValue;
         if (this.state.hasError) {
             return <h1>Something went wrong!</h1>
         }else {
@@ -47,7 +47,7 @@ class Visualizer extends React.Component {
                 <div className={classes.wrap}>
                     <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
                     <Button />
-                    <OutputField />
+                    <OutputField value={value} />
                 </div>
             );
         }

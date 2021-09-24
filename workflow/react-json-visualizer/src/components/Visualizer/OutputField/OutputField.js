@@ -15,6 +15,7 @@ class OutputField extends React.Component {
           </h3>
           <div className={classes.outputField} id="show-here">
             <Subtitle />
+            {this.props.value}
           </div>
         </div>
       </>

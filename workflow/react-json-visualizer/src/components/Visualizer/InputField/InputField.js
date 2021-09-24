@@ -24,6 +24,7 @@ class InputField extends React.Component {
             Add JSON files:
         </label>
         <textarea
+        onChange={this.props.handleInputChange}
             ref={this.textInput}
             id="text-area"
             className={classes.textareaInputField}
