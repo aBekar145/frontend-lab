@@ -45,3 +45,8 @@ $background-color-3: rgb(79, 158, 112);
     }
     color: $color-grey;
 }
+
+@mixin inputField {
+  padding: 20px;
+  border: 1px solid $color-black;
+}

@@ -1,0 +1,6 @@
+@import '../../../../variables.scss';
+
+.subtitle {
+    @include subtitle;
+    color: $color-orange;
+}
