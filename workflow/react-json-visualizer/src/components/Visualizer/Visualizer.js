@@ -17,7 +17,7 @@ class Visualizer extends React.Component {
         super(props);
         this.state = {
             inputValue: '',
-            hasError: false,
+            outputField: '',
         };
     }
 
@@ -32,22 +32,20 @@ class Visualizer extends React.Component {
     };
 
     handleClick = () => {
-        let out = this.props.input;
         this.setState({
-            outResult: out,
-        });
+            outputField: this.state.inputValue
+        })
     };
 
     render() {
-        const value = this.state.inputValue;
         if (this.state.hasError) {
             return <h1>Something went wrong!</h1>
         }else {
             return (
                 <div className={classes.wrap}>
                     <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
-                    <Button />
-                    <OutputField value={value} />
+                    <Button handleClick={this.handleClick}/>
+                    <OutputField value={this.state.outputField}/>
                 </div>
             );
         }
