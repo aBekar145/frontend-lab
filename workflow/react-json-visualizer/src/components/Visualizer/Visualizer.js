@@ -10,6 +10,8 @@ import OutputField from './OutputField/OutputField';
 
 import classes from './Visualizer.module';
 
+export const InputValueContext = React.createContext();
+
 class Visualizer extends React.Component {
     constructor(props) {
         super(props);
@@ -136,7 +138,10 @@ class Visualizer extends React.Component {
 
         return (
             <div className={classes.wrap}>
-                <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
+                <InputValueContext.Provider value={this.state.inputValue}>
+                    <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
+                </InputValueContext.Provider>
+
 
                 <Button handleClick={this.handleClick}/>
 

@@ -2,6 +2,8 @@ import React from "react";
 
 import classes from './InputField.module'
 
+import {InputValueContext} from '../Visualizer'
+
 function InputField(props) {
   return (
     <div className={classes.sizeBlock}>
