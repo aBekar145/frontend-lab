@@ -26,7 +26,7 @@ class Node extends React.Component {
         return dataObject[key] || dataObject.default;
     };
 
-    setClickListeners = () => {
+    setClickHandler = () => {
         const clickableElements = document.getElementsByClassName('clickable');
         Array.from(clickableElements).forEach((element) => {
             element.onclick = () => {
@@ -47,7 +47,7 @@ class Node extends React.Component {
         return (           
             <div className="node">
             { typeof this.props.value === 'object' && this.props.value !== null
-                ?   <div className="clickable" onClick={this.setClickListeners}>{this.props.keyObject}:<span className={styleClass}>{this.createValueElement(this.props.value)}</span></div> 
+                ?   <div className="clickable" onClick={this.setClickHandler}>{this.props.keyObject}:<span className={styleClass}>{this.createValueElement(this.props.value)}</span></div> 
                 :   <><span>{this.props.keyObject}:</span> <span className={styleClass}>{this.createValueElement(this.props.value)}</span></>  
             }
             </div>
