@@ -1,10 +1,12 @@
 import React from "react";
 
 import Subtitle from "./Subtitle";
+import Node from "./Node"
 
 import classes from './OutputField.module';
 
 class OutputField extends React.Component {
+
 
   render() {
     return(
@@ -15,8 +17,9 @@ class OutputField extends React.Component {
           </h3>
           <div className={classes.outputField} id="show-here">
             <Subtitle />
-            {this.props.value}
+            <Node />
           </div>
+
         </div>
       </>
     )
