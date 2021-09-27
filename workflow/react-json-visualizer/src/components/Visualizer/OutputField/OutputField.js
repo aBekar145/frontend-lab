@@ -8,7 +8,17 @@ import classes from './OutputField.module';
 class OutputField extends React.Component {
   
   createNodeComponents = (object) => {
-    const nodeComponents = Object.entries(object).map(([key, value], index) => <Node key={index} objectKey={key} value={value} />); 
+    const nodeComponents = 
+      Object.entries(object)
+      .map(([key, value], index) => 
+      <Node 
+        index={index}
+        key={index} 
+        keyObject={key} 
+        value={value} 
+        createNodeComponents={this.createNodeComponents} 
+      />); 
+
     return nodeComponents;
   }
 
@@ -17,13 +27,12 @@ class OutputField extends React.Component {
       <>
         <div className={classes.sizeBlock}>
           <h3 className={classes.subtitle}>
-              Output of finished data:
+            Output of finished data:
           </h3>
           <div className={classes.outputField} id="show-here">
             <Subtitle />
             {this.createNodeComponents(this.props.outputField)}
           </div>
-
         </div>
       </>
     )

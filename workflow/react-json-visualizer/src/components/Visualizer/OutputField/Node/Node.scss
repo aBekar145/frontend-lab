@@ -1,0 +1,44 @@
+.clickable::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: -20px;
+    border: 5px solid transparent;
+    border-top: 10px solid rgb(11, 133, 11);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.clickable {
+    position: relative;
+    cursor: pointer;
+}
+
+.clickable-rotate::before {
+    top: 4px;
+    transform: rotate(-90deg);
+}
+
+.node {
+    margin: 10px 0;
+}
+
+.text-color-red {
+    color: rgb(252, 8, 8);
+}
+
+.text-color-green {
+    color: rgb(11, 133, 11);
+}
+
+.text-color-blue {
+    color: rgb(18, 18, 247);
+}
+
+.text-color-orange {
+    color: rgba(255, 166, 0, 0.89);
+}
+
+.text-color-black {
+    color: #000;
+}

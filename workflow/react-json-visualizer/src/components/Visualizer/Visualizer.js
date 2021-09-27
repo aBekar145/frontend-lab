@@ -39,9 +39,9 @@ class Visualizer extends React.Component {
     };
 
     parseInput = (input)=> {
-        let json = {};
-        json = typeof input === 'string' ? JSON.parse(input) : input;
-        return json;
+        let jsonObject = {};
+        jsonObject = typeof input === 'string' ? JSON.parse(input) : input;
+        return jsonObject;
     }
 
     render() {
