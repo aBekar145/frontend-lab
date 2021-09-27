@@ -5,7 +5,7 @@ import './Node';
 class Node extends React.Component {
 
     createValueElement = (value) => {
-        if (typeof value === 'object' && value !== null) {
+        if (typeof value === 'object' && value !== null){
             return this.props.createNodeComponents(value)
         } else {
             return value;
@@ -26,14 +26,30 @@ class Node extends React.Component {
         return dataObject[key] || dataObject.default;
     };
 
+    setClickListeners = () => {
+        const clickableElements = document.getElementsByClassName('clickable');
+        Array.from(clickableElements).forEach((element) => {
+            element.onclick = () => {
+                const node = element.lastChild;
+                if (node.style?.display === 'block') {
+                    node.style.display = 'none';
+                    element.classList.toggle('clickable-rotate');
+                } else {
+                    node.style.display = 'block';
+                    element.classList.toggle('clickable-rotate');
+                }
+            };
+        });
+    };
+
     render() {
         const styleClass = this.getClassByValue(this.props.value);
         return (           
             <div className="node">
-            {(typeof this.props.value === 'object' && this.props.value !== null)  
-                ? <span className="clickable">{this.props.keyObject}:</span> 
-                : <span>{this.props.keyObject}:</span>} 
-                <span className={styleClass}>{this.createValueElement(this.props.value)}</span>
+            { typeof this.props.value === 'object' && this.props.value !== null
+                ?   <div className="clickable" onClick={this.setClickListeners}>{this.props.keyObject}:<span className={styleClass}>{this.createValueElement(this.props.value)}</span></div> 
+                :   <><span>{this.props.keyObject}:</span> <span className={styleClass}>{this.createValueElement(this.props.value)}</span></>  
+            }
             </div>
         )
     }
