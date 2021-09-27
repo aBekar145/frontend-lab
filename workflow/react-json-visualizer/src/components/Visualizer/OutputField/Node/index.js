@@ -6,8 +6,8 @@ class Node extends React.Component {
     render() {
         return(
             <div>
-                <span>Key</span>
-                <span>Value</span>
+                <span>{this.props.objectKey}:</span>&nbsp;
+                <span>{this.props.value}</span>
             </div>
         )
     }

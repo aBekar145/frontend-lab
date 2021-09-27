@@ -6,7 +6,11 @@ import Node from "./Node"
 import classes from './OutputField.module';
 
 class OutputField extends React.Component {
-
+  
+  createNodeComponents = (object) => {
+    const nodeComponents = Object.entries(object).map(([key, value], index) => <Node key={index} objectKey={key} value={value} />); 
+    return nodeComponents;
+  }
 
   render() {
     return(
@@ -17,7 +21,7 @@ class OutputField extends React.Component {
           </h3>
           <div className={classes.outputField} id="show-here">
             <Subtitle />
-            <Node />
+            {this.createNodeComponents(this.props.outputField)}
           </div>
 
         </div>
