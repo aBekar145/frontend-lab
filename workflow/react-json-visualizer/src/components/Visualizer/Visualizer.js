@@ -7,11 +7,9 @@ import _isString from 'lodash/isString';
 import InputField from './InputField/InputField';
 import Button from './Button/Button';
 import OutputField from './OutputField/OutputField';
-import ResetButton from '../ResetButton/ResetButton';
+import ResetButton from './ResetButton/ResetButton';
 
 import classes from './Visualizer.module';
-
-export const InputValueContext = React.createContext();
 
 class Visualizer extends React.Component {
     constructor(props) {
@@ -46,10 +44,11 @@ class Visualizer extends React.Component {
     }
 
     resetStateHandler = () => {
-        this.setState({
-            inputValue: '',
-            outputField: ''
-        })
+        console.log('clicked')
+        // this.setState({
+        //     inputValue: '',
+        //     outputField: ''
+        // })
     }
 
     render() {
