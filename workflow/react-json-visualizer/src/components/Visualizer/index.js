@@ -12,59 +12,61 @@ import ResetButton from './ResetButton';
 import classes from './Visualizer.module';
 
 class Visualizer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputValue: '',
-            outputField: ''
-        };
-    }
-
-    handleInputChange = ({ target }) => {
-        this.setState({
-            inputValue: target.value,
-        });
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: '',
+      outputField: '',
     };
+  }
 
-    handleClick = () => {
-       let jsonObject = this.parseInput(this.state.inputValue);
-       this.setState({
-            outputField: jsonObject
-       })
-    };
+  handleInputChange = ({ target }) => {
+    this.setState({
+      inputValue: target.value,
+    });
+  };
 
-    parseInput = (input) => {
-        let jsonObject = {};
+  handleClick = () => {
+    let jsonObject = this.parseInput(this.state.inputValue);
+    this.setState({
+      outputField: jsonObject,
+    });
+  };
 
-        try {
-            jsonObject = typeof input === 'string' ? JSON.parse(input) : input;
-        } catch (err) {
-            alert(err);
-        }
+  parseInput = (input) => {
+    let jsonObject = {};
 
-        return jsonObject;
+    try {
+      jsonObject = typeof input === 'string' ? JSON.parse(input) : input;
+    } catch (err) {
+      alert(err);
     }
 
-    resetStateHandler = () => {
-        this.setState({
-            inputValue: '',
-            outputField: ''
-        })
-    }
+    return jsonObject;
+  };
 
-    render() {
+  resetStateHandler = () => {
+    this.setState({
+      inputValue: '',
+      outputField: '',
+    });
+  };
 
-        return (
-            <div className={classes.wrap}>
-                <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
-                <div className={classes.buttonsWrapper}>
-                    <Button handleClick={this.handleClick}/>
-                    <ResetButton resetStateHandler={this.resetStateHandler}/>
-                </div>
-                <OutputField outputField={this.state.outputField}/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className={classes.wrap}>
+        <InputField
+          handleInputChange={this.handleInputChange}
+          inputValue={this.state.inputValue}
+        />
+        <div className={classes.buttonsWrapper}>
+          <Button handleClick={this.handleClick} />
+          <ResetButton resetStateHandler={this.resetStateHandler} />
+        </div>
+        <OutputField outputField={this.state.outputField} />
+      </div>
+    );
+  }
 }
 
 export default Visualizer;

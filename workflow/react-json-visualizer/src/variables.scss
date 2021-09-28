@@ -13,39 +13,39 @@ $background-color-4: rgb(224, 122, 122);
 $background-color-5: rgb(236, 71, 71);
 
 @mixin title {
-    font: {
-        family: 'Open Sans', sans-serif;
-        size: 25px;
-        weight: bold;
-    }
-    color: $color-orange;
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 25px;
+    weight: bold;
+  }
+  color: $color-orange;
 }
 
 @mixin subtitle {
-    font: {
-      family: 'Open Sans', sans-serif;
-      size: 18px;
-      weight: bold;
-    }
-    color: $color-black;
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 18px;
+    weight: bold;
+  }
+  color: $color-black;
 }
 
 @mixin text {
-    font: {
-      family: 'Open Sans', sans-serif;
-      size: 14px;
-      weight: 400;
-    }
-    color: $color-black;
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 14px;
+    weight: 400;
+  }
+  color: $color-black;
 }
 
 @mixin button {
-    font: {
-      family: 'Open Sans', sans-serif;
-      size: 15px;
-      weight: 700;
-    }
-    color: $color-grey;
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 15px;
+    weight: 700;
+  }
+  color: $color-grey;
 }
 
 @mixin inputField {

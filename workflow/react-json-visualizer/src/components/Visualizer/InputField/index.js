@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import classes from './InputField.module'
-
+import classes from './InputField.module';
 
 class InputField extends React.Component {
   constructor(props) {
@@ -10,7 +9,7 @@ class InputField extends React.Component {
   }
 
   componentDidMount() {
-    this.focusTextInput()
+    this.focusTextInput();
   }
 
   focusTextInput() {
@@ -21,7 +20,7 @@ class InputField extends React.Component {
     return (
       <div className={classes.sizeBlock}>
         <label className={classes.subtitle} htmlFor="text-area">
-            Add JSON files:
+          Add JSON files:
         </label>
         <textarea
           value={this.props.inputValue}
@@ -31,7 +30,7 @@ class InputField extends React.Component {
           className={classes.textareaInputField}
         />
       </div>
-    )
+    );
   }
 }
 
