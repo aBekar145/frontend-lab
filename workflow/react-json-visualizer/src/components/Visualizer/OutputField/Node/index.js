@@ -68,11 +68,16 @@ class Node extends React.Component {
             <div className="node">
             { typeof this.props.value === 'object' && this.props.value !== null
                 ?   <div>
-                        <span className={`clickable ${this.state.clickableRotate}`} onClick={this.toggleComponents}>{this.props.keyObject}</span>
-                            <span>{this.getValueLength()}</span>:
-                            {this.state.isShowTiles 
-                                ? <span className={styleClass}>{this.createValueElement(this.props.value)}</span> 
-                                : null}</div> 
+                        <span className={`clickable ${this.state.clickableRotate}`} onClick={this.toggleComponents}>
+                            {this.props.keyObject}
+                        </span>
+                            <span>&nbsp;{this.getValueLength()}</span>:
+                                {
+                                    this.state.isShowTiles 
+                                    ? <span className={`${styleClass} nestedNode`}>{this.createValueElement(this.props.value)}</span> 
+                                    : null
+                                }
+                    </div> 
                 :   <><span>{this.props.keyObject}:</span> <span className={styleClass}>{this.createValueElement(this.props.value)}</span></>  
             }
             </div>

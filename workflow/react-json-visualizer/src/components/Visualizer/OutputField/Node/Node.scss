@@ -20,7 +20,8 @@
 }
 
 .node {
-    margin: 10px 0;
+    padding: 0 20px;
+    margin: 5px 0;
 }
 
 .text-color-red {
@@ -41,4 +42,8 @@
 
 .text-color-black {
     color: #000;
+}
+
+.nestedNode {
+    margin-left: 20px;
 }
