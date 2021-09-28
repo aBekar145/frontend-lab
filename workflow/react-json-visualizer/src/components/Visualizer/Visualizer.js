@@ -7,6 +7,7 @@ import _isString from 'lodash/isString';
 import InputField from './InputField/InputField';
 import Button from './Button/Button';
 import OutputField from './OutputField/OutputField';
+import ResetButton from '../ResetButton/ResetButton';
 
 import classes from './Visualizer.module';
 
@@ -17,7 +18,7 @@ class Visualizer extends React.Component {
         super(props);
         this.state = {
             inputValue: '',
-            outputField: '',
+            outputField: ''
         };
     }
 
@@ -38,10 +39,17 @@ class Visualizer extends React.Component {
        })
     };
 
-    parseInput = (input)=> {
+    parseInput = (input) => {
         let jsonObject = {};
         jsonObject = typeof input === 'string' ? JSON.parse(input) : input;
         return jsonObject;
+    }
+
+    resetStateHandler = () => {
+        this.setState({
+            inputValue: '',
+            outputField: ''
+        })
     }
 
     render() {
@@ -51,7 +59,10 @@ class Visualizer extends React.Component {
             return (
                 <div className={classes.wrap}>
                     <InputField handleInputChange={this.handleInputChange} inputValue={this.state.inputValue}/>
-                    <Button handleClick={this.handleClick}/>
+                    <div className={classes.buttonsWrapper}>
+                        <Button handleClick={this.handleClick}/>
+                        <ResetButton resetStatedHandler={this.resetStateHandler}/>
+                    </div>
                     <OutputField outputField={this.state.outputField}/>
                 </div>
             );

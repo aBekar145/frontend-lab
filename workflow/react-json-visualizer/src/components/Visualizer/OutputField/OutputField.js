@@ -1,13 +1,12 @@
 import React from "react";
 
-import Subtitle from "./Subtitle";
 import Node from "./Node"
 
 import classes from './OutputField.module';
 
 class OutputField extends React.Component {
   
-  createNodeComponents = (object) => {
+  createNodeComponents = (object, length) => {
     const nodeComponents = 
       Object.entries(object)
       .map(([key, value], index) => 
@@ -17,6 +16,7 @@ class OutputField extends React.Component {
         keyObject={key} 
         value={value} 
         createNodeComponents={this.createNodeComponents} 
+        lengthObject={length}
       />); 
 
     return nodeComponents;
@@ -30,7 +30,6 @@ class OutputField extends React.Component {
             Output of finished data:
           </h3>
           <div className={classes.outputField} id="show-here">
-            <Subtitle />
             {this.createNodeComponents(this.props.outputField)}
           </div>
         </div>

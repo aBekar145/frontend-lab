@@ -3,10 +3,20 @@ import React from "react";
 import './Node';
 
 class Node extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShowTiles: true,
+            clickableRotate: ''
+        }
+    }
 
     createValueElement = (value) => {
         if (typeof value === 'object' && value !== null){
-            return this.props.createNodeComponents(value)
+            const lengthObject = Array.isArray(value)
+                ? `[${value.length}]`
+                : `{${Object.keys(value).length}}`
+            return this.props.createNodeComponents(value, lengthObject)
         } else {
             return `${value}`;
         }
@@ -26,28 +36,28 @@ class Node extends React.Component {
         return dataObject[key] || dataObject.default;
     };
 
-    setClickHandler = () => {
-        const clickableElements = document.getElementsByClassName('clickable');
-        Array.from(clickableElements).forEach((element) => {
-            element.onclick = () => {
-                const node = element.lastChild;
-                if (node.style?.display === 'block') {
-                    node.style.display = 'none';
-                    element.classList.toggle('clickable-rotate');
-                } else {
-                    node.style.display = 'block';
-                    element.classList.toggle('clickable-rotate');
-                }
-            };
-        });
-    };
+    toggleComponents = () => {
+        let changedClass = '';
+        this.state.clickableRotate === ''
+            ? changedClass = 'clickable-rotate' 
+            : changedClass = ''
+        this.setState({
+            isShowTiles: !this.state.isShowTiles,
+            clickableRotate: changedClass
+        })
+    } 
 
     render() {
         const styleClass = this.getClassByValue(this.props.value);
         return (           
             <div className="node">
             { typeof this.props.value === 'object' && this.props.value !== null
-                ?   <div className="clickable" onClick={this.setClickHandler}>{this.props.keyObject}:<span className={styleClass}>{this.createValueElement(this.props.value)}</span></div> 
+                ?   <div className={`clickable ${this.state.clickableRotate}`} onClick={this.toggleComponents}>
+                        {this.props.keyObject}
+                            <span>{this.props.lengthObject}</span>:
+                            {this.state.isShowTiles 
+                                ? <span className={styleClass}>{this.createValueElement(this.props.value)}</span> 
+                                : null}</div> 
                 :   <><span>{this.props.keyObject}:</span> <span className={styleClass}>{this.createValueElement(this.props.value)}</span></>  
             }
             </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Visualizer from '../components/Visualizer/Visualizer';
-import MouseTracker from '../components/MouseTracker';
 
 import classes from './style.module';
 
@@ -21,7 +20,6 @@ class App extends Component {
                 <SubtitleContext.Provider value={this.state}>
                     <Visualizer />
                 </SubtitleContext.Provider>
-                <MouseTracker />
             </div>
         );
     }

@@ -53,3 +53,8 @@ li {
 .text-color-black {
     color: $color-black;
 }
+
+.buttonsWrapper {
+    display: flex;
+    flex-direction: column;
+}
