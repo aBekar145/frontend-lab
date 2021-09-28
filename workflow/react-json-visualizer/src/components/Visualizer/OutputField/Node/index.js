@@ -8,7 +8,7 @@ class Node extends React.Component {
         if (typeof value === 'object' && value !== null){
             return this.props.createNodeComponents(value)
         } else {
-            return value;
+            return `${value}`;
         }
     }
 
