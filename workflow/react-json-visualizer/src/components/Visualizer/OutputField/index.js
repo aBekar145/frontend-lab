@@ -6,7 +6,7 @@ import classes from './OutputField.module';
 
 class OutputField extends React.Component {
   
-  createNodeComponents = (object, length) => {
+  createNodeComponents = (object) => {
     const nodeComponents = 
       Object.entries(object)
       .map(([key, value], index) => 
@@ -16,7 +16,6 @@ class OutputField extends React.Component {
         keyObject={key} 
         value={value} 
         createNodeComponents={this.createNodeComponents} 
-        lengthObject={length}
       />); 
 
     return nodeComponents;

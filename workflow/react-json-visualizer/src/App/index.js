@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Visualizer from '../components/Visualizer/Visualizer';
+import Visualizer from '../components/Visualizer';
 
 import classes from './style.module';
 

@@ -9,11 +9,11 @@ class InputField extends React.Component {
     this.textInput = React.createRef();
   }
 
-  focusTextInput() {
-    this.textInput.current.focus();
+  componentDidMount() {
+    this.focusTextInput()
   }
 
-  componentDidMount() {
+  focusTextInput() {
     this.textInput.current.focus();
   }
 
@@ -24,10 +24,11 @@ class InputField extends React.Component {
             Add JSON files:
         </label>
         <textarea
-        onChange={this.props.handleInputChange}
-            ref={this.textInput}
-            id="text-area"
-            className={classes.textareaInputField}
+          value={this.props.inputValue}
+          onChange={this.props.handleInputChange}
+          ref={this.textInput}
+          id="text-area"
+          className={classes.textareaInputField}
         />
       </div>
     )

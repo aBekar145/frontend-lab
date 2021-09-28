@@ -7,16 +7,21 @@ class Node extends React.Component {
         super(props);
         this.state = {
             isShowTiles: true,
-            clickableRotate: ''
+            clickableRotate: '',
+            isValueObject: true
         }
     }
 
+    // componentWillReceiveProps(prevProps) {
+    //     console.log(prevProps.value);
+    //     this.setState({
+    //         isValueObject: typeof prevProps.value === 'object' && prevProps.value !== null
+    //     })
+    // }
+
     createValueElement = (value) => {
         if (typeof value === 'object' && value !== null){
-            const lengthObject = Array.isArray(value)
-                ? `[${value.length}]`
-                : `{${Object.keys(value).length}}`
-            return this.props.createNodeComponents(value, lengthObject)
+            return this.props.createNodeComponents(value)
         } else {
             return `${value}`;
         }
@@ -47,14 +52,24 @@ class Node extends React.Component {
         })
     } 
 
+    getValueLength = () => {
+        const {value} = this.props;
+        if (typeof value === 'object' && value !== null) {
+            return Array.isArray(value)
+                ? `[${value.length}]`
+                : `{${Object.keys(value).length}}`
+        } 
+        return '';
+    }
+
     render() {
         const styleClass = this.getClassByValue(this.props.value);
         return (           
             <div className="node">
             { typeof this.props.value === 'object' && this.props.value !== null
-                ?   <div className={`clickable ${this.state.clickableRotate}`} onClick={this.toggleComponents}>
-                        {this.props.keyObject}
-                            <span>{this.props.lengthObject}</span>:
+                ?   <div>
+                        <span className={`clickable ${this.state.clickableRotate}`} onClick={this.toggleComponents}>{this.props.keyObject}</span>
+                            <span>{this.getValueLength()}</span>:
                             {this.state.isShowTiles 
                                 ? <span className={styleClass}>{this.createValueElement(this.props.value)}</span> 
                                 : null}</div> 
