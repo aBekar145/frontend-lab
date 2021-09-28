@@ -6,10 +6,10 @@ import classes from './OutputField.module';
 
 class OutputField extends React.Component {
   createNodeComponents = (object) => {
+    const number = Math.floor(Math.random() * 100);
     const nodeComponents = Object.entries(object).map(([key, value], index) => (
       <Node
-        index={index}
-        key={index}
+        key={`ddd${number}`}
         keyObject={key}
         value={value}
         createNodeComponents={this.createNodeComponents}
@@ -24,7 +24,7 @@ class OutputField extends React.Component {
       <>
         <div className={classes.sizeBlock}>
           <h3 className={classes.subtitle}>Output of finished data:</h3>
-          <div className={classes.outputField} id="show-here">
+          <div className={classes.outputField}>
             {this.createNodeComponents(this.props.outputField)}
           </div>
         </div>
