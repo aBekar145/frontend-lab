@@ -4,7 +4,7 @@ const withClass = (Component, className) => {
   return (props) => {
     return (
       <section className={className}>
-        <Component />
+        <Component {...props} />
       </section>
     );
   };

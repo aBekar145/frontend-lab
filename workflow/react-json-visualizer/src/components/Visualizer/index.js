@@ -8,7 +8,7 @@ import InputField from './InputField';
 import Button from './Button';
 import OutputField from './OutputField';
 import ResetButton from './ResetButton';
-import withClass from '../hoc/withClass';
+import withClass from '../../helpers/hoc/withClass';
 
 import classes from './Visualizer.module';
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Visualizer from '../components/Visualizer';
+import Example from '../components/HooksComponents';
 
 import classes from './style.module';
 
@@ -18,7 +19,8 @@ class App extends Component {
       <div className={classes.block}>
         <h1 className={classes.title}>JSON Editor</h1>
         <SubtitleContext.Provider value={this.state}>
-          <Visualizer />
+          <Visualizer ааааа="eee" />
+          <Example />
         </SubtitleContext.Provider>
       </div>
     );
