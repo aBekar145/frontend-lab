@@ -8,6 +8,7 @@ import InputField from './InputField';
 import Button from './Button';
 import OutputField from './OutputField';
 import ResetButton from './ResetButton';
+import withClass from '../hoc/withClass';
 
 import classes from './Visualizer.module';
 
@@ -54,7 +55,7 @@ class Visualizer extends React.Component {
 
   render() {
     return (
-      <div className={classes.wrap}>
+      <>
         <InputField
           handleInputChange={this.handleInputChange}
           inputValue={this.state.inputValue}
@@ -64,9 +65,9 @@ class Visualizer extends React.Component {
           <ResetButton resetStateHandler={this.resetStateHandler} />
         </div>
         <OutputField outputField={this.state.outputField} />
-      </div>
+      </>
     );
   }
 }
 
-export default Visualizer;
+export default withClass(Visualizer, classes.wrap);
