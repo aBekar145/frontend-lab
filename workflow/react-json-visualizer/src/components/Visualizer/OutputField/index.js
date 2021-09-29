@@ -7,12 +7,13 @@ import classes from './OutputField.module';
 class OutputField extends React.Component {
   generateKey = (pre) => {
     let key = `${pre}_${new Date().getTime()}`;
+    console.log(key);
     return key;
   };
 
   createNodeComponents = (object) => {
     const number = Math.floor(Math.random() * 100);
-    const nodeComponents = Object.entries(object).map(([key, value], index) => (
+    const nodeComponents = Object.entries(object).map(([key, value]) => (
       <Node
         key={this.generateKey(key)}
         keyObject={key}

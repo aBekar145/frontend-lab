@@ -22,6 +22,7 @@ class InputField extends React.Component {
         <label className={classes.subtitle} htmlFor="text-area">
           Add JSON files:
         </label>
+
         <textarea
           value={this.props.inputValue}
           onChange={this.props.handleInputChange}
