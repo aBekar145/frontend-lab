@@ -6,8 +6,7 @@ class Node extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShowTiles: true,
-      clickableRotate: '',
+      isValueShown: true,
       isValueObject: true,
     };
   }
@@ -42,13 +41,8 @@ class Node extends React.Component {
   };
 
   toggleComponents = () => {
-    let changedClass = '';
-    this.state.clickableRotate === ''
-      ? (changedClass = 'clickable-rotate')
-      : (changedClass = '');
     this.setState({
-      isShowTiles: !this.state.isShowTiles,
-      clickableRotate: changedClass,
+      isValueShown: !this.state.isValueShown,
     });
   };
 
@@ -64,22 +58,30 @@ class Node extends React.Component {
 
   render() {
     const styleClass = this.getClassByValue(this.props.value);
+    let nestedNode;
+    let clickableRotate = '';
+    if (this.state.isValueShown) {
+      clickableRotate = 'clickable-rotate';
+      nestedNode = (
+        <span className={`${styleClass} nestedNode`}>
+          {this.createValueElement(this.props.value)}
+        </span>
+      );
+    } else {
+      nestedNode = null;
+    }
+
     return (
       <div className="node">
         {typeof this.props.value === 'object' && this.props.value !== null ? (
           <div>
             <span
-              className={`clickable ${this.state.clickableRotate}`}
+              className={`clickable ${clickableRotate}`}
               onClick={this.toggleComponents}
             >
               {this.props.keyObject}
             </span>
-            <span>&nbsp;{this.getValueLength()}</span>:
-            {this.state.isShowTiles ? (
-              <span className={`${styleClass} nestedNode`}>
-                {this.createValueElement(this.props.value)}
-              </span>
-            ) : null}
+            <span>&nbsp;{this.getValueLength()}</span>:{nestedNode}
           </div>
         ) : (
           <>

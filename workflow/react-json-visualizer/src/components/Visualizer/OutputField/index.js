@@ -5,11 +5,16 @@ import Node from './Node';
 import classes from './OutputField.module';
 
 class OutputField extends React.Component {
+  generateKey = (pre) => {
+    let key = `${pre}_${new Date().getTime()}`;
+    return key;
+  };
+
   createNodeComponents = (object) => {
     const number = Math.floor(Math.random() * 100);
     const nodeComponents = Object.entries(object).map(([key, value], index) => (
       <Node
-        key={`ddd${number}`}
+        key={this.generateKey(key)}
         keyObject={key}
         value={value}
         createNodeComponents={this.createNodeComponents}
