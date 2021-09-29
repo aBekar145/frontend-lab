@@ -11,15 +11,20 @@ class Node extends React.Component {
     };
   }
 
-  // componentWillReceiveProps(prevProps) {
-  //     console.log(prevProps.value);
-  //     this.setState({
-  //         isValueObject: typeof prevProps.value === 'object' && prevProps.value !== null
-  //     })
-  // }
+  static getDerivedStateFromProps(props) {
+    if (typeof props.value === 'object' && props.value !== null) {
+      return {
+        isValueObject: true,
+      };
+    } else {
+      return {
+        isValueObject: false,
+      };
+    }
+  }
 
   createValueElement = (value) => {
-    if (typeof value === 'object' && value !== null) {
+    if (this.state.isValueObject) {
       return this.props.createNodeComponents(value);
     } else {
       return `${value}`;
@@ -48,7 +53,8 @@ class Node extends React.Component {
 
   getValueLength = () => {
     const { value } = this.props;
-    if (typeof value === 'object' && value !== null) {
+
+    if (this.state.isValueObject) {
       return Array.isArray(value)
         ? `[${value.length}]`
         : `{${Object.keys(value).length}}`;
@@ -60,20 +66,21 @@ class Node extends React.Component {
     const styleClass = this.getClassByValue(this.props.value);
     let nestedNode;
     let clickableRotate = '';
+
     if (this.state.isValueShown) {
-      clickableRotate = 'clickable-rotate';
       nestedNode = (
         <span className={`${styleClass} nestedNode`}>
           {this.createValueElement(this.props.value)}
         </span>
       );
     } else {
+      clickableRotate = 'clickable-rotate';
       nestedNode = null;
     }
 
     return (
       <div className="node">
-        {typeof this.props.value === 'object' && this.props.value !== null ? (
+        {this.state.isValueObject ? (
           <div>
             <span
               className={`clickable ${clickableRotate}`}
