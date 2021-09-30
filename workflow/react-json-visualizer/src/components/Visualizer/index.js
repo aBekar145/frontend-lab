@@ -12,64 +12,6 @@ import withClass from '../../helpers/hoc/withClass';
 
 import classes from './Visualizer.module';
 
-// class Visualizer extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       inputValue: '',
-//       outputField: '',
-//     };
-//   }
-
-//   handleInputChange = ({ target }) => {
-//     this.setState({
-//       inputValue: target.value,
-//     });
-//   };
-
-//   handleClick = () => {
-//     let jsonObject = this.parseInput(this.state.inputValue);
-//     this.setState({
-//       outputField: jsonObject,
-//     });
-//   };
-
-//   parseInput = (input) => {
-//     let jsonObject = {};
-
-//     try {
-//       jsonObject = typeof input === 'string' ? JSON.parse(input) : input;
-//     } catch (err) {
-//       alert(err);
-//     }
-
-//     return jsonObject;
-//   };
-
-//   resetStateHandler = () => {
-//     this.setState({
-//       inputValue: '',
-//       outputField: '',
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <InputField
-//           handleInputChange={this.handleInputChange}
-//           inputValue={this.state.inputValue}
-//         />
-//         <div className={classes.buttonsWrapper}>
-//           <Button handleClick={this.handleClick} />
-//           <ResetButton resetStateHandler={this.resetStateHandler} />
-//         </div>
-//         <OutputField outputField={this.state.outputField} />
-//       </>
-//     );
-//   }
-// }
-
 const Visualizer = (props) => {
   const [inputValue, setInputValue] = useState('');
   const [outputField, setOutputField] = useState('');

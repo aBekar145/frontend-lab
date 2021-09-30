@@ -1,37 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Node';
 
-class Node extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isValueShown: true,
-      isValueObject: true,
-    };
-  }
+const Node = (props) => {
+  const [isValueShown, setIsValueShown] = useState(true);
+  const [isValueObject, setisValueObject] = useState(true);
 
-  static getDerivedStateFromProps(props) {
+  //   static getDerivedStateFromProps(props) {
+  //     if (typeof props.value === 'object' && props.value !== null) {
+  //       return {
+  //         isValueObject: true,
+  //       };
+  //     } else {
+  //       return {
+  //         isValueObject: false,
+  //       };
+  //     }
+  //   }
+
+  const createValueElement = (value) => {
     if (typeof props.value === 'object' && props.value !== null) {
-      return {
-        isValueObject: true,
-      };
-    } else {
-      return {
-        isValueObject: false,
-      };
-    }
-  }
-
-  createValueElement = (value) => {
-    if (this.state.isValueObject) {
-      return this.props.createNodeComponents(value);
+      return props.createNodeComponents(value);
     } else {
       return `${value}`;
     }
   };
 
-  getClassByValue = (value) => {
+  const getClassByValue = (value) => {
     const typeValue = typeof value;
     const key = value === null ? value : typeValue;
     const dataObject = {
@@ -45,16 +40,14 @@ class Node extends React.Component {
     return dataObject[key] || dataObject.default;
   };
 
-  toggleComponents = () => {
-    this.setState({
-      isValueShown: !this.state.isValueShown,
-    });
+  const toggleComponents = () => {
+    setIsValueShown(!isValueShown);
   };
 
-  getValueLength = () => {
-    const { value } = this.props;
+  const getValueLength = () => {
+    const { value } = props;
 
-    if (this.state.isValueObject) {
+    if (typeof props.value === 'object' && props.value !== null) {
       return Array.isArray(value)
         ? `[${value.length}]`
         : `{${Object.keys(value).length}}`;
@@ -62,45 +55,41 @@ class Node extends React.Component {
     return '';
   };
 
-  render() {
-    const styleClass = this.getClassByValue(this.props.value);
-    let nestedNode;
-    let clickableRotate = '';
+  const styleClass = getClassByValue(props.value);
+  let nestedNode;
+  let clickableRotate = '';
 
-    if (this.state.isValueShown) {
-      nestedNode = (
-        <span className={`${styleClass} nestedNode`}>
-          {this.createValueElement(this.props.value)}
-        </span>
-      );
-    } else {
-      clickableRotate = 'clickable-rotate';
-      nestedNode = null;
-    }
-
-    return (
-      <div className="node">
-        {this.state.isValueObject ? (
-          <div>
-            <span
-              className={`clickable ${clickableRotate}`}
-              onClick={this.toggleComponents}
-            >
-              {this.props.keyObject}
-            </span>
-            <span>&nbsp;{this.getValueLength()}</span>:{nestedNode}
-          </div>
-        ) : (
-          <>
-            <span>{this.props.keyObject}:</span>{' '}
-            <span className={styleClass}>
-              {this.createValueElement(this.props.value)}
-            </span>
-          </>
-        )}
-      </div>
+  if (isValueShown) {
+    nestedNode = (
+      <span className={`${styleClass} nestedNode`}>
+        {createValueElement(props.value)}
+      </span>
     );
+  } else {
+    clickableRotate = 'clickable-rotate';
+    nestedNode = null;
   }
-}
+
+  return (
+    <div className="node">
+      {typeof props.value === 'object' && props.value !== null ? (
+        <div>
+          <span
+            className={`clickable ${clickableRotate}`}
+            onClick={toggleComponents}
+          >
+            {props.keyObject}
+          </span>
+          <span>&nbsp;{getValueLength()}</span>:{nestedNode}
+        </div>
+      ) : (
+        <>
+          <span>{props.keyObject}:</span>{' '}
+          <span className={styleClass}>{createValueElement(props.value)}</span>
+        </>
+      )}
+    </div>
+  );
+};
 
 export default Node;
