@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Button.module';
 
-function Button(props) {
+const Button = (props) => {
   return (
     <button
       onClick={props.handleClick}
@@ -12,6 +12,6 @@ function Button(props) {
       Build tree data
     </button>
   );
-}
+};
 
 export default Button;

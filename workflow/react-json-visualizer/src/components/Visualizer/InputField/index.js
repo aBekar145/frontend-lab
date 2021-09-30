@@ -1,38 +1,29 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classes from './InputField.module';
 
-class InputField extends React.Component {
-  constructor(props) {
-    super(props);
-    this.textInput = React.createRef();
-  }
+const InputField = (props) => {
+  const textInput = useRef();
 
-  componentDidMount() {
-    this.focusTextInput();
-  }
+  useEffect(() => {
+    textInput.current.focus();
+  }, []);
 
-  focusTextInput() {
-    this.textInput.current.focus();
-  }
+  return (
+    <div className={classes.sizeBlock}>
+      <label className={classes.subtitle} htmlFor="text-area">
+        Add JSON files:
+      </label>
 
-  render() {
-    return (
-      <div className={classes.sizeBlock}>
-        <label className={classes.subtitle} htmlFor="text-area">
-          Add JSON files:
-        </label>
-
-        <textarea
-          value={this.props.inputValue}
-          onChange={this.props.handleInputChange}
-          ref={this.textInput}
-          id="text-area"
-          className={classes.textareaInputField}
-        />
-      </div>
-    );
-  }
-}
+      <textarea
+        value={props.inputValue}
+        onChange={props.handleInputChange}
+        ref={textInput}
+        id="text-area"
+        className={classes.textareaInputField}
+      />
+    </div>
+  );
+};
 
 export default InputField;
