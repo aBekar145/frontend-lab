@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 import './Node';
 
-const Node = (props) => {
+const Node = ({ value, keyObject, createNodeComponents}) => {
   const [isValueShown, setIsValueShown] = useState(true);
   const [isValueObject, setisValueObject] = useState(true);
 
   //   static getDerivedStateFromProps(props) {
-  //     if (typeof props.value === 'object' && props.value !== null) {
+  //     if (typeof value === 'object' && value !== null) {
   //       return {
   //         isValueObject: true,
   //       };
@@ -19,8 +19,8 @@ const Node = (props) => {
   //   }
 
   const createValueElement = (value) => {
-    if (typeof props.value === 'object' && props.value !== null) {
-      return props.createNodeComponents(value);
+    if (typeof value === 'object' && value !== null) {
+      return createNodeComponents(value);
     } else {
       return `${value}`;
     }
@@ -45,9 +45,8 @@ const Node = (props) => {
   };
 
   const getValueLength = () => {
-    const { value } = props;
 
-    if (typeof props.value === 'object' && props.value !== null) {
+    if (typeof value === 'object' && value !== null) {
       return Array.isArray(value)
         ? `[${value.length}]`
         : `{${Object.keys(value).length}}`;
@@ -55,14 +54,14 @@ const Node = (props) => {
     return '';
   };
 
-  const styleClass = getClassByValue(props.value);
+  const styleClass = getClassByValue(value);
   let nestedNode;
   let clickableRotate = '';
 
   if (isValueShown) {
     nestedNode = (
       <span className={`${styleClass} nestedNode`}>
-        {createValueElement(props.value)}
+        {createValueElement(value)}
       </span>
     );
   } else {
@@ -72,20 +71,20 @@ const Node = (props) => {
 
   return (
     <div className="node">
-      {typeof props.value === 'object' && props.value !== null ? (
+      {typeof value === 'object' && value !== null ? (
         <div>
           <span
             className={`clickable ${clickableRotate}`}
             onClick={toggleComponents}
           >
-            {props.keyObject}
+            {keyObject}
           </span>
           <span>&nbsp;{getValueLength()}</span>:{nestedNode}
         </div>
       ) : (
         <>
-          <span>{props.keyObject}:</span>{' '}
-          <span className={styleClass}>{createValueElement(props.value)}</span>
+          <span>{keyObject}:</span>{' '}
+          <span className={styleClass}>{createValueElement(value)}</span>
         </>
       )}
     </div>
