@@ -4,23 +4,14 @@ import './Node';
 
 const Node = ({ value, keyObject, createNodeComponents }) => {
   const [isValueShown, setIsValueShown] = useState(true);
-  const [isValueObject, setisValueObject] = useState(null);
+  const [isValueObject, setIsValueObject] = useState(null);
 
   useEffect(() => {
-    if (typeof value === 'object' && value !== null) {
-      return setisValueObject(true);
-    } else {
-      return setisValueObject(false);
-    }
+    setIsValueObject(typeof value === 'object' && value !== null);
   }, [value]);
 
-  const createValueElement = (value) => {
-    if (isValueObject) {
-      return createNodeComponents(value);
-    } else {
-      return `${value}`;
-    }
-  };
+  const createValueElement = (value) =>
+    isValueObject ? createNodeComponents(value) : `${value}`;
 
   const getClassByValue = (value) => {
     const typeValue = typeof value;
