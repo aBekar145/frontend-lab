@@ -4,18 +4,18 @@ import './Node';
 
 const Node = ({ value, keyObject, createNodeComponents }) => {
   const [isValueShown, setIsValueShown] = useState(true);
-  const [isValueObject, setisValueObject] = useState(true);
+  const [isValueObject, setisValueObject] = useState(null);
 
   useEffect(() => {
     if (typeof value === 'object' && value !== null) {
-      setisValueObject(true);
+      return setisValueObject(true);
     } else {
-      setisValueObject(false);
+      return setisValueObject(false);
     }
   }, [value]);
 
   const createValueElement = (value) => {
-    if (typeof value === 'object' && value !== null) {
+    if (isValueObject) {
       return createNodeComponents(value);
     } else {
       return `${value}`;
@@ -41,7 +41,7 @@ const Node = ({ value, keyObject, createNodeComponents }) => {
   };
 
   const getValueLength = () => {
-    if (typeof value === 'object' && value !== null) {
+    if (isValueObject) {
       return Array.isArray(value)
         ? `[${value.length}]`
         : `{${Object.keys(value).length}}`;
