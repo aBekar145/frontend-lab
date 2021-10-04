@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Node';
 
-const Node = ({ value, keyObject, createNodeComponents}) => {
+const Node = ({ value, keyObject, createNodeComponents }) => {
   const [isValueShown, setIsValueShown] = useState(true);
   const [isValueObject, setisValueObject] = useState(true);
 
-  //   static getDerivedStateFromProps(props) {
-  //     if (typeof value === 'object' && value !== null) {
-  //       return {
-  //         isValueObject: true,
-  //       };
-  //     } else {
-  //       return {
-  //         isValueObject: false,
-  //       };
-  //     }
-  //   }
+  useEffect(() => {
+    if (typeof value === 'object' && value !== null) {
+      setisValueObject(true);
+    } else {
+      setisValueObject(false);
+    }
+  }, [value]);
 
   const createValueElement = (value) => {
     if (typeof value === 'object' && value !== null) {
@@ -45,7 +41,6 @@ const Node = ({ value, keyObject, createNodeComponents}) => {
   };
 
   const getValueLength = () => {
-
     if (typeof value === 'object' && value !== null) {
       return Array.isArray(value)
         ? `[${value.length}]`
@@ -71,7 +66,7 @@ const Node = ({ value, keyObject, createNodeComponents}) => {
 
   return (
     <div className="node">
-      {typeof value === 'object' && value !== null ? (
+      {isValueObject ? (
         <div>
           <span
             className={`clickable ${clickableRotate}`}
