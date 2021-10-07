@@ -1,0 +1,54 @@
+$color-black: #000;
+$color-orange: rgba(255, 166, 0, 0.89);
+$color-blue: rgb(18, 18, 247);
+$color-green: #0b850b;
+$color-red: rgb(252, 8, 8);
+$color-white: #fff;
+$color-grey: #5f5d5d;
+
+$background-color-1: rgb(232, 243, 243);
+$background-color-2: rgb(139, 209, 168);
+$background-color-3: rgb(79, 158, 112);
+$background-color-4: rgb(224, 122, 122);
+$background-color-5: rgb(236, 71, 71);
+
+@mixin title {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 25px;
+    weight: bold;
+  }
+  color: $color-orange;
+}
+
+@mixin subtitle {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 18px;
+    weight: bold;
+  }
+  color: $color-black;
+}
+
+@mixin text {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 14px;
+    weight: 400;
+  }
+  color: $color-black;
+}
+
+@mixin button {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 15px;
+    weight: 700;
+  }
+  color: $color-grey;
+}
+
+@mixin inputField {
+  padding: 20px;
+  border: 1px solid $color-black;
+}

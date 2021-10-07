@@ -1,0 +1,18 @@
+@import '../variables';
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  @include text;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 25px;
+  text-transform: uppercase;
+  @include title;
+}
