@@ -25,8 +25,10 @@ class CurrentTime extends React.Component {
     render() {
         return (
             <div className={classes.wrapper}>
-                <h1>Current Time!</h1>
-                <h2>{this.state.date.toLocaleTimeString()}</h2>
+                <h1 className={classes.title}>Current Time!</h1>
+                <h2 className={classes.time}>
+                    {this.state.date.toLocaleTimeString()}
+                </h2>
             </div>
         );
     }
