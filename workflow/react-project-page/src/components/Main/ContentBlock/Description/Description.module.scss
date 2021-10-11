@@ -1,0 +1,11 @@
+@import '../../../../variables.scss';
+
+.wrap {
+  padding: 20px;
+  width: 540px;
+  text-align: center;
+}
+
+.text {
+  @include descriptionContent;
+}

@@ -21,22 +21,23 @@ $quicksand-fonts: 'Quicksand', sans-serif;
   color: $color-white;
 }
 
-@mixin title {
+@mixin mainTitle {
   font: {
-    family: 'Roboto', sans-serif;
-    size: 40px;
-    weight: bold;
+    family: $rochester-fonts;
+    size: 6.25rem;
+    weight: 400;
   }
-  color: $color-orange;
+  color: $color-green;
 }
 
-@mixin timeBlock {
+@mixin descriptionContent {
   font: {
-    family: 'Roboto', sans-serif;
-    size: 55px;
-    weight: bold;
+    family: $asap-fonts;
+    size: 2rem;
+    weight: 400;
   }
-  color: $color-gold;
+  line-height: 2.3125rem;
+  color: $color-green-dark;
 }
 
 @mixin button {

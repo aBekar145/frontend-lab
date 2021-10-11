@@ -6,12 +6,12 @@ import StartButton from './StartButton';
 
 const Header = () => {
   return (
-    <div className={classes.wrapper}>
+    <header className={classes.header}>
       <div className={classes.contextWrapper}>
         <MainLogo />
         <StartButton />
       </div>
-    </div>
+    </header>
   );
 };
 

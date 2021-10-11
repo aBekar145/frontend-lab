@@ -1,11 +1,15 @@
 import React from 'react';
 
-import classes from './Main.module';
+import MainTitle from './MainTitle';
+import ContentBlock from './ContentBlock';
+
+import classes from './Main.module.scss';
 
 const Main = () => {
   return (
-    <main>
-      <h2>Main</h2>
+    <main className={classes.main}>
+      <MainTitle />
+      <ContentBlock />
     </main>
   );
 };
