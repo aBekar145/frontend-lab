@@ -1,11 +1,16 @@
 @import '../../../../variables.scss';
 
 .wrap {
+  margin-right: 60px;
   padding: 20px;
-  width: 540px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 .text {
+  margin-bottom: 20px;
   @include descriptionContent;
 }

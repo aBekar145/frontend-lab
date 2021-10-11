@@ -8,8 +8,10 @@ import classes from './Main.module.scss';
 const Main = () => {
   return (
     <main className={classes.main}>
-      <MainTitle />
-      <ContentBlock />
+      <div className={classes.wrapper}>
+        <MainTitle />
+        <ContentBlock />
+      </div>
     </main>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Description from './Description/Description';
-import Images from './Images';
+import Image from './Image';
 
 import classes from './ConstentBlock.module';
 
@@ -9,7 +9,7 @@ const ContentBlock = () => {
   return (
     <div className={classes.contentBlock}>
       <Description />
-      <Images />
+      <Image />
     </div>
   );
 };

@@ -1,14 +1,16 @@
 import React from 'react';
 
-const Images = () => {
+import classes from './Image.module.scss';
+
+const Image = () => {
   return (
     <div>
       <div>
-        <img src="../../../../assets/images/main-coctail-img.png" />
+        <div className={classes.bakcroundImage}></div>
       </div>
       <p>Press on glass to get a random cocktail</p>
     </div>
   );
 };
 
-export default Images;
+export default Image;
