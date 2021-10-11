@@ -1,0 +1,25 @@
+$color-grey: #5f5d5d;
+$color-black: #000;
+$color-orange: rgba(255, 166, 0, 0.89);
+$color-white: #fff;
+$color-gold: #ffd700;
+
+$background-color-1: rgb(232, 243, 243);
+
+@mixin title {
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 35px;
+    weight: bold;
+  }
+  color: $color-orange;
+}
+
+@mixin timeBlock {
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 55px;
+    weight: bold;
+  }
+  color: $color-gold;
+}
