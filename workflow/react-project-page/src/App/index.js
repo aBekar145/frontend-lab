@@ -7,7 +7,7 @@ import classes from './App.module';
 
 const App = () => {
   return (
-    <div classes={classes.layout}>
+    <div className={classes.layout}>
       <Header />
       <Main />
     </div>

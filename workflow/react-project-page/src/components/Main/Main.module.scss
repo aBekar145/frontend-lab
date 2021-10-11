@@ -3,6 +3,7 @@
 .main {
   padding: 60px 169px 120px 100px;
   display: flex;
+  flex: 1;
   background-color: $background-color-main;
 }
 
@@ -12,4 +13,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  .main {
+    padding: 40px 20px;
+  }
 }

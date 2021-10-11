@@ -14,3 +14,54 @@
   margin-bottom: 20px;
   @include descriptionContent;
 }
+
+@media screen and (max-width: 1200px) {
+  .text {
+    margin-bottom: 20px;
+    @include descriptionContent;
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .text {
+    margin-bottom: 15px;
+    @include descriptionContent;
+    font-size: 1.5rem;
+  }
+  .wrap {
+    margin-right: 40px;
+    max-width: 340px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+    margin-bottom: 20px;
+    @include descriptionContent;
+    font-size: 0.9rem;
+    line-height: 1.6125rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .text {
+    margin-bottom: 20px;
+    @include descriptionContent;
+    font-size: 0.8rem;
+    line-height: 1.3125rem;
+  }
+  .wrap {
+    margin-right: 20px;
+    max-width: 240px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .text {
+    margin-bottom: 20px;
+    @include descriptionContent;
+    font-size: 0.6rem;
+    line-height: 1rem;
+  }
+}

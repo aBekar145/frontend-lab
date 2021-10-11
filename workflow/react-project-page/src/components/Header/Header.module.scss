@@ -6,10 +6,15 @@
 }
 
 .contextWrapper {
-  padding: 10px;
   margin: 0 auto;
   max-width: 1360px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 5px 10px;
+  }
 }

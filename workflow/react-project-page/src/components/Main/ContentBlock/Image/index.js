@@ -5,10 +5,11 @@ import classes from './Image.module.scss';
 const Image = () => {
   return (
     <div>
-      <div>
-        <div className={classes.bakcroundImage}></div>
+      <div className={classes.bakcroundImage}>
+        <p className={classes.textNote}>
+          Press on glass to get a random cocktail
+        </p>
       </div>
-      <p>Press on glass to get a random cocktail</p>
     </div>
   );
 };

@@ -4,3 +4,20 @@
   margin-left: 7px;
   @include textLogo;
 }
+
+.svg {
+  width: 45px;
+  height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .textLogo {
+    margin-left: 3px;
+    @include textLogo;
+    font-size: 1.5rem;
+  }
+  .svg {
+    width: 35px;
+    height: 30px;
+  }
+}
