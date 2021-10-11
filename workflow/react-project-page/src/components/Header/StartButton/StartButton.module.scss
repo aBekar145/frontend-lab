@@ -4,6 +4,13 @@
   @include button;
 }
 
+.button:hover {
+  cursor: pointer;
+  color: $color-grey-dark;
+  border-color: $color-green-dark;
+  transition-duration: 0.5s;
+}
+
 @media screen and (max-width: 768px) {
   .button {
     @include button;
