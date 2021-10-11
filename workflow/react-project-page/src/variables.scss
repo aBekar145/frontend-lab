@@ -1,0 +1,55 @@
+$color-green: #4caf50;
+$color-green-dark: #1b5e20;
+$color-white: #fff;
+$color-grey: #cdd6cf;
+$color-grey-dark: #555555;
+
+$background-color-header: #4caf50;
+$background-color-main: #cdd6cf;
+
+$rochester-fonts: 'Rochester', cursive;
+$asap-fonts: 'Asap', Arial, sans-serif;
+$quicksand-fonts: 'Quicksand', sans-serif;
+
+@mixin textLogo {
+  font: {
+    family: $rochester-fonts;
+    size: 2.5rem;
+    weight: 400;
+  }
+  line-height: 3.25rem;
+  color: $color-white;
+}
+
+@mixin title {
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 40px;
+    weight: bold;
+  }
+  color: $color-orange;
+}
+
+@mixin timeBlock {
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 55px;
+    weight: bold;
+  }
+  color: $color-gold;
+}
+
+@mixin button {
+  font: {
+    family: $asap-fonts;
+    size: 1rem;
+    weight: 400;
+  }
+  line-height: 1.125rem;
+  padding: 16px 10px;
+  color: $color-white;
+  background: $background-color-header;
+  border: 1px solid $color-grey;
+  border-radius: 10px;
+  cursor: pointer;
+}

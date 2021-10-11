@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.wrapper {
+  padding: 10px;
+  background-color: $background-color-header;
+}
+
+.contextWrapper {
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 1360px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
