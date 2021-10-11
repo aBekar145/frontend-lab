@@ -7,19 +7,19 @@ $color-gold: #ffd700;
 $background-color-1: rgb(232, 243, 243);
 
 @mixin title {
-    font: {
-        family: 'Roboto', sans-serif;
-        size: 40px;
-        weight: bold;
-    }
-    color: $color-orange;
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 35px;
+    weight: bold;
+  }
+  color: $color-orange;
 }
 
 @mixin timeBlock {
-    font: {
-        family: 'Roboto', sans-serif;
-        size: 55px;
-        weight: bold;
-    }
-    color: $color-gold;
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 55px;
+    weight: bold;
+  }
+  color: $color-gold;
 }
