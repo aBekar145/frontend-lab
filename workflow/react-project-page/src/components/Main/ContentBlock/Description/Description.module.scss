@@ -15,61 +15,36 @@
   @include descriptionContent;
 }
 
-.container {
-  // color: #999;
-  // text-transform: uppercase;
-  // font-size: 36px;
-  // font-weight: bold;
-  // padding-top: 200px;
-  // position: fixed;
-  // width: 100%;
-  // bottom: 45%;
-  // display: block;
-}
-
 .flip {
   height: 150px;
   overflow: hidden;
-  border: 1px solid black;
 }
 
-// .flip > p {
-//   color: #fff;
-//   // padding: 4px 12px;
-//   height: 150px;
-//   // margin-bottom: 45px;
-//   display: inline-block;
-//   border: 3px solid black;
-// }
-
 .flip div:first-child {
-  animation: show 10s infinite;
+  animation: show 5s infinite;
 }
 
 @keyframes show {
   0% {
-    margin-top: -270px;
-  }
-  5% {
-    margin-top: -180px;
+    margin-top: -250px;
   }
   33% {
-    margin-top: -180px;
+    margin-top: -190px;
   }
-  38% {
-    margin-top: -90px;
+  50% {
+    margin-top: -150px;
   }
-  66% {
-    margin-top: -90px;
+  60% {
+    margin-top: -100px;
   }
   71% {
-    margin-top: 0px;
+    margin-top: -70px;
   }
   99.99% {
     margin-top: 0px;
   }
   100% {
-    margin-top: -270px;
+    margin-top: -250px;
   }
 }
 
