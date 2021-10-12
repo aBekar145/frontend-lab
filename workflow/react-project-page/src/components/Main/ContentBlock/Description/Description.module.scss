@@ -86,6 +86,9 @@
     margin-right: 20px;
     max-width: 240px;
   }
+  .flip {
+    height: 80px;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -93,5 +96,8 @@
     @include descriptionContent;
     font-size: 0.6rem;
     line-height: 1rem;
+  }
+  .flip {
+    height: 50px;
   }
 }

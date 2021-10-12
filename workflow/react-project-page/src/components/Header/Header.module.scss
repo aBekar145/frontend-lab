@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .header {
-  padding: 10px;
+  padding: 10px 20px;
   background-color: $background-color-header;
 }
 
@@ -15,6 +15,6 @@
 
 @media screen and (max-width: 768px) {
   .header {
-    padding: 5px 10px;
+    padding: 10px 15px;
   }
 }

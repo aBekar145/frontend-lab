@@ -9,5 +9,9 @@
   font-size: 1.625rem;
   i {
     color: $color-grey;
+    &:hover {
+      color: $color-grey-dark;
+      transition: 0.5s;
+    }
   }
 }

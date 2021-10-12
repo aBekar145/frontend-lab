@@ -13,7 +13,7 @@ const Drawer = ({ isToggleDrawer, onClose }) => {
   return (
     <React.Fragment>
       <div className={stuleclass.join(' ')}>
-        <DrawerHeader />
+        <DrawerHeader onClick={onClose} />
       </div>
       {isToggleDrawer ? <Backdrop onClick={onClose} /> : null}
     </React.Fragment>
