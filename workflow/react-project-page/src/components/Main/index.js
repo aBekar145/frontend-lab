@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import MainTitle from './MainTitle';
 import ContentBlock from './ContentBlock';
+import ContentModule from './ContentModal';
 
 import classes from './Main.module.scss';
-import ContentModule from './ContentModal';
 
 const Main = () => {
   const [isToggleDrawer, setIsToggleDrawer] = useState(false);
@@ -16,6 +16,7 @@ const Main = () => {
   const isCloseHandler = () => {
     setIsToggleDrawer(false);
   };
+
   return (
     <main className={classes.main}>
       <div className={classes.wrapper}>

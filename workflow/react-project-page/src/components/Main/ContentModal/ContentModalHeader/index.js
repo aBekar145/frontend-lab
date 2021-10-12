@@ -1,4 +1,5 @@
 import React from 'react';
+
 import CloseButton from './CloseButton';
 
 import classes from './ContentModalHeader.module.scss';
