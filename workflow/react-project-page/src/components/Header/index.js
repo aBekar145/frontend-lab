@@ -7,17 +7,22 @@ import StartButton from './StartButton';
 import classes from './Header.module';
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isToggleDrawer, setIsToggleDrawer] = useState(false);
 
   const handleButton = () => {
-    setIsOpen(!isOpen);
+    setIsToggleDrawer(!isToggleDrawer);
   };
+
+  const drawerCloseHandler = () => {
+    setIsToggleDrawer(false);
+  };
+
   return (
     <header className={classes.header}>
       <div className={classes.contextWrapper}>
         <MainLogo />
         <StartButton handleButton={handleButton} />
-        <Drawer isOpen={isOpen} />
+        <Drawer isToggleDrawer={isToggleDrawer} onClose={drawerCloseHandler} />
       </div>
     </header>
   );

@@ -31,6 +31,16 @@ $quicksand-fonts: 'Quicksand', sans-serif;
   color: $color-green;
 }
 
+@mixin subTitle {
+  font: {
+    family: $quicksand-fonts;
+    size: 2rem;
+    weight: 400;
+  }
+  line-height: 2.5rem;
+  color: $color-grey;
+}
+
 @mixin descriptionContent {
   font: {
     family: $asap-fonts;

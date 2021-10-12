@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 
-import classes from './Drawer.module';
+import Backdrop from '../../UI/Backdrop';
 
-const Drawer = ({ isOpen }) => {
-  const cls = [classes.wrap];
-  if (!isOpen) {
-    cls.push(classes.close);
+import classes from './Drawer.module';
+import DrawerHeader from './DrawerHeader';
+
+const Drawer = ({ isToggleDrawer, onClose }) => {
+  const stuleclass = [classes.wrap];
+  if (!isToggleDrawer) {
+    stuleclass.push(classes.close);
   }
-  return <div className={cls.join(' ')}>Drawer</div>;
+  return (
+    <React.Fragment>
+      <div className={stuleclass.join(' ')}>
+        <DrawerHeader onClick={onClose} />
+      </div>
+      {isToggleDrawer ? <Backdrop onClick={onClose} /> : null}
+    </React.Fragment>
+  );
 };
 
 export default Drawer;
