@@ -11,7 +11,7 @@
 }
 
 .text {
-  margin-top: 25px;
+  margin-top: 40px;
   @include descriptionContent;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .flip div:first-child {
-  animation: show 5s infinite;
+  animation: show 5s linear infinite alternate;
 }
 
 @keyframes show {
@@ -29,16 +29,16 @@
     margin-top: -250px;
   }
   33% {
-    margin-top: -190px;
+    margin-top: -200px;
   }
   50% {
-    margin-top: -150px;
+    margin-top: -180px;
   }
   60% {
-    margin-top: -100px;
+    margin-top: -150px;
   }
   71% {
-    margin-top: -70px;
+    margin-top: -100px;
   }
   99.99% {
     margin-top: 0px;
@@ -50,7 +50,7 @@
 
 @media screen and (max-width: 1200px) {
   .text {
-    margin-bottom: 20px;
+    margin-top: 20px;
     @include descriptionContent;
     font-size: 1.7rem;
   }
@@ -58,7 +58,7 @@
 
 @media screen and (max-width: 992px) {
   .text {
-    margin-bottom: 15px;
+    margin-top: 15px;
     @include descriptionContent;
     font-size: 1.5rem;
   }
@@ -70,7 +70,6 @@
 
 @media screen and (max-width: 768px) {
   .text {
-    margin-bottom: 20px;
     @include descriptionContent;
     font-size: 0.9rem;
     line-height: 1.6125rem;
@@ -79,7 +78,6 @@
 
 @media screen and (max-width: 500px) {
   .text {
-    margin-bottom: 20px;
     @include descriptionContent;
     font-size: 0.8rem;
     line-height: 1.3125rem;
@@ -92,7 +90,6 @@
 
 @media screen and (max-width: 350px) {
   .text {
-    margin-bottom: 20px;
     @include descriptionContent;
     font-size: 0.6rem;
     line-height: 1rem;
