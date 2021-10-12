@@ -6,6 +6,10 @@
   height: 598px;
   background: url(../../../../assets/images/main-coctail-img.png) center/cover
     no-repeat;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 12px 12px 2px 1px #4cc56ae0;
+  }
 }
 
 .textNote {

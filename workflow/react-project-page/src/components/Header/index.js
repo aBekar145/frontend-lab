@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import classes from './Header.module';
+import Drawer from './Drawer';
 import MainLogo from './MainLogo';
 import StartButton from './StartButton';
 
+import classes from './Header.module';
+
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleButton = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <header className={classes.header}>
       <div className={classes.contextWrapper}>
         <MainLogo />
-        <StartButton />
+        <StartButton handleButton={handleButton} />
+        <Drawer isOpen={isOpen} />
       </div>
     </header>
   );
