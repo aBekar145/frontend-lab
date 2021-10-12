@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import Backdrop from '../../UI/Backdrop';
-import DrawerHeader from './DrawerHeader';
 
-import classes from './Drawer.module';
+import classes from './ContentModal.module.scss';
+import ContentModalHeader from './ContentModalHeader';
 
-const Drawer = ({ isToggleDrawer, onClose }) => {
+const ContentModule = ({ isToggleDrawer, onClick, onClose }) => {
   const stuleclass = [classes.wrap];
   if (!isToggleDrawer) {
     stuleclass.push(classes.close);
@@ -13,11 +12,11 @@ const Drawer = ({ isToggleDrawer, onClose }) => {
   return (
     <React.Fragment>
       <div className={stuleclass.join(' ')}>
-        <DrawerHeader />
+        <ContentModalHeader isToggleDrawer={isToggleDrawer} onClick={onClick} />
       </div>
       {isToggleDrawer ? <Backdrop onClick={onClose} /> : null}
     </React.Fragment>
   );
 };
 
-export default Drawer;
+export default ContentModule;

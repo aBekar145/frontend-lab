@@ -1,0 +1,46 @@
+@import '../../../variables.scss';
+
+.wrap {
+  margin-left: -300px;
+  margin-top: -354.5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 709px;
+  background: $background-color-modalWindow;
+  transform: translateY(0px);
+  transition: transform 0.22s ease-in;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.wrap.close {
+  transform: translateY(-1000px);
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    margin-left: -200px;
+    margin-top: -250px;
+    width: 400px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrap {
+    margin-left: -125px;
+    margin-top: -175px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 350px;
+    background: $background-color-modalWindow;
+    transform: translateY(0px);
+    transition: transform 0.22s ease-in;
+    z-index: 10;
+    border-radius: 10px;
+  }
+}

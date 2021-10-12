@@ -5,11 +5,11 @@ import Image from './Image';
 
 import classes from './ConstentBlock.module';
 
-const ContentBlock = () => {
+const ContentBlock = ({ handleButton }) => {
   return (
     <div className={classes.contentBlock}>
       <Description />
-      <Image />
+      <Image handleButton={handleButton} />
     </div>
   );
 };
