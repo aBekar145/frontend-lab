@@ -1,8 +1,8 @@
 import React from 'react';
 
-import classes from './Image.module.scss';
+import classes from './ImagedButton.module.scss';
 
-const Image = ({ handleButton }) => {
+const ImagedButton = ({ handleButton }) => {
   return (
     <div>
       <div onClick={handleButton} className={classes.bakcroundImage}>
@@ -14,4 +14,4 @@ const Image = ({ handleButton }) => {
   );
 };
 
-export default Image;
+export default ImagedButton;

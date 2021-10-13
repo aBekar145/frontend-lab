@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Description from './Description/Description';
-import Image from './Image';
+import Description from './Description';
+import ImagedButton from './ImagedButton';
 
 import classes from './ContentBlock.module';
 
@@ -9,7 +9,7 @@ const ContentBlock = ({ handleButton }) => {
   return (
     <div className={classes.contentBlock}>
       <Description />
-      <Image handleButton={handleButton} />
+      <ImagedButton handleButton={handleButton} />
     </div>
   );
 };

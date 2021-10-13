@@ -1,8 +1,8 @@
 import React from 'react';
 
-import classes from './StartButton.module';
+import classes from './AuthorizationButton.module';
 
-const StartButton = ({ handleButton }) => {
+const AuthorizationButton = ({ handleButton }) => {
   return (
     <>
       <button onClick={handleButton} className={classes.button}>
@@ -12,4 +12,4 @@ const StartButton = ({ handleButton }) => {
   );
 };
 
-export default StartButton;
+export default AuthorizationButton;

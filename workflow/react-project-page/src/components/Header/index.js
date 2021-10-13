@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import MainLogo from './MainLogo';
-import StartButton from './StartButton';
+import AuthorizationButton from './AuthorizationButton';
 import AuthenticationModal from '../modalComponents/AuthenticationModal';
 
 import classes from './Header.module';
@@ -21,7 +21,7 @@ const Header = () => {
     <header className={classes.header}>
       <div className={classes.contextWrapper}>
         <MainLogo />
-        <StartButton handleButton={handleButton} />
+        <AuthorizationButton handleButton={handleButton} />
         <AuthenticationModal
           closeModal={closeModal}
           isShown={isAuthModalOpened}
