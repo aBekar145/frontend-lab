@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Backdrop from './Backdrop';
-import CommonModalHeader from './CommonModalHeader';
 
 import classes from './CommonModal.module';
 
-const CommonModal = ({ closeModal, isShown, title }) => {
-  const stuleclass = [classes.wrap];
-
-  if (!isShown) {
-    stuleclass.push(classes.close);
-  }
+const CommonModal = ({ closeModal, isShown, children }) => {
+  const toggleClassName = isShown ? classes.displayBlock : classes.displayNone;
 
   return (
     <React.Fragment>
-      <div className={stuleclass.join(' ')}>
-        <CommonModalHeader onClick={closeModal} title={title} />
-      </div>
+      <div className={classes.wrap + ' ' + toggleClassName}>{children}</div>
       {isShown ? <Backdrop onClick={closeModal} /> : null}
     </React.Fragment>
   );

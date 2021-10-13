@@ -19,6 +19,14 @@
   transform: translateY(-3000px);
 }
 
+.displayBlock {
+  display: block;
+}
+
+.displayNone {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .wrap {
     margin-left: -200px;

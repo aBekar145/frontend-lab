@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 
 import MainTitle from './MainTitle';
 import ContentBlock from './ContentBlock';
-import ContentModule from './ContentModal';
-
-import classes from './Main.module.scss';
 import CardModal from '../modalComponents/CardModal';
 
+import classes from './Main.module.scss';
+
 const Main = () => {
-  const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
+  const [isCardModalOpened, setIsCardModalOpened] = useState(false);
 
   const handleButton = () => {
-    setIsAuthModalOpened(!isAuthModalOpened);
+    setIsCardModalOpened(!isCardModalOpened);
   };
 
   const closeModal = () => {
-    setIsAuthModalOpened(false);
+    setIsCardModalOpened(false);
   };
 
   return (
@@ -23,7 +22,7 @@ const Main = () => {
       <div className={classes.wrapper}>
         <MainTitle />
         <ContentBlock handleButton={handleButton} />
-        <CardModal closeModal={closeModal} isShown={isAuthModalOpened} />
+        <CardModal closeModal={closeModal} isShown={isCardModalOpened} />
       </div>
     </main>
   );
