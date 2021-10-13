@@ -1,11 +1,9 @@
 import React from 'react';
 
-import DrawerHeader from './DrawerHeader';
-
 import classes from './Drawer.module';
-import Backdrop from '../../commonComponents/Backdrop';
+import Backdrop from '../Backdrop';
 
-const Drawer = ({ isToggleDrawer, onClose }) => {
+const CommonModal = ({ isToggleDrawer, onClose }) => {
   const stuleclass = [classes.wrap];
 
   if (!isToggleDrawer) {
@@ -15,11 +13,11 @@ const Drawer = ({ isToggleDrawer, onClose }) => {
   return (
     <React.Fragment>
       <div className={stuleclass.join(' ')}>
-        <DrawerHeader onClick={onClose} />
+        <CommonModalHeader onClick={onClose} />
       </div>
       {isToggleDrawer ? <Backdrop onClick={onClose} /> : null}
     </React.Fragment>
   );
 };
 
-export default Drawer;
+export default CommonModal;

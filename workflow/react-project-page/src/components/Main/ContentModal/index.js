@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Backdrop from '../../UI/Backdrop';
 import ContentModalHeader from './ContentModalHeader';
 
 import classes from './ContentModal.module.scss';
+import Backdrop from '../../commonComponents/Backdrop';
 
 const ContentModule = ({ isToggleDrawer, onClose }) => {
   const stuleclass = [classes.wrap];
