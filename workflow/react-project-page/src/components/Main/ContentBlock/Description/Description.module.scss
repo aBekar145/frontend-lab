@@ -17,11 +17,11 @@
 
 .flip {
   height: 150px;
-  overflow: hidden;
+  filter: blur(0.2px);
 }
 
 .flip div:first-child {
-  animation: show 5s linear infinite alternate;
+  animation: show 5s linear infinite;
 }
 
 @keyframes show {
@@ -77,27 +77,8 @@
 }
 
 @media screen and (max-width: 500px) {
-  .text {
-    @include descriptionContent;
-    font-size: 0.8rem;
-    line-height: 1.3125rem;
-  }
   .wrap {
-    margin-right: 20px;
-    max-width: 240px;
-  }
-  .flip {
-    height: 80px;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .text {
-    @include descriptionContent;
-    font-size: 0.6rem;
-    line-height: 1rem;
-  }
-  .flip {
-    height: 50px;
+    margin-right: 0;
+    max-width: 350px;
   }
 }

@@ -83,20 +83,16 @@
 
 @media screen and (max-width: 500px) {
   .bakcroundImage {
-    width: 73px;
-    height: 98px;
-    background: url(../../../../assets/images/main-coctail-img.png) center/cover
-      no-repeat;
+    margin-bottom: 80px;
   }
 
   .textNote {
     position: absolute;
     bottom: -10px;
     right: -20px;
-    width: 80px;
+    width: 150px;
     @include textNote;
-    font-size: 0.5rem;
-    line-height: 0.6rem;
-    width: 100px;
+    font-size: 0.9rem;
+    line-height: 1rem;
   }
 }

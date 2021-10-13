@@ -2,8 +2,8 @@
 
 .main {
   padding: 60px 169px 120px 100px;
+  min-height: 100vh;
   display: flex;
-  flex: 1;
   background-color: $background-color-main;
 }
 

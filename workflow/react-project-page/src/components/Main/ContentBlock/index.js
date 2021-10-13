@@ -3,7 +3,7 @@ import React from 'react';
 import Description from './Description/Description';
 import Image from './Image';
 
-import classes from './ConstentBlock.module';
+import classes from './ContentBlock.module';
 
 const ContentBlock = ({ handleButton }) => {
   return (
