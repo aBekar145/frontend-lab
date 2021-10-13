@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CommonModal from '../components/commonComponents/CommonModal';
 
 import Header from '../components/Header';
 import Main from '../components/Main';
@@ -10,6 +11,7 @@ const App = () => {
     <div className={classes.layout}>
       <Header />
       <Main />
+      <CommonModal />
     </div>
   );
 };

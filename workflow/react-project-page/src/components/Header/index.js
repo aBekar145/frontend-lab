@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 
-import Drawer from './Drawer';
 import MainLogo from './MainLogo';
 import StartButton from './StartButton';
 
 import classes from './Header.module';
+import AuthenticationModal from '../modalComponents/AuthenticationModal';
 
 const Header = () => {
-  const [isToggleDrawer, setIsToggleDrawer] = useState(false);
+  const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
 
   const handleButton = () => {
-    setIsToggleDrawer(!isToggleDrawer);
+    setIsAuthModalOpened(!isAuthModalOpened);
   };
 
-  const drawerCloseHandler = () => {
-    setIsToggleDrawer(false);
+  const closeModal = () => {
+    setIsAuthModalOpened(false);
   };
 
   return (
@@ -22,7 +22,10 @@ const Header = () => {
       <div className={classes.contextWrapper}>
         <MainLogo />
         <StartButton handleButton={handleButton} />
-        <Drawer isToggleDrawer={isToggleDrawer} onClose={drawerCloseHandler} />
+        <AuthenticationModal
+          closeModal={closeModal}
+          isShown={isAuthModalOpened}
+        />
       </div>
     </header>
   );

@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import classes from './Drawer.module';
-import Backdrop from '../Backdrop';
+import Backdrop from './Backdrop';
+import CommonModalHeader from './CommonModalHeader';
 
-const CommonModal = ({ isToggleDrawer, onClose }) => {
+import classes from './CommonModal.module';
+
+const CommonModal = ({ closeModal, isShown, title }) => {
   const stuleclass = [classes.wrap];
 
-  if (!isToggleDrawer) {
+  if (!isShown) {
     stuleclass.push(classes.close);
   }
 
   return (
     <React.Fragment>
       <div className={stuleclass.join(' ')}>
-        <CommonModalHeader onClick={onClose} />
+        <CommonModalHeader onClick={closeModal} title={title} />
       </div>
-      {isToggleDrawer ? <Backdrop onClick={onClose} /> : null}
+      {isShown ? <Backdrop onClick={closeModal} /> : null}
     </React.Fragment>
   );
 };

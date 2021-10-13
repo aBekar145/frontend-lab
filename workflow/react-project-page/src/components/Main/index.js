@@ -5,16 +5,17 @@ import ContentBlock from './ContentBlock';
 import ContentModule from './ContentModal';
 
 import classes from './Main.module.scss';
+import CardModal from '../modalComponents/CardModal';
 
 const Main = () => {
-  const [isToggleDrawer, setIsToggleDrawer] = useState(false);
+  const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
 
   const handleButton = () => {
-    setIsToggleDrawer(!isToggleDrawer);
+    setIsAuthModalOpened(!isAuthModalOpened);
   };
 
-  const isCloseHandler = () => {
-    setIsToggleDrawer(false);
+  const closeModal = () => {
+    setIsAuthModalOpened(false);
   };
 
   return (
@@ -22,10 +23,7 @@ const Main = () => {
       <div className={classes.wrapper}>
         <MainTitle />
         <ContentBlock handleButton={handleButton} />
-        <ContentModule
-          isToggleDrawer={isToggleDrawer}
-          onClose={isCloseHandler}
-        />
+        <CardModal closeModal={closeModal} isShown={isAuthModalOpened} />
       </div>
     </main>
   );

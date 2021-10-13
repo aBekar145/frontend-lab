@@ -4,13 +4,13 @@ import CloseButton from './CloseButton';
 
 import classes from './CommonModalHeader.module.scss';
 
-const DrawerHeader = ({ onClick }) => {
+const CommonModalHeader = ({ onClick, title }) => {
   return (
     <div className={classes.wrapper}>
-      <h2 className={classes.subtitle}>Authentication</h2>
+      <h2 className={classes.subtitle}>{title}</h2>
       <CloseButton onClick={onClick} />
     </div>
   );
 };
 
-export default DrawerHeader;
+export default CommonModalHeader;
