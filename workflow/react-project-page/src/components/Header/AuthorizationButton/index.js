@@ -2,10 +2,10 @@ import React from 'react';
 
 import classes from './AuthorizationButton.module';
 
-const AuthorizationButton = ({ handleButton }) => {
+const AuthorizationButton = ({ openAuthModal }) => {
   return (
     <>
-      <button onClick={handleButton} className={classes.button}>
+      <button onClick={openAuthModal} className={classes.button}>
         Get Started
       </button>
     </>

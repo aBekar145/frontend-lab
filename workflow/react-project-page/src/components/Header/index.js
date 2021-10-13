@@ -9,7 +9,7 @@ import classes from './Header.module';
 const Header = () => {
   const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
 
-  const handleButton = () => {
+  const openAuthModal = () => {
     setIsAuthModalOpened(!isAuthModalOpened);
   };
 
@@ -21,7 +21,7 @@ const Header = () => {
     <header className={classes.header}>
       <div className={classes.contextWrapper}>
         <MainLogo />
-        <AuthorizationButton handleButton={handleButton} />
+        <AuthorizationButton openAuthModal={openAuthModal} />
         <AuthenticationModal
           closeModal={closeModal}
           isShown={isAuthModalOpened}

@@ -9,7 +9,7 @@ import classes from './Main.module.scss';
 const Main = () => {
   const [isCardModalOpened, setIsCardModalOpened] = useState(false);
 
-  const handleButton = () => {
+  const openCardModal = () => {
     setIsCardModalOpened(!isCardModalOpened);
   };
 
@@ -21,7 +21,7 @@ const Main = () => {
     <main className={classes.main}>
       <div className={classes.wrapper}>
         <MainTitle />
-        <ContentBlock handleButton={handleButton} />
+        <ContentBlock openCardModal={openCardModal} />
         <CardModal closeModal={closeModal} isShown={isCardModalOpened} />
       </div>
     </main>

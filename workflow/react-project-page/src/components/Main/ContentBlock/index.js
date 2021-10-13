@@ -5,11 +5,11 @@ import ImagedButton from './ImagedButton';
 
 import classes from './ContentBlock.module';
 
-const ContentBlock = ({ handleButton }) => {
+const ContentBlock = ({ openCardModal }) => {
   return (
     <div className={classes.contentBlock}>
       <Description />
-      <ImagedButton handleButton={handleButton} />
+      <ImagedButton openCardModal={openCardModal} />
     </div>
   );
 };

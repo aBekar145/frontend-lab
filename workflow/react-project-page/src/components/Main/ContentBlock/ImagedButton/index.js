@@ -2,10 +2,10 @@ import React from 'react';
 
 import classes from './ImagedButton.module.scss';
 
-const ImagedButton = ({ handleButton }) => {
+const ImagedButton = ({ openCardModal }) => {
   return (
     <div>
-      <div onClick={handleButton} className={classes.bakcroundImage}>
+      <div onClick={openCardModal} className={classes.bakcroundImage}>
         <p className={classes.textNote}>
           Press on glass to get a random cocktail
         </p>
