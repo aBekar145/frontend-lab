@@ -1,11 +1,13 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import classes from './CloseButton.module.scss';
 
 const CloseButton = ({ onClick }) => {
   return (
     <button onClick={onClick} className={classes.button}>
-      <i className="fas fa-times icon"></i>
+      <FontAwesomeIcon className={classes.icon} icon={faTimes} />
     </button>
   );
 };

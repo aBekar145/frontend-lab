@@ -5,9 +5,14 @@
   @include textLogo;
 }
 
-.svg {
-  width: 45px;
-  height: 40px;
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 2.2rem;
+  color: $color-white;
 }
 
 @media screen and (max-width: 768px) {
@@ -16,8 +21,7 @@
     @include textLogo;
     font-size: 1.5rem;
   }
-  .svg {
-    width: 35px;
-    height: 30px;
+  .icon {
+    font-size: 1.5rem;
   }
 }
