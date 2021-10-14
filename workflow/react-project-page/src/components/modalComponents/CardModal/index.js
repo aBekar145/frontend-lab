@@ -1,7 +1,6 @@
 import React from 'react';
 
 import CommonModal from '../../commonComponents/CommonModal';
-import CardModalHeader from './CardModalHeader';
 
 const CardModal = ({ closeModal, isShown }) => {
   return (
@@ -11,11 +10,7 @@ const CardModal = ({ closeModal, isShown }) => {
         closeModal={closeModal}
         isShown={isShown}
       >
-        <CardModalHeader
-          Coctail
-          title="Random Coctail"
-          closeModal={closeModal}
-        />
+        <h3>Content Random Coctail Modal</h3>
       </CommonModal>
     </>
   );

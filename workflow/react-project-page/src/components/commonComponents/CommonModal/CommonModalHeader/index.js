@@ -2,9 +2,9 @@ import React from 'react';
 
 import CloseButton from './CloseButton';
 
-import classes from './AuthenticationModalHeader.module.scss';
+import classes from './CommonModalHeader.module.scss';
 
-const AuthenticationModalHeader = ({ closeModal, title }) => {
+const CommonModalHeader = ({ closeModal, title }) => {
   return (
     <div className={classes.wrapper}>
       <h2 className={classes.subtitle}>{title}</h2>
@@ -13,4 +13,4 @@ const AuthenticationModalHeader = ({ closeModal, title }) => {
   );
 };
 
-export default AuthenticationModalHeader;
+export default CommonModalHeader;

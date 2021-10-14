@@ -1,12 +1,15 @@
 import React from 'react';
 
 import CommonModal from '../../commonComponents/CommonModal';
-import CommonModalHeader from './AuthenticationModalHeader';
 
 const AuthenticationModal = ({ closeModal, isShown }) => {
   return (
-    <CommonModal closeModal={closeModal} isShown={isShown}>
-      <CommonModalHeader title="Authentication" closeModal={closeModal} />
+    <CommonModal
+      closeModal={closeModal}
+      isShown={isShown}
+      title="Authentication"
+    >
+      <h3>Content Authentication Modal</h3>
     </CommonModal>
   );
 };
