@@ -12,9 +12,9 @@ const Portal = ({ children }) => {
       templateElement.id = 'modal-root';
       document.body.append(templateElement);
       modalRoot = templateElement;
-    } else {
-      modalRoot.appendChild(modalContainer);
     }
+
+    modalRoot.appendChild(modalContainer);
 
     return function cleanup() {
       modalRoot.removeChild(modalContainer);
