@@ -1,11 +1,12 @@
 import React from 'react';
+import styleClasses from 'classnames';
 
 import classes from './Description.module.scss';
 
 const Description = () => {
   return (
     <div className={classes.container}>
-      <div className={classes.wrap + ' ' + classes.flip}>
+      <div className={styleClasses(classes.wrap, classes.flip)}>
         <div className={classes.text}>
           Everybody should believe in something I believe I’ll have another
           drink.
