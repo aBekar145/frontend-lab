@@ -14,7 +14,7 @@ const CommonModal = ({ closeModal, isShown, children, title }) => {
     ReactDOM.createPortal(
       <>
         <div
-          className={classes.wrap}
+          className={classes.modal}
         >
           <CommonModalHeader title={title} closeModal={closeModal} />
           {children}
