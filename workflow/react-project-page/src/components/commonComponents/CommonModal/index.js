@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styleClasses from 'classnames';
 
 import Backdrop from './Backdrop';
 import CommonModalHeader from './CommonModalHeader';
@@ -15,15 +14,13 @@ const CommonModal = ({ closeModal, isShown, children, title }) => {
     ReactDOM.createPortal(
       <>
         <div
-          className={styleClasses(classes.wrap, {
-            [classes.close]: !isShown,
-          })}
+          className={classes.wrap}
         >
           <CommonModalHeader title={title} closeModal={closeModal} />
           {children}
         </div>
 
-        {isShown ? <Backdrop onClick={closeModal} /> : null}
+        <Backdrop onClick={closeModal} />
       </>,
       modalRoot
     )

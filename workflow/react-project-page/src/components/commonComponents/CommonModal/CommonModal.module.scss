@@ -9,22 +9,8 @@
   width: 600px;
   height: 709px;
   background: $background-color-modalWindow;
-  transform: translateY(0px);
-  transition: transform 0.22s ease-in;
   z-index: 10;
   border-radius: 10px;
-}
-
-.wrap.close {
-  transform: translateY(-3000px);
-}
-
-.displayBlock {
-  display: block;
-}
-
-.displayNone {
-  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -45,10 +31,5 @@
     left: 50%;
     width: 250px;
     height: 350px;
-    background: $background-color-modalWindow;
-    transform: translateY(0px);
-    transition: transform 0.22s ease-in;
-    z-index: 10;
-    border-radius: 10px;
   }
 }
