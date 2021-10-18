@@ -1,0 +1,98 @@
+@import '../../../../variables.scss';
+
+.wrap {
+  margin-right: 10px;
+  padding: 20px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.text {
+  @include descriptionContent;
+}
+
+.flip {
+  height: 100px;
+}
+
+.flip > div {
+  animation: circle 7s ease-in-out infinite both;
+  z-index: 4;
+}
+
+.flip div:nth-child(2) {
+  animation-delay: 2s;
+  visibility: hidden;
+}
+
+.flip div:nth-child(3) {
+  animation-delay: 4s;
+  visibility: hidden;
+}
+
+@keyframes circle {
+  0% {
+  }
+  15% {
+    margin-top: -50px;
+    visibility: visible;
+  }
+  30% {
+    opacity: 0;
+    margin-top: -60px;
+  }
+  50% {
+    opacity: 0;
+    margin-top: -70px;
+  }
+  80% {
+    opacity: 0;
+    margin-top: -80px;
+  }
+  90% {
+    opacity: 0;
+    margin-top: -90px;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .text {
+    margin-top: 20px;
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .text {
+    margin-top: 15px;
+    font-size: 1.5rem;
+  }
+  .wrap {
+    margin-right: 40px;
+    max-width: 340px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+    font-size: 0.9rem;
+    line-height: 1.6125rem;
+  }
+  .flip {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrap {
+    margin-right: 0;
+    max-width: 350px;
+  }
+}

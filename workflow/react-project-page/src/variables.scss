@@ -1,0 +1,77 @@
+$color-green: #4caf50;
+$color-green-dark: #1b5e20;
+$color-white: #fff;
+$color-grey: #cdd6cf;
+$color-grey-dark: #555555;
+
+$background-color-header: #4caf50;
+$background-color-main: #cdd6cf;
+$background-color-modalWindow: #e0e0e0;
+
+$rochester-fonts: 'Rochester', cursive;
+$asap-fonts: 'Asap', Arial, sans-serif;
+$quicksand-fonts: 'Quicksand', sans-serif;
+
+@mixin textLogo {
+  font: {
+    family: $rochester-fonts;
+    size: 2.5rem;
+    weight: 400;
+  }
+  line-height: 3.25rem;
+  color: $color-white;
+}
+
+@mixin mainTitle {
+  font: {
+    family: $rochester-fonts;
+    size: 6.25rem;
+    weight: 400;
+  }
+  color: $color-green;
+}
+
+@mixin subTitle {
+  font: {
+    family: $quicksand-fonts;
+    size: 2rem;
+    weight: 400;
+  }
+  line-height: 2.5rem;
+  color: $color-grey;
+}
+
+@mixin descriptionContent {
+  font: {
+    family: $asap-fonts;
+    size: 2rem;
+    weight: 400;
+  }
+  line-height: 2.3125rem;
+  color: $color-green-dark;
+}
+
+@mixin textNote {
+  font: {
+    family: $asap-fonts;
+    size: 1rem;
+    weight: 400;
+  }
+  line-height: 1.125rem;
+  color: $color-grey-dark;
+}
+
+@mixin button {
+  font: {
+    family: $asap-fonts;
+    size: 1rem;
+    weight: 400;
+  }
+  line-height: 1.125rem;
+  padding: 16px 10px;
+  color: $color-white;
+  background: $background-color-header;
+  border: 1px solid $color-grey;
+  border-radius: 10px;
+  cursor: pointer;
+}

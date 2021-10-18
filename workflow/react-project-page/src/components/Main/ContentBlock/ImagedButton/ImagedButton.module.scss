@@ -1,0 +1,73 @@
+@import '../../../../variables.scss';
+
+.backgroundImage {
+  position: relative;
+  width: 573px;
+  height: 598px;
+  background: url(../../../../assets/images/main-coctail-img.png) center/cover
+    no-repeat;
+  cursor: pointer;
+}
+
+.textNote {
+  position: absolute;
+  bottom: 30px;
+  right: 100px;
+  width: 182px;
+  @include textNote;
+  text-align: center;
+  transform: rotate(-15deg);
+}
+
+@media screen and (max-width: 1200px) {
+  .backgroundImage {
+    width: 373px;
+    height: 398px;
+  }
+
+  .textNote {
+    bottom: 5px;
+    right: 50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .backgroundImage {
+    width: 273px;
+    height: 298px;
+  }
+
+  .textNote {
+    bottom: -5px;
+    right: 10px;
+    width: 180px;
+    font-size: 0.9rem;
+    line-height: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .backgroundImage {
+    width: 173px;
+    height: 198px;
+  }
+
+  .textNote {
+    bottom: -20px;
+    right: -20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .backgroundImage {
+    margin-bottom: 140px;
+  }
+
+  .textNote {
+    bottom: -20px;
+    right: -20px;
+    width: 150px;
+    font-size: 0.9rem;
+    line-height: 1rem;
+  }
+}

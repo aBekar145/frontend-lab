@@ -1,0 +1,19 @@
+@import '../../../variables.scss';
+
+.mainTitle {
+  margin-bottom: 50px;
+  @include mainTitle;
+}
+
+@media screen and (max-width: 768px) {
+  .mainTitle {
+    margin-bottom: 40px;
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .mainTitle {
+    font-size: 2rem;
+  }
+}
