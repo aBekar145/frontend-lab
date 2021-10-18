@@ -38,12 +38,21 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .modal {
+    margin-left: -225px;
+    margin-top: -275px;
+    width: 450px;
+    height: 550px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .modal {
-    margin-left: -200px;
-    margin-top: -250px;
-    width: 400px;
-    height: 500px;
+    margin-left: -150px;
+    margin-top: -200px;
+    width: 300px;
+    height: 400px;
   }
 }
 
@@ -51,7 +60,7 @@
   .modal {
     margin-left: -125px;
     margin-top: -175px;
-    width: 250px;
+    max-width: 250px;
     height: 350px;
   }
 }

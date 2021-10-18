@@ -7,11 +7,6 @@
   background: url(../../../../assets/images/main-coctail-img.png) center/cover
     no-repeat;
   cursor: pointer;
-
-  &:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-  }
 }
 
 .textNote {
@@ -65,7 +60,7 @@
 
 @media screen and (max-width: 500px) {
   .backgroundImage {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
   }
 
   .textNote {

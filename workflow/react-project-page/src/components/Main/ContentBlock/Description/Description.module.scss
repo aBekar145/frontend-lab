@@ -21,6 +21,7 @@
 
 .flip > div {
   animation: circle 7s ease-in-out infinite both;
+  z-index: 4;
 }
 
 .flip div:nth-child(2) {
@@ -42,23 +43,19 @@
   }
   30% {
     opacity: 0;
-    margin-top: -80px;
+    margin-top: -60px;
   }
   50% {
     opacity: 0;
-    margin-top: -100px;
-  }
-  70% {
-    opacity: 0;
-    margin-top: -120px;
+    margin-top: -70px;
   }
   80% {
     opacity: 0;
-    margin-top: -150px;
+    margin-top: -80px;
   }
   90% {
     opacity: 0;
-    margin-top: -180px;
+    margin-top: -90px;
   }
   100% {
     margin-top: 0;
@@ -85,15 +82,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .wrap {
-    align-items: flex-end;
-  }
   .text {
     font-size: 0.9rem;
     line-height: 1.6125rem;
   }
   .flip {
-    height: 50px;
+    height: 100px;
   }
 }
 
@@ -101,8 +95,5 @@
   .wrap {
     margin-right: 0;
     max-width: 350px;
-  }
-  .flip {
-    margin-top: 60px;
   }
 }

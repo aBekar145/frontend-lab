@@ -7,8 +7,15 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 768px) {
+  .contentBlock {
+    align-items: flex-end;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .contentBlock {
     flex-direction: column-reverse;
+    align-items: center;
   }
 }
