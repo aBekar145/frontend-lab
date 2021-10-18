@@ -5,7 +5,7 @@ import classes from './ImagedButton.module.scss';
 const ImagedButton = ({ openCardModal }) => {
   return (
     <div>
-      <div onClick={openCardModal} className={classes.bakcroundImage}>
+      <div onClick={openCardModal} className={classes.backgroundImage}>
         <p className={classes.textNote}>
           Press on glass to get a random cocktail
         </p>

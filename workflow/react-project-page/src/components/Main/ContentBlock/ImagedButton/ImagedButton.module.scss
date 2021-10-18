@@ -1,12 +1,13 @@
 @import '../../../../variables.scss';
 
-.bakcroundImage {
+.backgroundImage {
   position: relative;
   width: 573px;
   height: 598px;
   background: url(../../../../assets/images/main-coctail-img.png) center/cover
     no-repeat;
   cursor: pointer;
+
   &:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -24,11 +25,9 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .bakcroundImage {
+  .backgroundImage {
     width: 373px;
     height: 398px;
-    background: url(../../../../assets/images/main-coctail-img.png) center/cover
-      no-repeat;
   }
 
   .textNote {
@@ -38,15 +37,12 @@
 }
 
 @media screen and (max-width: 992px) {
-  .bakcroundImage {
+  .backgroundImage {
     width: 273px;
     height: 298px;
-    background: url(../../../../assets/images/main-coctail-img.png) center/cover
-      no-repeat;
   }
 
   .textNote {
-    position: absolute;
     bottom: -5px;
     right: 10px;
     width: 180px;
@@ -56,27 +52,23 @@
 }
 
 @media screen and (max-width: 768px) {
-  .bakcroundImage {
+  .backgroundImage {
     width: 173px;
     height: 198px;
-    background: url(../../../../assets/images/main-coctail-img.png) center/cover
-      no-repeat;
   }
 
   .textNote {
-    position: absolute;
     bottom: -20px;
     right: -20px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .bakcroundImage {
+  .backgroundImage {
     margin-bottom: 80px;
   }
 
   .textNote {
-    position: absolute;
     bottom: -20px;
     right: -20px;
     width: 150px;

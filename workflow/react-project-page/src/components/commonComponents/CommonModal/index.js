@@ -13,13 +13,10 @@ const CommonModal = ({ closeModal, isShown, children, title }) => {
     isShown &&
     ReactDOM.createPortal(
       <>
-        <div
-          className={classes.modal}
-        >
+        <div className={classes.modal}>
           <CommonModalHeader title={title} closeModal={closeModal} />
           {children}
         </div>
-
         <Backdrop onClick={closeModal} />
       </>,
       modalRoot

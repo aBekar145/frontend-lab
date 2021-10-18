@@ -85,6 +85,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .wrap {
+    align-items: flex-end;
+  }
   .text {
     font-size: 0.9rem;
     line-height: 1.6125rem;
@@ -92,43 +95,14 @@
   .flip {
     height: 50px;
   }
-  @keyframes circle {
-    0% {
-    }
-    15% {
-      margin-top: -10px;
-      visibility: visible;
-    }
-    30% {
-      opacity: 0;
-      margin-top: -30px;
-    }
-    50% {
-      opacity: 0;
-      margin-top: -50px;
-    }
-    70% {
-      opacity: 0;
-      margin-top: -70px;
-    }
-    80% {
-      opacity: 0;
-      margin-top: -70px;
-    }
-    90% {
-      opacity: 0;
-      margin-top: -90px;
-    }
-    100% {
-      margin-top: 0;
-      opacity: 0;
-    }
-  }
 }
 
 @media screen and (max-width: 500px) {
   .wrap {
     margin-right: 0;
     max-width: 350px;
+  }
+  .flip {
+    margin-top: 60px;
   }
 }
