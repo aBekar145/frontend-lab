@@ -69,7 +69,6 @@
 @media screen and (max-width: 1200px) {
   .text {
     margin-top: 20px;
-    @include descriptionContent;
     font-size: 1.7rem;
   }
 }
@@ -77,7 +76,6 @@
 @media screen and (max-width: 992px) {
   .text {
     margin-top: 15px;
-    @include descriptionContent;
     font-size: 1.5rem;
   }
   .wrap {
@@ -88,7 +86,6 @@
 
 @media screen and (max-width: 768px) {
   .text {
-    @include descriptionContent;
     font-size: 0.9rem;
     line-height: 1.6125rem;
   }

@@ -7,25 +7,22 @@ import AuthenticationModal from '../modalComponents/AuthenticationModal';
 import classes from './Header.module';
 
 const Header = () => {
-  const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
+  const [isModalOpened, setisModalOpened] = useState(false);
 
-  const openAuthModal = () => {
-    setIsAuthModalOpened(!isAuthModalOpened);
+  const openModal = () => {
+    setisModalOpened(true);
   };
 
   const closeModal = () => {
-    setIsAuthModalOpened(false);
+    setisModalOpened(false);
   };
 
   return (
     <header className={classes.header}>
       <div className={classes.contextWrapper}>
         <MainLogo />
-        <AuthorizationButton openAuthModal={openAuthModal} />
-        <AuthenticationModal
-          closeModal={closeModal}
-          isShown={isAuthModalOpened}
-        />
+        <AuthorizationButton openAuthModal={openModal} />
+        <AuthenticationModal closeModal={closeModal} isShown={isModalOpened} />
       </div>
     </header>
   );

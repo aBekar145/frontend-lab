@@ -13,7 +13,6 @@
 
 @media screen and (max-width: 768px) {
   .button {
-    @include button;
     padding: 8px 5px;
   }
 }

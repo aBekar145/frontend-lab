@@ -7,22 +7,22 @@ import CardModal from '../modalComponents/CardModal';
 import classes from './Main.module.scss';
 
 const Main = () => {
-  const [isCardModalOpened, setIsCardModalOpened] = useState(false);
+  const [isModalOpened, setisModalOpened] = useState(false);
 
-  const openCardModal = () => {
-    setIsCardModalOpened(!isCardModalOpened);
+  const openModal = () => {
+    setisModalOpened(true);
   };
 
   const closeModal = () => {
-    setIsCardModalOpened(false);
+    setisModalOpened(false);
   };
 
   return (
     <main className={classes.main}>
       <div className={classes.wrapper}>
         <MainTitle />
-        <ContentBlock openCardModal={openCardModal} />
-        <CardModal closeModal={closeModal} isShown={isCardModalOpened} />
+        <ContentBlock openCardModal={openModal} />
+        <CardModal closeModal={closeModal} isShown={isModalOpened} />
       </div>
     </main>
   );
