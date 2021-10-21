@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import MainTitle from './MainTitle';
 import ContentBlock from './ContentBlock';
@@ -6,15 +7,13 @@ import CardModal from '../modalComponents/CardModal';
 
 import classes from './Main.module.scss';
 
-const Main = () => {
-  const [isModalOpened, setisModalOpened] = useState(false);
-
+const Main = (props) => {
   const openModal = () => {
-    setisModalOpened(true);
+    props.openModal(true);
   };
 
   const closeModal = () => {
-    setisModalOpened(false);
+    props.closeModal(false);
   };
 
   return (
@@ -22,10 +21,23 @@ const Main = () => {
       <div className={classes.wrapper}>
         <MainTitle />
         <ContentBlock openCardModal={openModal} />
-        <CardModal closeModal={closeModal} isShown={isModalOpened} />
+        <CardModal closeModal={closeModal} isShown={props.isModalOpened} />
       </div>
     </main>
   );
 };
 
-export default Main;
+function mapStateToProps(state) {
+  return {
+    isModalOpened: state.headerModalReducer.isModalOpened,
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openModal: () => dispatch({ type: 'OPEN_MODAL' }),
+    closeModal: () => dispatch({ type: 'CLOSE_MODAL' }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

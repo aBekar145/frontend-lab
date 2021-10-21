@@ -31,15 +31,15 @@ const Header = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log('State', state);
   return {
-    isModalOpened: state.isModalOpened,
-    counter: state.counter,
+    isModalOpened: state.headerModalReducer.isModalOpened,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openModal: () => dispatch({ type: 'OPEN_MODAL' }),
+    openModal: (key) => dispatch({ type: 'OPEN_MODAL', payload: key }),
     closeModal: () => dispatch({ type: 'CLOSE_MODAL' }),
   };
 };
