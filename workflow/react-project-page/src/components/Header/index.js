@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import MainLogo from './MainLogo';
 import AuthorizationButton from './AuthorizationButton';
@@ -6,16 +7,17 @@ import AuthenticationModal from '../modalComponents/AuthenticationModal';
 
 import classes from './Header.module';
 
-const Header = () => {
+const Header = (props) => {
   const [isModalOpened, setisModalOpened] = useState(false);
 
   const openModal = () => {
-    setisModalOpened(true);
+    // setisModalOpened(true);
   };
 
   const closeModal = () => {
-    setisModalOpened(false);
+    // setisModalOpened(false);
   };
+  console.log('Header', props);
 
   return (
     <header className={classes.header}>
@@ -28,4 +30,11 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    isModalOpened: state.isModalOpened,
+    counter: state.counter,
+  };
+};
+
+export default connect(mapStateToProps)(Header);
