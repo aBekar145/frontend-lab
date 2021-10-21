@@ -5,6 +5,8 @@ import MainTitle from './MainTitle';
 import ContentBlock from './ContentBlock';
 import CardModal from '../modalComponents/CardModal';
 
+import { openMainModal, closeMainModal } from '../../store/actions/actions';
+
 import classes from './Main.module.scss';
 
 const Main = (props) => {
@@ -29,14 +31,14 @@ const Main = (props) => {
 
 function mapStateToProps(state) {
   return {
-    isModalOpened: state.headerModalReducer.isModalOpened,
+    isModalOpened: state.mainModalReducer.isModalOpened,
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openModal: () => dispatch({ type: 'OPEN_MODAL' }),
-    closeModal: () => dispatch({ type: 'CLOSE_MODAL' }),
+    openModal: () => dispatch(openMainModal(key)),
+    closeModal: () => dispatch(closeMainModal()),
   };
 };
 

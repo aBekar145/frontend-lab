@@ -5,6 +5,8 @@ import MainLogo from './MainLogo';
 import AuthorizationButton from './AuthorizationButton';
 import AuthenticationModal from '../modalComponents/AuthenticationModal';
 
+import { openHeaderModal, closeHeaderModal } from '../../store/actions/actions';
+
 import classes from './Header.module';
 
 const Header = (props) => {
@@ -31,7 +33,6 @@ const Header = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('State', state);
   return {
     isModalOpened: state.headerModalReducer.isModalOpened,
   };
@@ -39,8 +40,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openModal: (key) => dispatch({ type: 'OPEN_MODAL', payload: key }),
-    closeModal: () => dispatch({ type: 'CLOSE_MODAL' }),
+    openModal: (key) => dispatch(openHeaderModal(key)),
+    closeModal: () => dispatch(closeHeaderModal()),
   };
 };
 
