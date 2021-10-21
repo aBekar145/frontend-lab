@@ -37,7 +37,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openModal: () => dispatch(openMainModal(key)),
+    openModal: (key) => dispatch(openMainModal(key)),
     closeModal: () => dispatch(closeMainModal()),
   };
 };
