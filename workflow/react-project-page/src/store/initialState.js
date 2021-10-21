@@ -1,5 +1,5 @@
 const initialState = {
-  isModalOpened: true,
+  isModalOpened: false,
   counter: 10,
 };
 

@@ -8,23 +8,23 @@ import AuthenticationModal from '../modalComponents/AuthenticationModal';
 import classes from './Header.module';
 
 const Header = (props) => {
-  const [isModalOpened, setisModalOpened] = useState(false);
-
   const openModal = () => {
-    // setisModalOpened(true);
+    props.openModal();
   };
 
   const closeModal = () => {
-    // setisModalOpened(false);
+    props.closeModal();
   };
-  console.log('Header', props);
 
   return (
     <header className={classes.header}>
       <div className={classes.contextWrapper}>
         <MainLogo />
         <AuthorizationButton openAuthModal={openModal} />
-        <AuthenticationModal closeModal={closeModal} isShown={isModalOpened} />
+        <AuthenticationModal
+          closeModal={closeModal}
+          isShown={props.isModalOpened}
+        />
       </div>
     </header>
   );
@@ -37,4 +37,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openModal: () => dispatch({ type: 'OPEN_MODAL' }),
+    closeModal: () => dispatch({ type: 'CLOSE_MODAL' }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
