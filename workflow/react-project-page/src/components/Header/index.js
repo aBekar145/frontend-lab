@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import MainLogo from './MainLogo';
 import AuthorizationButton from './AuthorizationButton';
@@ -9,40 +9,32 @@ import { openHeaderModal, closeHeaderModal } from '../../store/actions/actions';
 
 import classes from './Header.module';
 
-const Header = (props) => {
-  const openModal = () => {
-    props.openModal();
-  };
+const Header = () => {
+    const dispatch = useDispatch();
+    const isModalOpened = useSelector(
+        (state) => state.headerModalReducer.isModalOpened
+    );
 
-  const closeModal = () => {
-    props.closeModal();
-  };
+    const openModal = () => {
+        dispatch(openHeaderModal());
+    };
 
-  return (
-    <header className={classes.header}>
-      <div className={classes.contextWrapper}>
-        <MainLogo />
-        <AuthorizationButton openAuthModal={openModal} />
-        <AuthenticationModal
-          closeModal={closeModal}
-          isShown={props.isModalOpened}
-        />
-      </div>
-    </header>
-  );
+    const closeModal = () => {
+        dispatch(closeHeaderModal());
+    };
+
+    return (
+        <header className={classes.header}>
+            <div className={classes.contextWrapper}>
+                <MainLogo />
+                <AuthorizationButton openAuthModal={openModal} />
+                <AuthenticationModal
+                    closeModal={closeModal}
+                    isShown={isModalOpened}
+                />
+            </div>
+        </header>
+    );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    isModalOpened: state.headerModalReducer.isModalOpened,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    openModal: (key) => dispatch(openHeaderModal(key)),
-    closeModal: () => dispatch(closeHeaderModal()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

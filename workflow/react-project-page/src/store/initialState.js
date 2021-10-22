@@ -1,5 +1,5 @@
 const initialState = {
-  isModalOpened: false,
+    isModalOpened: false,
 };
 
 export default initialState;

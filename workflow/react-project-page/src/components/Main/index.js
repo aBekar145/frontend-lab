@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import MainTitle from './MainTitle';
 import ContentBlock from './ContentBlock';
@@ -9,37 +9,29 @@ import { openMainModal, closeMainModal } from '../../store/actions/actions';
 
 import classes from './Main.module.scss';
 
-const Main = (props) => {
-  const openModal = () => {
-    props.openModal(true);
-  };
+const Main = () => {
+    const dispatch = useDispatch();
+    const isModalOpened = useSelector(
+        (state) => state.mainModalReducer.isModalOpened
+    );
 
-  const closeModal = () => {
-    props.closeModal(false);
-  };
+    const openModal = () => {
+        dispatch(openMainModal());
+    };
 
-  return (
-    <main className={classes.main}>
-      <div className={classes.wrapper}>
-        <MainTitle />
-        <ContentBlock openCardModal={openModal} />
-        <CardModal closeModal={closeModal} isShown={props.isModalOpened} />
-      </div>
-    </main>
-  );
+    const closeModal = () => {
+        dispatch(closeMainModal());
+    };
+
+    return (
+        <main className={classes.main}>
+            <div className={classes.wrapper}>
+                <MainTitle />
+                <ContentBlock openCardModal={openModal} />
+                <CardModal closeModal={closeModal} isShown={isModalOpened} />
+            </div>
+        </main>
+    );
 };
 
-function mapStateToProps(state) {
-  return {
-    isModalOpened: state.mainModalReducer.isModalOpened,
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    openModal: (key) => dispatch(openMainModal(key)),
-    closeModal: () => dispatch(closeMainModal()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default Main;
