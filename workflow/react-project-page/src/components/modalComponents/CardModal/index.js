@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import CommonModal from '../../commonComponents/CommonModal';
 
 const CardModal = ({ closeModal, isShown }) => {
+  const dispatch = useDispatch();
+  const cocktail = useSelector((state) => state);
   return (
     <>
       <CommonModal

@@ -1,5 +1,6 @@
 const initialState = {
-    isModalOpened: false,
+  isModalOpened: false,
+  randomCoctail: [],
 };
 
 export default initialState;

@@ -3,6 +3,7 @@ import {
   CLOSE_MAIN_MODAL,
   CLOSE_HEADER_MODAL,
   OPEN_HEADER_MODAL,
+  ADD_RANDOM_COCKTAIL,
 } from './actionTypes';
 
 export const openMainModal = (key) => {
@@ -28,5 +29,12 @@ export const openHeaderModal = (key) => {
   return {
     type: OPEN_HEADER_MODAL,
     payload: key,
+  };
+};
+
+export const addRandomCocktail = () => {
+  return {
+    type: ADD_RANDOM_COCKTAIL,
+    payload,
   };
 };
