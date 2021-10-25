@@ -1,16 +1,16 @@
 import initialState from '../initialState';
 
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/actionTypes';
+import { OPEN_HEADER_MODAL, CLOSE_HEADER_MODAL } from '../actions/actionTypes';
 
-const modalReducer = (state = initialState, action) => {
+const headerModalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case OPEN_MODAL:
+    case OPEN_HEADER_MODAL:
       return {
         ...state,
         isModalOpened: true,
       };
 
-    case CLOSE_MODAL:
+    case CLOSE_HEADER_MODAL:
       return {
         ...state,
         isModalOpened: false,
@@ -21,4 +21,4 @@ const modalReducer = (state = initialState, action) => {
   }
 };
 
-export default modalReducer;
+export default headerModalReducer;

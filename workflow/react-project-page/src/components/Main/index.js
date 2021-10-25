@@ -1,34 +1,34 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import MainTitle from './MainTitle';
 import ContentBlock from './ContentBlock';
 import CardModal from '../modalComponents/CardModal';
+import MainTitle from './MainTitle';
 
-import { openModal, closeModal } from '../../store/actions/actions';
+import { openMainModal, closeMainModal } from '../../store/actions/actions';
 
 import classes from './Main.module.scss';
 
 const Main = () => {
   const dispatch = useDispatch();
   const isModalOpened = useSelector(
-    (state) => state.modalReducer.isModalOpened
+    (state) => state.mainModalReducer.isModalOpened
   );
 
-  const openModalWindow = () => {
-    dispatch(openModal());
+  const openModal = () => {
+    dispatch(openMainModal());
   };
 
-  const closeModalWindow = () => {
-    dispatch(closeModal());
+  const closeModal = () => {
+    dispatch(closeMainModal());
   };
 
   return (
     <main className={classes.main}>
       <div className={classes.wrapper}>
         <MainTitle />
-        <ContentBlock openCardModal={openModalWindow} />
-        <CardModal closeModal={closeModalWindow} isShown={isModalOpened} />
+        <ContentBlock openCardModal={openModal} />
+        <CardModal closeModal={closeModal} isShown={isModalOpened} />
       </div>
     </main>
   );
