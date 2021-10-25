@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux';
 
-import headerModalReducer from './headerModalReducer';
-import mainModalReducer from './mainModalReducer';
+import modalReducer from './modalReducer';
 
 export default combineReducers({
-  headerModalReducer,
-  mainModalReducer,
+  modalReducer,
 });

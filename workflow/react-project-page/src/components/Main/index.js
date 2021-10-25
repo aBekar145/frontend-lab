@@ -5,33 +5,33 @@ import MainTitle from './MainTitle';
 import ContentBlock from './ContentBlock';
 import CardModal from '../modalComponents/CardModal';
 
-import { openMainModal, closeMainModal } from '../../store/actions/actions';
+import { openModal, closeModal } from '../../store/actions/actions';
 
 import classes from './Main.module.scss';
 
 const Main = () => {
-    const dispatch = useDispatch();
-    const isModalOpened = useSelector(
-        (state) => state.mainModalReducer.isModalOpened
-    );
+  const dispatch = useDispatch();
+  const isModalOpened = useSelector(
+    (state) => state.modalReducer.isModalOpened
+  );
 
-    const openModal = () => {
-        dispatch(openMainModal());
-    };
+  const openModalWindow = () => {
+    dispatch(openModal());
+  };
 
-    const closeModal = () => {
-        dispatch(closeMainModal());
-    };
+  const closeModalWindow = () => {
+    dispatch(closeModal());
+  };
 
-    return (
-        <main className={classes.main}>
-            <div className={classes.wrapper}>
-                <MainTitle />
-                <ContentBlock openCardModal={openModal} />
-                <CardModal closeModal={closeModal} isShown={isModalOpened} />
-            </div>
-        </main>
-    );
+  return (
+    <main className={classes.main}>
+      <div className={classes.wrapper}>
+        <MainTitle />
+        <ContentBlock openCardModal={openModalWindow} />
+        <CardModal closeModal={closeModalWindow} isShown={isModalOpened} />
+      </div>
+    </main>
+  );
 };
 
 export default Main;
