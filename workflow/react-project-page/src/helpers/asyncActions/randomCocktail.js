@@ -1,9 +1,9 @@
-import { addRandomCocktail } from '../../store/reducers/addRandomCocktail';
+import { addManyCustomers } from '../../store/actions/actions';
 
-export const fetchRandomCocktail = () => {
-  return function (dispatch) {
-    fetch('https://jsonplaceholder.typicode.com/users')
+export const fetchCustomers = () => {
+  return (dispatch) => {
+    fetch('https://stdlab-api.herokuapp.com/api/cocktails/random')
       .then((response) => response.json())
-      .then((json) => dispatch(addRandomCocktail(json)));
+      .then((json) => dispatch(addManyCustomers(json)));
   };
 };

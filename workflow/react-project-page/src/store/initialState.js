@@ -1,6 +1,6 @@
 const initialState = {
   isModalOpened: false,
-  randomCoctail: [],
+  customers: [],
 };
 
 export default initialState;

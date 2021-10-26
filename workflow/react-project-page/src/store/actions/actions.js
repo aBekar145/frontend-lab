@@ -4,6 +4,7 @@ import {
   CLOSE_HEADER_MODAL,
   OPEN_HEADER_MODAL,
   ADD_RANDOM_COCKTAIL,
+  ADD_MANY_CUSTOMERS,
 } from './actionTypes';
 
 export const openMainModal = (key) => {
@@ -32,9 +33,16 @@ export const openHeaderModal = (key) => {
   };
 };
 
-export const addRandomCocktail = () => {
+export const addRandomCocktail = (payload) => {
   return {
     type: ADD_RANDOM_COCKTAIL,
+    payload,
+  };
+};
+
+export const addManyCustomers = (payload) => {
+  return {
+    type: ADD_MANY_CUSTOMERS,
     payload,
   };
 };
