@@ -1,15 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import CommonModal from '../../commonComponents/CommonModal';
-import CocktailPicture from './CocktailPicture';
-import CocktailSubtitle from './CocktailSubtitle';
+import ContentModal from './ContentModal';
 
 const CardModal = ({ closeModal, isShown }) => {
-  const cocktail = useSelector(
-    (state) => state.addRandomCocktail.randomCocktail
-  );
-  console.log(cocktail);
   return (
     <>
       <CommonModal
@@ -17,8 +11,7 @@ const CardModal = ({ closeModal, isShown }) => {
         closeModal={closeModal}
         isShown={isShown}
       >
-        <CocktailSubtitle subtitle={cocktail.strDrink} />
-        <CocktailPicture url={cocktail.strDrinkThumb} />
+        <ContentModal />
       </CommonModal>
     </>
   );
