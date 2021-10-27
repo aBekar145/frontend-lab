@@ -1,24 +1,24 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import CommonModal from '../../commonComponents/CommonModal';
-import { fetchCustomers } from '../../../helpers/asyncActions/randomCocktail';
+import CocktailPicture from './CocktailPicture';
+import CocktailSubtitle from './CocktailSubtitle';
 
 const CardModal = ({ closeModal, isShown }) => {
-  const dispatch = useDispatch();
-  const cocktail = useSelector((state) => state.addRandomCocktail.customers);
-
+  const cocktail = useSelector(
+    (state) => state.addRandomCocktail.randomCocktail
+  );
   console.log(cocktail);
   return (
     <>
       <CommonModal
-        title="Random Coctail"
+        title="Random Cocktail"
         closeModal={closeModal}
         isShown={isShown}
       >
-        <h3>Content Random Coctail Modal</h3>
-
-        <button onClick={() => dispatch(fetchCustomers())}>Fetch</button>
+        <CocktailSubtitle subtitle={cocktail.strDrink} />
+        <CocktailPicture url={cocktail.strDrinkThumb} />
       </CommonModal>
     </>
   );

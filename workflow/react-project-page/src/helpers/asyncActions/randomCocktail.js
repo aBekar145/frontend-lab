@@ -1,9 +1,9 @@
-import { addManyCustomers } from '../../store/actions/actions';
+import { addRandomCocktail } from '../../store/actions/actions';
 
-export const fetchCustomers = () => {
+export const fetchCocktail = () => {
   return (dispatch) => {
     fetch('https://stdlab-api.herokuapp.com/api/cocktails/random')
       .then((response) => response.json())
-      .then((json) => dispatch(addManyCustomers(json)));
+      .then((json) => dispatch(addRandomCocktail(json)));
   };
 };

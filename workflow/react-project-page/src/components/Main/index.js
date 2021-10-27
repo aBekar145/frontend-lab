@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ContentBlock from './ContentBlock';
 import CardModal from '../modalComponents/CardModal';
 import MainTitle from './MainTitle';
-import { fetchRandomCocktail } from '../../helpers/asyncActions/randomCocktail';
+import { fetchCocktail } from '../../helpers/asyncActions/randomCocktail';
 
 import { openMainModal, closeMainModal } from '../../store/actions/actions';
 
@@ -18,6 +18,7 @@ const Main = () => {
 
   const openModal = () => {
     dispatch(openMainModal());
+    dispatch(fetchCocktail());
   };
 
   const closeModal = () => {
