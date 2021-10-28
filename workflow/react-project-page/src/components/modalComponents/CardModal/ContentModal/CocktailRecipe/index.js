@@ -5,14 +5,13 @@ const CocktailRecipe = () => {
   const cocktail = useSelector(
     (state) => state.addRandomCocktail.randomCocktail
   );
+  console.log(cocktail);
 
   const ingredientKeys = Object.keys(cocktail);
   const ingredientValues = [];
   const measureValues = [];
 
-  ingredientKeys.forEach((key) => {
-    // console.log(`${key} : ${cocktail[key]}`);
-    console.log(key);
+  ingredientKeys.map((key) => {
     switch (key) {
       case 'strIngredient1':
       case 'strIngredient2':
@@ -23,15 +22,19 @@ const CocktailRecipe = () => {
       case 'strIngredient7':
       case 'strIngredient8':
       case 'strIngredient9':
+      case 'strIngredient10':
+      case 'strIngredient11':
+      case 'strIngredient12':
+      case 'strIngredient13':
+      case 'strIngredient14':
+      case 'strIngredient15':
         return ingredientValues.push(cocktail[key]);
       default:
         return key;
     }
   });
 
-  ingredientKeys.forEach((key) => {
-    // console.log(`${key} : ${cocktail[key]}`);
-    console.log(key);
+  ingredientKeys.map((key) => {
     switch (key) {
       case 'strMeasure1':
       case 'strMeasure2':
@@ -42,6 +45,12 @@ const CocktailRecipe = () => {
       case 'strMeasure7':
       case 'strMeasure8':
       case 'strMeasure9':
+      case 'strMeasure10':
+      case 'strMeasure11':
+      case 'strMeasure12':
+      case 'strMeasure13':
+      case 'strMeasure14':
+      case 'strMeasure15':
         return measureValues.push(cocktail[key]);
       default:
         return key;
@@ -50,6 +59,25 @@ const CocktailRecipe = () => {
   console.log(ingredientValues);
   console.log(measureValues);
 
+  const convertToObj = (ingredientArray, measureArray) => {
+    if (
+      ingredientArray.length != measureArray.length ||
+      ingredientArray.length == 0 ||
+      measureArray.length == 0
+    ) {
+      return null;
+    }
+    const recipeObject = {};
+    ingredientArray.forEach((key, value) => {
+      if (key) {
+        recipeObject[key] = measureArray[value];
+      }
+    });
+    return recipeObject;
+  };
+
+  const recipeObject = convertToObj(ingredientValues, measureValues);
+  console.log(recipeObject);
   return (
     <table>
       <tbody>
